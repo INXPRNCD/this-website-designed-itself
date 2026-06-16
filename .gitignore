@@ -1,0 +1,12 @@
+# OS
+.DS_Store
+
+# Editor / tooling
+.claude/
+.vscode/
+
+# Netlify
+.netlify/
+
+# Logs
+*.log

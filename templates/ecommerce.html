@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurel — The 3-Step Skincare Ritual | Calmer Skin in 90 Seconds</title>
+<meta name="description" content="Aurel is the minimal 3-step skincare ritual: Rinse, Still, Seal. Ninety seconds, morning and night. 4.9 from 12,400+ verified reviews, 60-day money back — even on empties.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..650;1,9..144,340..650&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ tokens ============ */
+:root{
+  --cream:        oklch(97% 0.016 85);
+  --cream-90:     oklch(97% 0.016 85 / .92);
+  --oat:          oklch(93.5% 0.024 82);
+  --espresso:     oklch(28% 0.03 55);
+  --esp-soft:     oklch(40% 0.032 55);
+  --esp-mute:     oklch(47% 0.03 58);
+  --sage:         oklch(68% 0.06 150);
+  --sage-deep:    oklch(41% 0.065 150);
+  --sage-tint:    oklch(92.5% 0.026 150);
+  --apricot:      oklch(85% 0.07 60);
+  --apricot-deep: oklch(56% 0.13 45);
+  --label:        oklch(97.5% 0.01 90);
+  --line:         oklch(86% 0.022 82);
+  --star:         oklch(66% 0.13 70);
+  --err:          oklch(48% 0.17 27);
+  --ok:           oklch(45% 0.1 150);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --shadow-card: 0 1px 2px oklch(28% 0.03 55 / .05), 0 14px 38px -16px oklch(28% 0.03 55 / .22);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Hanken Grotesk", "Helvetica Neue", sans-serif;
+}
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0 }
+html{ scroll-behavior:smooth }
+body{
+  font-family:var(--font-body);
+  background:var(--cream);
+  color:var(--espresso);
+  font-size:1.0625rem;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{ display:block }
+a{ color:inherit }
+button{ font:inherit; color:inherit; cursor:pointer; background:none; border:none }
+:focus-visible{ outline:2.5px solid var(--espresso); outline-offset:3px; border-radius:4px }
+.join :focus-visible, .footer :focus-visible{ outline-color:var(--cream) }
+::selection{ background:var(--apricot); color:var(--espresso) }
+section{ scroll-margin-top:7.5rem }
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0 }
+.skip-link{ position:absolute; left:1rem; top:-4rem; z-index:200; background:var(--espresso); color:var(--cream); padding:.7rem 1.2rem; border-radius:8px; transition:top .2s }
+.skip-link:focus{ top:1rem }
+
+/* ============ type & utility ============ */
+h1,h2,h3{ font-family:var(--font-display); font-weight:420; line-height:1.08; letter-spacing:-0.01em; text-wrap:balance }
+.wrap{ width:min(1140px, 100% - 2.5rem); margin-inline:auto }
+.kicker{ font-family:var(--font-body); font-size:.78rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--sage-deep); margin-bottom:1rem }
+.section-title{ font-size:clamp(1.9rem, 1.2rem + 2.6vw, 3rem); margin-bottom:.7rem }
+.section-sub{ color:var(--esp-mute); max-width:54ch }
+.micro{ font-size:.84rem; color:var(--esp-mute) }
+em, .it{ font-family:var(--font-display); font-style:italic; font-weight:480 }
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+  min-height:52px; padding:.85rem 1.9rem; border-radius:999px;
+  font-weight:600; font-size:1rem; text-decoration:none;
+  transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.btn-primary{ background:var(--espresso); color:var(--cream); box-shadow:0 10px 24px -12px oklch(28% 0.03 55 / .55) }
+.btn-primary:hover{ transform:translateY(-2px); background:oklch(33% 0.035 55) }
+.btn-ghost{ border:1.5px solid var(--espresso); color:var(--espresso) }
+.btn-ghost:hover{ background:var(--oat) }
+
+.stars{ display:inline-flex; gap:2px; vertical-align:-2px }
+.stars svg{ width:15px; height:15px; fill:var(--star) }
+.stars .dim{ fill:var(--line) }
+.rating-line{ display:flex; align-items:center; gap:.55rem; font-size:.92rem; font-weight:600 }
+.rating-line .count{ font-weight:400; color:var(--esp-mute) }
+
+[data-reveal]{ transition:opacity .7s ease, transform .7s ease }
+.reveal-init{ opacity:0; transform:translateY(18px) }
+.is-in{ opacity:1; transform:none }
+
+/* ============ announcement + nav ============ */
+.top-stack{ position:sticky; top:0; z-index:80 }
+.annc{
+  background:var(--espresso); color:var(--cream);
+  font-size:.84rem; letter-spacing:.02em; text-align:center;
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+  padding:.45rem 3rem; position:relative; min-height:40px;
+}
+.annc strong{ font-weight:600 }
+.annc-dot{ opacity:.5; margin-inline:.4rem }
+.annc-close{
+  position:absolute; right:.4rem; top:50%; transform:translateY(-50%);
+  width:44px; height:40px; display:grid; place-items:center; color:var(--cream); opacity:.8; border-radius:8px;
+}
+.annc-close:hover{ opacity:1 }
+.annc[hidden]{ display:none }
+
+.nav{
+  background:var(--cream-90); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{ display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:68px }
+.wordmark{ font-family:var(--font-display); font-weight:560; font-size:1.55rem; letter-spacing:.04em; text-decoration:none; line-height:1 }
+.wordmark span{ color:var(--sage-deep) }
+.nav-links{ display:flex; gap:.4rem; list-style:none }
+.nav-links a{
+  text-decoration:none; font-weight:600; font-size:.95rem; color:var(--esp-soft);
+  padding:.7rem 1rem; border-radius:999px; display:inline-block;
+}
+.nav-links a:hover{ background:var(--oat); color:var(--espresso) }
+.cart-btn{
+  position:relative; display:inline-flex; align-items:center; gap:.5rem;
+  min-height:48px; padding:.5rem 1.1rem; border-radius:999px;
+  border:1.5px solid var(--espresso); font-weight:600; font-size:.92rem;
+}
+.cart-btn svg{ width:19px; height:19px; stroke:var(--espresso); fill:none; stroke-width:1.7 }
+.cart-count{
+  min-width:22px; height:22px; padding-inline:5px; border-radius:999px;
+  background:var(--apricot-deep); color:var(--cream); font-size:.76rem; font-weight:700;
+  display:grid; place-items:center;
+}
+.cart-count.pop{ animation:pop .35s ease }
+@keyframes pop{ 50%{ transform:scale(1.35) } }
+@media (max-width:719px){ .nav-links{ display:none } }
+
+/* ============ hero ============ */
+.hero{ overflow:clip }
+.hero-grid{
+  display:grid; gap:2.5rem; align-items:center;
+  padding-block:clamp(2.5rem, 6vw, 5.5rem) clamp(2rem, 4vw, 3.5rem);
+}
+@media (min-width:880px){ .hero-grid{ grid-template-columns:1.05fr .95fr; gap:2rem } }
+.hero h1{ font-size:clamp(2.6rem, 1.4rem + 5.2vw, 4.6rem); font-weight:400; margin-bottom:1.15rem }
+.hero h1 em{ font-weight:480; color:var(--sage-deep) }
+.hero-sub{ font-size:clamp(1.05rem, 1rem + .4vw, 1.25rem); color:var(--esp-mute); max-width:46ch; margin-bottom:1.8rem }
+.hero-cta{ display:flex; flex-wrap:wrap; align-items:center; gap:1.1rem; margin-bottom:.8rem }
+.hero .doubt{ margin-bottom:1.4rem }
+.hero .rating-line{ font-size:.95rem }
+
+.hero-art{ position:relative; min-height:420px; display:flex; align-items:flex-end; justify-content:center; gap:clamp(.2rem,1.5vw,1.2rem) }
+.hero-art::before{ /* apricot sun */
+  content:""; position:absolute; right:4%; top:2%;
+  width:clamp(120px,16vw,190px); aspect-ratio:1; border-radius:50%;
+  background:radial-gradient(circle at 38% 32%, var(--apricot), oklch(78% 0.1 55));
+  z-index:0;
+}
+.hero-art::after{ /* sage arch */
+  content:""; position:absolute; left:50%; bottom:0; transform:translateX(-50%);
+  width:min(420px, 92%); height:88%;
+  border-radius:999px 999px 28px 28px;
+  background:linear-gradient(180deg, var(--sage-tint), oklch(89% 0.035 150));
+  z-index:0;
+}
+.hero-art .b{ position:relative; z-index:1; filter:drop-shadow(0 22px 18px oklch(28% 0.03 55 / .18)) }
+.hero-art .b svg{ width:clamp(96px, 12vw, 150px); height:auto }
+.hero-art .b-rinse{ translate:0 -8px }
+.hero-art .b-still{ translate:0 6px; z-index:2 }
+.hero-art .b-seal{ translate:0 0 }
+.hero-shelf{
+  position:absolute; left:50%; bottom:-10px; transform:translateX(-50%);
+  width:min(460px,96%); height:26px; border-radius:50%;
+  background:radial-gradient(50% 50% at 50% 50%, oklch(28% 0.03 55 / .16), transparent 70%);
+  z-index:0;
+}
+@keyframes floaty{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-7px) } }
+.hero-art .b-still{ animation:floaty 7s ease-in-out infinite }
+
+/* featured strip */
+.featured{ border-top:1px solid var(--line); padding-block:1.2rem 1.4rem }
+.featured-in{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:1.4rem 2.6rem }
+.featured .lbl{ font-size:.72rem; letter-spacing:.22em; font-weight:700; color:var(--esp-mute); text-transform:uppercase }
+.fm{ color:var(--esp-mute); white-space:nowrap }
+.fm-1{ font-family:var(--font-display); font-style:italic; font-size:1.2rem }
+.fm-2{ font-weight:700; letter-spacing:.3em; font-size:.85rem; text-transform:uppercase }
+.fm-3{ font-family:var(--font-display); font-weight:600; font-size:1.15rem; letter-spacing:.02em }
+.fm-4{ font-weight:600; font-size:1rem; border:1.5px solid currentColor; border-radius:4px; padding:.05rem .5rem }
+
+/* ============ trust strip ============ */
+.trust{ background:var(--oat); padding-block:2.2rem }
+.trust-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.6rem }
+@media (min-width:880px){ .trust-grid{ grid-template-columns:repeat(4,1fr) } }
+.trust-item{ display:flex; gap:.9rem; align-items:flex-start }
+.trust-item svg{ width:26px; height:26px; flex:none; stroke:var(--sage-deep); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; margin-top:.15rem }
+.trust-item b{ display:block; font-size:.98rem }
+.trust-item span{ font-size:.85rem; color:var(--esp-mute) }
+
+/* ============ products ============ */
+.shop{ padding-block:clamp(3.5rem,7vw,6rem) }
+.products-wrap{ container-type:inline-size }
+.product-grid{ display:grid; gap:1.4rem; margin-top:2.4rem }
+@container (min-width:760px){ .product-grid{ grid-template-columns:repeat(3,1fr) } }
+.card{
+  background:#fff; background:oklch(99% 0.008 90);
+  border:1px solid var(--line); border-radius:var(--radius-lg);
+  padding:1.5rem 1.5rem 1.7rem; box-shadow:var(--shadow-card);
+  display:flex; flex-direction:column;
+}
+.card-art{
+  background:linear-gradient(180deg, var(--sage-tint), var(--oat));
+  border-radius:var(--radius-md); display:grid; place-items:center;
+  padding:1.6rem 0 1.1rem; margin-bottom:1.3rem; position:relative; overflow:hidden;
+}
+.card:nth-child(2) .card-art{ background:linear-gradient(180deg, oklch(94% 0.04 65), var(--oat)) }
+.card-art svg{ width:108px; height:auto; filter:drop-shadow(0 14px 10px oklch(28% 0.03 55 / .16)) }
+.card-step{ position:absolute; top:.9rem; left:1.1rem; font-family:var(--font-display); font-style:italic; font-size:1rem; color:var(--sage-deep) }
+.card h3{ font-size:1.55rem; margin-bottom:.2rem }
+.card h3 .pname{ font-weight:560 }
+.card-benefit{ color:var(--esp-mute); font-size:.95rem; margin-bottom:.8rem }
+.card .rating-line{ font-size:.85rem; margin-bottom:1rem }
+.variant-row{ display:flex; gap:.5rem; margin-bottom:1rem }
+.variant{
+  min-height:44px; min-width:72px; padding:.4rem .9rem; border-radius:999px;
+  border:1.5px solid var(--line); font-size:.88rem; font-weight:600; color:var(--esp-soft);
+  transition:border-color .15s, background-color .15s;
+}
+.variant[aria-pressed="true"]{ border-color:var(--espresso); background:var(--espresso); color:var(--cream) }
+.variant:hover[aria-pressed="false"]{ border-color:var(--esp-mute) }
+.card-foot{ margin-top:auto }
+.price-row{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:.9rem }
+.price{ font-family:var(--font-display); font-size:1.6rem; font-weight:480 }
+.add-btn{ width:100% }
+.ship-line{ display:flex; align-items:center; gap:.45rem; margin-top:.7rem; font-size:.83rem; color:var(--ok); font-weight:600 }
+.ship-line svg{ width:15px; height:15px; stroke:var(--ok); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round }
+
+/* ============ ritual ============ */
+.ritual{ background:var(--espresso); color:var(--cream); padding-block:clamp(3.5rem,7vw,6rem) }
+.ritual .kicker{ color:var(--apricot) }
+.ritual .section-sub{ color:oklch(80% 0.02 70) }
+.ritual-grid{ display:grid; gap:2.2rem; margin-top:2.8rem; counter-reset:step }
+@media (min-width:880px){ .ritual-grid{ grid-template-columns:repeat(3,1fr) } }
+.step{ border-top:1px solid oklch(45% 0.03 55); padding-top:1.4rem; position:relative }
+.step-no{ font-family:var(--font-display); font-style:italic; font-size:2.6rem; line-height:1; color:var(--apricot); margin-bottom:.6rem }
+.step h3{ font-size:1.45rem; color:var(--cream); margin-bottom:.4rem }
+.step .secs{ font-size:.8rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sage); display:block; margin-bottom:.6rem }
+.step p{ color:oklch(82% 0.018 70); font-size:.97rem }
+.ritual-total{
+  margin-top:2.8rem; text-align:center; font-family:var(--font-display); font-style:italic;
+  font-size:clamp(1.25rem,1rem + 1vw,1.7rem); color:var(--apricot);
+}
+
+/* ============ ingredients ============ */
+.ingredients{ padding-block:clamp(3.5rem,7vw,6rem) }
+.ing-grid{ display:grid; gap:2.5rem; margin-top:2rem }
+@media (min-width:880px){ .ing-grid{ grid-template-columns:.9fr 1.1fr; align-items:start } }
+.ing-list{ list-style:none; display:grid; gap:1.1rem }
+.ing-row{ border:1px solid var(--line); border-radius:var(--radius-md); padding:1.1rem 1.3rem; background:oklch(99% 0.008 90) }
+.ing-head{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; margin-bottom:.25rem }
+.ing-head b{ font-size:1rem }
+.ing-pct{ font-family:var(--font-display); font-weight:560; color:var(--sage-deep); font-size:1.15rem }
+.ing-row p{ font-size:.9rem; color:var(--esp-mute); margin-bottom:.55rem }
+.ing-bar{ height:6px; border-radius:99px; background:var(--oat); overflow:hidden }
+.ing-bar i{ display:block; height:100%; border-radius:99px; background:linear-gradient(90deg, var(--sage), var(--sage-deep)); width:calc(var(--p) * 10%) }
+.inci{ margin-top:1.4rem; border:1px solid var(--line); border-radius:var(--radius-md); background:var(--oat) }
+.inci summary{ padding:1rem 1.3rem; font-weight:600; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; min-height:52px }
+.inci summary::-webkit-details-marker{ display:none }
+.inci summary::after{ content:"+"; font-family:var(--font-display); font-size:1.4rem; transition:rotate .25s }
+.inci[open] summary::after{ rotate:45deg }
+.inci-body{ padding:0 1.3rem 1.2rem; font-size:.84rem; color:var(--esp-mute); line-height:1.7 }
+
+/* ============ reviews ============ */
+.reviews{ background:var(--oat); padding-block:clamp(3.5rem,7vw,6rem) }
+.review-grid{ display:grid; gap:1.2rem; margin-top:2.4rem }
+@media (min-width:680px){ .review-grid{ grid-template-columns:repeat(2,1fr) } }
+@media (min-width:1000px){ .review-grid{ grid-template-columns:repeat(3,1fr) } }
+.review{
+  background:var(--cream); border:1px solid var(--line); border-radius:var(--radius-md);
+  padding:1.4rem 1.5rem; display:flex; flex-direction:column; gap:.8rem;
+}
+.review blockquote{ font-size:.97rem; line-height:1.55 }
+.review-head{ display:flex; align-items:center; gap:.8rem }
+.avatar{
+  width:42px; height:42px; border-radius:50%; flex:none;
+  display:grid; place-items:center; font-family:var(--font-display); font-style:italic;
+  font-size:.95rem; color:var(--espresso); background:var(--av, var(--sage-tint));
+}
+.review-meta b{ display:block; font-size:.92rem; line-height:1.3 }
+.review-meta span{ font-size:.8rem; color:var(--esp-mute) }
+.verified{ display:inline-flex; align-items:center; gap:.3rem; font-size:.76rem; font-weight:700; color:var(--ok); margin-left:auto }
+.verified svg{ width:14px; height:14px; stroke:var(--ok); fill:none; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round }
+.reviews-cta{ margin-top:2.4rem; text-align:center }
+.reviews-cta .rating-line{ justify-content:center; margin-bottom:1.1rem }
+
+/* ============ bundle ============ */
+.bundle{ padding-block:clamp(3.5rem,7vw,6rem) }
+.bundle-card{
+  display:grid; gap:2rem; border-radius:var(--radius-lg); overflow:hidden;
+  background:linear-gradient(135deg, var(--sage-tint), oklch(90% 0.04 110));
+  border:1px solid oklch(82% 0.04 150); padding:clamp(1.6rem,4vw,3.2rem);
+}
+@media (min-width:880px){ .bundle-card{ grid-template-columns:1fr 1fr; align-items:center } }
+.bundle-art{ display:flex; align-items:flex-end; justify-content:center; gap:.4rem; position:relative; padding-bottom:1rem }
+.bundle-art svg{ width:clamp(78px,9vw,112px); height:auto; filter:drop-shadow(0 16px 12px oklch(28% 0.03 55 / .18)) }
+.bundle-art::after{
+  content:""; position:absolute; left:50%; bottom:-2px; transform:translateX(-50%);
+  width:80%; height:20px; border-radius:50%;
+  background:radial-gradient(50% 50% at 50% 50%, oklch(28% 0.03 55 / .15), transparent 70%);
+}
+.bundle h2{ font-size:clamp(1.9rem,1.3rem + 2.2vw,2.7rem); margin-bottom:.6rem }
+.bundle-items{ list-style:none; margin:1rem 0 1.4rem; display:grid; gap:.4rem }
+.bundle-items li{ display:flex; gap:.6rem; align-items:center; font-size:.95rem }
+.bundle-items svg{ width:16px; height:16px; flex:none; stroke:var(--sage-deep); fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round }
+.bundle-price{ display:flex; align-items:baseline; gap:.8rem; flex-wrap:wrap; margin-bottom:.4rem }
+.bundle-price s{ color:var(--esp-mute); font-size:1.25rem }
+.bundle-price .now{ font-family:var(--font-display); font-size:2.6rem; font-weight:520 }
+.save-pill{
+  background:var(--apricot); color:var(--espresso); font-size:.8rem; font-weight:700;
+  border-radius:999px; padding:.3rem .8rem; letter-spacing:.04em;
+}
+.bundle .perday{ font-size:.88rem; color:var(--esp-mute); margin-bottom:1.3rem }
+.bundle .doubt{ margin-top:.8rem }
+.bundle .rating-line{ margin-top:1rem; font-size:.88rem }
+.guarantee-box{
+  margin-top:1.5rem; display:flex; gap:.9rem; align-items:flex-start;
+  background:var(--cream); border:1px solid var(--line); border-radius:var(--radius-md); padding:1rem 1.2rem;
+}
+.guarantee-box svg{ width:26px; height:26px; flex:none; stroke:var(--sage-deep); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; margin-top:.1rem }
+.guarantee-box b{ display:block; font-size:.95rem }
+.guarantee-box span{ font-size:.85rem; color:var(--esp-mute) }
+
+/* ============ FAQ ============ */
+.faq{ padding-block:clamp(3.5rem,7vw,6rem); background:var(--oat) }
+.faq-list{ margin-top:2rem; max-width:760px }
+.faq-item{ border-bottom:1px solid var(--line); background:transparent }
+.faq-item summary{
+  font-family:var(--font-display); font-size:clamp(1.1rem,1rem + .5vw,1.3rem); font-weight:480;
+  padding:1.2rem .2rem; cursor:pointer; list-style:none;
+  display:flex; justify-content:space-between; align-items:center; gap:1rem; min-height:56px;
+}
+.faq-item summary::-webkit-details-marker{ display:none }
+.faq-item summary::after{ content:"+"; font-size:1.6rem; font-weight:400; color:var(--sage-deep); transition:rotate .25s; flex:none }
+.faq-item[open] summary::after{ rotate:45deg }
+.faq-item .a{ padding:0 .2rem 1.4rem; color:var(--esp-soft); max-width:62ch }
+
+/* ============ join ============ */
+.join{ background:var(--espresso); color:var(--cream); padding-block:clamp(3.5rem,7vw,5.5rem) }
+.join-in{ max-width:640px; margin-inline:auto; text-align:center }
+.join h2{ color:var(--cream); font-size:clamp(1.8rem,1.2rem + 2.4vw,2.7rem); margin-bottom:.6rem }
+.join h2 em{ color:var(--apricot) }
+.join p.lead{ color:oklch(82% 0.018 70); margin-bottom:1.8rem }
+.join-form .field{ display:flex; flex-direction:column; gap:.5rem; text-align:left }
+.join-row{ display:flex; gap:.6rem; flex-wrap:wrap }
+.join-row input{
+  flex:1 1 240px; min-height:54px; padding:.8rem 1.2rem; border-radius:999px;
+  border:1.5px solid oklch(48% 0.03 55); background:oklch(33% 0.03 55); color:var(--cream); font:inherit;
+}
+.join-row input::placeholder{ color:oklch(68% 0.02 60) }
+.join-row input:focus{ outline:2.5px solid var(--cream); outline-offset:2px }
+.join-row .btn-primary{ background:var(--apricot); color:var(--espresso); box-shadow:none; flex:none }
+.join-row .btn-primary:hover{ background:oklch(88% 0.06 60) }
+.join label{ font-size:.85rem; font-weight:600; color:oklch(85% 0.02 70) }
+.field-msg{ font-size:.86rem; min-height:1.3em }
+.field-msg.err{ color:oklch(82% 0.1 35) }
+.field-msg.ok{ color:oklch(85% 0.06 150); display:flex; align-items:center; gap:.4rem }
+.field:has(input[aria-invalid="true"]) input{ border-color:oklch(70% 0.13 30) }
+.join .micro{ color:oklch(70% 0.02 60); margin-top:1rem }
+.join-success{ padding:1.5rem; border:1px dashed oklch(55% 0.04 150); border-radius:var(--radius-md) }
+.join-success b{ font-family:var(--font-display); font-size:1.3rem; font-weight:500; display:block; margin-bottom:.4rem }
+.join-success p{ color:oklch(82% 0.018 70); font-size:.95rem }
+
+/* ============ footer ============ */
+.footer{ background:oklch(23% 0.025 55); color:oklch(80% 0.018 70); padding-block:3.5rem 7rem; font-size:.92rem }
+.footer a{ color:oklch(86% 0.015 75); text-decoration:none }
+.footer a:hover{ text-decoration:underline }
+.footer-grid{ display:grid; gap:2.4rem; margin-bottom:3rem }
+@media (min-width:720px){ .footer-grid{ grid-template-columns:1.4fr 1fr 1fr 1fr } }
+.footer .wordmark{ color:var(--cream); margin-bottom:.8rem; display:inline-block }
+.footer-col b{ display:block; color:var(--cream); margin-bottom:.9rem; font-size:.85rem; letter-spacing:.12em; text-transform:uppercase }
+.footer-col ul{ list-style:none; display:grid; gap:.35rem }
+.footer-col li a{ display:inline-block; padding:.3rem 0 }
+.returns-hl{ color:var(--apricot) !important; font-weight:600 }
+.pay-row{ display:flex; gap:.6rem; flex-wrap:wrap; align-items:center; margin-top:1.2rem }
+.pay-row svg{ height:30px; width:auto }
+.footer-legal{ border-top:1px solid oklch(34% 0.025 55); padding-top:1.6rem; display:grid; gap:.9rem }
+.footer-legal .row{ display:flex; flex-wrap:wrap; gap:.4rem 1.4rem; font-size:.84rem; color:oklch(68% 0.018 65) }
+.credit{ font-size:.84rem; color:oklch(68% 0.018 65) }
+.credit a{ color:var(--apricot) }
+
+/* ============ toast ============ */
+.toast{
+  position:fixed; inset:auto auto 1.4rem 50%; transform:translate(-50%, 0);
+  background:var(--espresso); color:var(--cream); border:1px solid oklch(40% 0.03 55);
+  border-radius:14px; padding:.9rem 1.4rem; box-shadow:0 18px 40px -14px oklch(20% 0.03 55 / .6);
+  max-width:min(420px, calc(100vw - 2rem)); z-index:120; margin:0;
+}
+.toast b{ display:flex; align-items:center; gap:.5rem; font-size:.95rem }
+.toast b svg{ width:16px; height:16px; stroke:var(--apricot); fill:none; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round }
+.toast small{ display:block; color:oklch(80% 0.02 70); font-size:.82rem; margin-top:.15rem }
+.toast{ opacity:0; pointer-events:none; transform:translate(-50%, 14px); transition:opacity .3s, transform .3s, display .3s allow-discrete, overlay .3s allow-discrete }
+.toast:popover-open, .toast.on{ opacity:1; transform:translate(-50%, 0) }
+@starting-style{
+  .toast:popover-open{ opacity:0; transform:translate(-50%, 14px) }
+}
+.toast[hidden]{ display:none }
+
+/* ============ sticky mobile bar ============ */
+.mobile-bar{
+  display:none; position:fixed; left:0; right:0; bottom:0; z-index:90;
+  background:var(--cream-90); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-top:1px solid var(--line); padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom));
+}
+.mobile-bar-in{ display:flex; align-items:center; gap:1rem }
+.mobile-bar .info b{ font-family:var(--font-display); font-size:1.15rem; font-weight:520; display:block; line-height:1.2 }
+.mobile-bar .info span{ font-size:.76rem; color:var(--esp-mute) }
+.mobile-bar .btn{ flex:1; min-height:50px; padding-inline:1rem; font-size:.95rem }
+@media (max-width:719px){
+  .mobile-bar{ display:block }
+  body{ padding-bottom:5.4rem }
+  .toast{ inset:auto auto 6.2rem 50% }
+}
+
+/* ============ progressive scroll animation ============ */
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    .bundle-art svg{
+      animation:rise-in linear both;
+      animation-timeline:view();
+      animation-range:entry 0% entry 80%;
+    }
+    @keyframes rise-in{ from{ transform:translateY(34px); opacity:.2 } to{ transform:translateY(0); opacity:1 } }
+  }
+}
+
+/* ============ reduced motion ============ */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration:.001ms !important; animation-iteration-count:1 !important;
+    transition-duration:.001ms !important; scroll-behavior:auto !important;
+  }
+  html{ scroll-behavior:auto }
+  [data-reveal]{ opacity:1 !important; transform:none !important }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ====== SVG sprite: gradients, bottles, icons ====== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="lg-sage" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" style="stop-color:oklch(80% 0.05 150)"/>
+      <stop offset=".55" style="stop-color:oklch(71% 0.06 150)"/>
+      <stop offset="1" style="stop-color:oklch(57% 0.07 150)"/>
+    </linearGradient>
+    <linearGradient id="lg-amber" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" style="stop-color:oklch(87% 0.07 70)"/>
+      <stop offset=".55" style="stop-color:oklch(79% 0.095 60)"/>
+      <stop offset="1" style="stop-color:oklch(66% 0.115 50)"/>
+    </linearGradient>
+    <linearGradient id="lg-creamglass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" style="stop-color:oklch(95% 0.018 85)"/>
+      <stop offset=".55" style="stop-color:oklch(89% 0.032 80)"/>
+      <stop offset="1" style="stop-color:oklch(81% 0.045 75)"/>
+    </linearGradient>
+
+    <!-- Bottle 01 · RINSE — pump cleanser -->
+    <symbol id="bottle-rinse" viewBox="0 0 140 300">
+      <rect x="38" y="22" width="44" height="12" rx="6" fill="var(--espresso)"/>
+      <rect x="62" y="18" width="22" height="24" rx="5" fill="var(--espresso)"/>
+      <rect x="67" y="42" width="12" height="14" fill="var(--esp-soft)"/>
+      <rect x="56" y="54" width="34" height="17" rx="4" fill="var(--espresso)"/>
+      <rect x="32" y="70" width="80" height="214" rx="17" fill="url(#lg-sage)"/>
+      <rect x="42" y="84" width="9" height="186" rx="4.5" fill="#fff" opacity=".32"/>
+      <rect x="42" y="124" width="60" height="112" rx="5" fill="var(--label)"/>
+      <text x="72" y="146" text-anchor="middle" font-family="'Hanken Grotesk',sans-serif" font-size="8.5" letter-spacing="3.5" fill="var(--espresso)">AUREL</text>
+      <line x1="56" y1="155" x2="88" y2="155" stroke="var(--line)" stroke-width="1"/>
+      <text x="72" y="188" text-anchor="middle" font-family="Fraunces,serif" font-size="30" font-weight="400" fill="var(--espresso)">01</text>
+      <text x="72" y="206" text-anchor="middle" font-family="'Hanken Grotesk',sans-serif" font-size="9" font-weight="600" letter-spacing="3" fill="var(--espresso)">RINSE</text>
+      <text x="72" y="219" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-size="7.5" fill="var(--esp-soft)">oat cream cleanser</text>
+      <text x="72" y="230" text-anchor="middle" font-family="'Hanken Grotesk',sans-serif" font-size="6.5" letter-spacing="1" fill="var(--esp-soft)">150 ml</text>
+    </symbol>
+
+    <!-- Bottle 02 · STILL — dropper serum -->
+    <symbol id="bottle-still" viewBox="0 0 140 300">
+      <rect x="58" y="64" width="24" height="30" rx="12" fill="var(--espresso)"/>
+      <rect x="54" y="92" width="32" height="17" rx="4" fill="var(--espresso)"/>
+      <rect x="36" y="108" width="68" height="176" rx="15" fill="url(#lg-amber)"/>
+      <rect x="64" y="112" width="7" height="44" rx="3.5" fill="#fff" opacity=".22"/>
+      <rect x="44" y="120" width="7" height="148" rx="3.5" fill="#fff" opacity=".28"/>
+      <rect x="46" y="158" width="48" height="96" rx="5" fill="var(--label)"/>
+      <text x="70" y="177" text-anchor="middle" font-family="'Hanken Grotesk',sans-serif" font-size="7.5" letter-spacing="3" fill="var(--espresso)">AUREL</text>
+      <line x1="56" y1="185" x2="84" y2="185" stroke="var(--line)" stroke-width="1"/>
+      <text x="70" y="214" text-anchor="middle" font-family="Fraunces,serif" font-size="26" font-weight="400" fill="var(--espresso)">02</text>
+      <text x="70" y="230" text-anchor="middle" font-family="'Hanken Grotesk',sans-serif" font-size="8.5" font-weight="600" letter-spacing="3" fill="var(--espresso)">STILL</text>
+      <text x="70" y="241" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-size="7" fill="var(--esp-soft)">calming serum</text>
+      <text x="70" y="250" text-anchor="middle" font-family="'Hanken Grotesk',sans-serif" font-size="6" letter-spacing="1" fill="var(--esp-soft)">30 ml</text>
+    </symbol>
+
+    <!-- Bottle 03 · SEAL — barrier cream jar -->
+    <symbol id="bottle-seal" viewBox="0 0 140 300">
+      <rect x="30" y="160" width="80" height="27" rx="9" fill="var(--espresso)"/>
+      <line x1="42" y1="166" x2="42" y2="181" stroke="oklch(40% 0.03 55)" stroke-width="1.5"/>
+      <line x1="98" y1="166" x2="98" y2="181" stroke="oklch(40% 0.03 55)" stroke-width="1.5"/>
+      <rect x="26" y="188" width="88" height="96" rx="19" fill="url(#lg-creamglass)"/>
+      <rect x="36" y="200" width="8" height="70" rx="4" fill="#fff" opacity=".5"/>
+      <rect x="44" y="204" width="52" height="68" rx="5" fill="var(--label)" stroke="var(--line)" stroke-width=".75"/>
+      <text x="70" y="220" text-anchor="middle" font-family="'Hanken Grotesk',sans-serif" font-size="7" letter-spacing="2.5" fill="var(--espresso)">AUREL</text>
+      <text x="70" y="245" text-anchor="middle" font-family="Fraunces,serif" font-size="24" font-weight="400" fill="var(--espresso)">03</text>
+      <text x="70" y="258" text-anchor="middle" font-family="'Hanken Grotesk',sans-serif" font-size="8" font-weight="600" letter-spacing="3" fill="var(--espresso)">SEAL</text>
+      <text x="70" y="267" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-size="6.5" fill="var(--esp-soft)">barrier cream · 50 ml</text>
+    </symbol>
+
+    <!-- icons -->
+    <symbol id="ic-star" viewBox="0 0 20 20">
+      <path d="M10 1.6l2.55 5.25 5.8.8-4.25 4.05 1.05 5.75L10 14.7l-5.15 2.75 1.05-5.75L1.65 7.65l5.8-.8z"/>
+    </symbol>
+    <symbol id="ic-truck" viewBox="0 0 24 24">
+      <path d="M2 7h11v9H2z"/><path d="M13 10h4.2L20 13v3h-7"/>
+      <circle cx="6.5" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/>
+    </symbol>
+    <symbol id="ic-loop" viewBox="0 0 24 24">
+      <path d="M4.6 12a7.6 7.6 0 1 0 2.2-5.3"/><path d="M5 3.4v4.4h4.4"/>
+    </symbol>
+    <symbol id="ic-shield" viewBox="0 0 24 24">
+      <path d="M12 2.8l7 2.8v5.2c0 4.9-3.4 7.9-7 9.2-3.6-1.3-7-4.3-7-9.2V5.6z"/>
+      <path d="M8.8 12l2.2 2.2 4.2-4.6"/>
+    </symbol>
+    <symbol id="ic-leaf" viewBox="0 0 24 24">
+      <path d="M5.5 18.5C5.5 10.5 10.5 5.5 19.5 4.5c-1 9-6 14-14 14z"/>
+      <path d="M5.5 18.5C8 14 11 11 15 8.5"/>
+    </symbol>
+    <symbol id="ic-bag" viewBox="0 0 24 24">
+      <path d="M5.6 8h12.8l-1.1 12.4H6.7z"/><path d="M9 8a3 3 0 0 1 6 0"/>
+    </symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24">
+      <path d="M4.5 12.5l5 5 10-11"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="top-stack">
+  <!-- (1) announcement bar -->
+  <div class="annc" id="annc" role="region" aria-label="Store announcement">
+    <p><strong>Free shipping over 45&nbsp;&euro;</strong><span class="annc-dot" aria-hidden="true">&middot;</span>60-day skin guarantee, even on empties</p>
+    <button class="annc-close" id="annc-close" aria-label="Dismiss announcement">
+      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+
+  <!-- (2) nav -->
+  <nav class="nav" aria-label="Main">
+    <div class="wrap nav-in">
+      <a class="wordmark" href="#top">Aurel<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#ritual">Ritual</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+      </ul>
+      <button class="cart-btn" id="cart-btn" aria-label="Shopping bag, 0 items">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-bag"/></svg>
+        Bag
+        <span class="cart-count" id="cart-count" aria-hidden="true">0</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <!-- (3) hero -->
+  <section class="hero" id="top" aria-labelledby="hero-h">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">The 3-step skincare ritual</p>
+        <h1 id="hero-h">Three steps. <em>Ninety seconds.</em> Visibly calmer skin.</h1>
+        <p class="hero-sub">Rinse, Still, Seal &mdash; one cleanser, one serum, one cream. No 11-step shelf, no guesswork, no products fighting each other. Just the routine you&rsquo;ll actually keep.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#bundle">Shop the Ritual &mdash; 49&nbsp;&euro;</a>
+        </div>
+        <p class="micro doubt">60-day money back &mdash; even on empties. Returns in 2 clicks.</p>
+        <p class="rating-line">
+          <span class="stars" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg></span>
+          4.9 <span class="count">&middot; 12,400+ verified reviews</span>
+        </p>
+      </div>
+      <div class="hero-art" role="img" aria-label="The three Aurel bottles: Rinse cleanser in sage glass, Still serum in amber glass, and the Seal cream jar">
+        <div class="b b-rinse"><svg viewBox="0 0 140 300" aria-hidden="true"><use href="#bottle-rinse"/></svg></div>
+        <div class="b b-still"><svg viewBox="0 0 140 300" aria-hidden="true"><use href="#bottle-still"/></svg></div>
+        <div class="b b-seal"><svg viewBox="0 0 140 300" aria-hidden="true"><use href="#bottle-seal"/></svg></div>
+        <div class="hero-shelf" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="wrap featured">
+      <div class="featured-in">
+        <span class="lbl">Featured in</span>
+        <span class="fm fm-1">The Skin Brief</span>
+        <span class="fm fm-2">Sonntag</span>
+        <span class="fm fm-3">Routine Review</span>
+        <span class="fm fm-4">haut.zine</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- (4) trust strip -->
+  <section class="trust" aria-label="Why shop with Aurel">
+    <div class="wrap trust-grid">
+      <div class="trust-item" data-reveal>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-truck"/></svg>
+        <p><b>Free shipping over 45&nbsp;&euro;</b><span>2&ndash;4 working days, EU-wide</span></p>
+      </div>
+      <div class="trust-item" data-reveal>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-loop"/></svg>
+        <p><b>60-day returns</b><span>Money back, even on empties</span></p>
+      </div>
+      <div class="trust-item" data-reveal>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-shield"/></svg>
+        <p><b>Dermatologist tested</b><span>212-person sensitive-skin panel</span></p>
+      </div>
+      <div class="trust-item" data-reveal>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-leaf"/></svg>
+        <p><b>Made in small batches</b><span>Blended in Hamburg, never warehoused over 90 days</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- (5) product grid -->
+  <section class="shop" id="shop" aria-labelledby="shop-h">
+    <div class="wrap products-wrap">
+      <p class="kicker">The whole shelf, honestly</p>
+      <h2 class="section-title" id="shop-h">Three products. That&rsquo;s the line.</h2>
+      <p class="section-sub">Each one does a single job well, and they&rsquo;re formulated to layer in 90 seconds &mdash; no pilling, no waiting between steps.</p>
+
+      <div class="product-grid">
+        <!-- Rinse -->
+        <article class="card" data-reveal>
+          <div class="card-art">
+            <span class="card-step" aria-hidden="true">step 01</span>
+            <svg viewBox="0 0 140 300" role="img" aria-label="Rinse: sage glass pump bottle"><use href="#bottle-rinse"/></svg>
+          </div>
+          <h3><span class="pname">Rinse</span> &mdash; Oat Cream Cleanser</h3>
+          <p class="card-benefit">Melts SPF and city grime without that tight, squeaky after-feel.</p>
+          <p class="rating-line">
+            <span class="stars" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg></span>
+            4.8 <span class="count">(4,210)</span>
+          </p>
+          <div class="card-foot">
+            <div class="variant-row" role="group" aria-label="Choose a size for Rinse">
+              <button class="variant" aria-pressed="true" data-price="18" data-size="150 ml" data-unit-price="12,00 &euro; / 100 ml">150 ml</button>
+              <button class="variant" aria-pressed="false" data-price="26" data-size="250 ml" data-unit-price="10,40 &euro; / 100 ml">250 ml</button>
+            </div>
+            <div class="price-row">
+              <span class="price" data-price-display>18&nbsp;&euro;</span>
+              <span class="micro" data-unit>12,00 &euro; / 100 ml</span>
+            </div>
+            <button class="btn btn-primary add-btn" data-add data-name="Rinse">Add to bag</button>
+            <p class="ship-line"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-check"/></svg>Order today &mdash; arrives Thu, Jun 18</p>
+          </div>
+        </article>
+
+        <!-- Still -->
+        <article class="card" data-reveal>
+          <div class="card-art">
+            <span class="card-step" aria-hidden="true">step 02</span>
+            <svg viewBox="0 0 140 300" role="img" aria-label="Still: amber glass dropper bottle"><use href="#bottle-still"/></svg>
+          </div>
+          <h3><span class="pname">Still</span> &mdash; Calming Serum</h3>
+          <p class="card-benefit">5% niacinamide and oat beta-glucan to take the red out, minus the tingle.</p>
+          <p class="rating-line">
+            <span class="stars" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg></span>
+            4.9 <span class="count">(5,840)</span>
+          </p>
+          <div class="card-foot">
+            <div class="variant-row" role="group" aria-label="Choose a size for Still">
+              <button class="variant" aria-pressed="true" data-price="26" data-size="30 ml" data-unit-price="86,67 &euro; / 100 ml">30 ml</button>
+              <button class="variant" aria-pressed="false" data-price="38" data-size="50 ml" data-unit-price="76,00 &euro; / 100 ml">50 ml</button>
+            </div>
+            <div class="price-row">
+              <span class="price" data-price-display>26&nbsp;&euro;</span>
+              <span class="micro" data-unit>86,67 &euro; / 100 ml</span>
+            </div>
+            <button class="btn btn-primary add-btn" data-add data-name="Still">Add to bag</button>
+            <p class="ship-line"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-check"/></svg>Order today &mdash; arrives Thu, Jun 18</p>
+          </div>
+        </article>
+
+        <!-- Seal -->
+        <article class="card" data-reveal>
+          <div class="card-art">
+            <span class="card-step" aria-hidden="true">step 03</span>
+            <svg viewBox="0 0 140 300" role="img" aria-label="Seal: cream glass jar with espresso lid"><use href="#bottle-seal"/></svg>
+          </div>
+          <h3><span class="pname">Seal</span> &mdash; Barrier Cream</h3>
+          <p class="card-benefit">Ceramides and squalane lock everything in &mdash; comfortable under makeup by minute two.</p>
+          <p class="rating-line">
+            <span class="stars" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg></span>
+            4.9 <span class="count">(2,350)</span>
+          </p>
+          <div class="card-foot">
+            <div class="variant-row" role="group" aria-label="Choose a size for Seal">
+              <button class="variant" aria-pressed="true" data-price="23" data-size="50 ml" data-unit-price="46,00 &euro; / 100 ml">50 ml</button>
+              <button class="variant" aria-pressed="false" data-price="34" data-size="100 ml" data-unit-price="34,00 &euro; / 100 ml">100 ml</button>
+            </div>
+            <div class="price-row">
+              <span class="price" data-price-display>23&nbsp;&euro;</span>
+              <span class="micro" data-unit>46,00 &euro; / 100 ml</span>
+            </div>
+            <button class="btn btn-primary add-btn" data-add data-name="Seal">Add to bag</button>
+            <p class="ship-line"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-check"/></svg>Order today &mdash; arrives Thu, Jun 18</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- (6) the ritual -->
+  <section class="ritual" id="ritual" aria-labelledby="ritual-h">
+    <div class="wrap">
+      <p class="kicker">Morning &amp; night</p>
+      <h2 class="section-title" id="ritual-h">The whole ritual, timed.</h2>
+      <p class="section-sub">We clocked it on 40 real bathroom counters. The average: 87 seconds. Here&rsquo;s where they go.</p>
+      <div class="ritual-grid">
+        <div class="step" data-reveal>
+          <p class="step-no" aria-hidden="true">01</p>
+          <h3>Rinse</h3>
+          <span class="secs">~ 30 seconds</span>
+          <p>Two pumps on damp skin. Massage in slow circles &mdash; the oat cream turns to a light milk &mdash; then rinse lukewarm. No double cleanse needed, even over SPF 50.</p>
+        </div>
+        <div class="step" data-reveal>
+          <p class="step-no" aria-hidden="true">02</p>
+          <h3>Still</h3>
+          <span class="secs">~ 20 seconds</span>
+          <p>Three drops, pressed &mdash; not rubbed &mdash; into cheeks, nose, chin. It sinks in fast on purpose: you should never be standing around waiting for a serum.</p>
+        </div>
+        <div class="step" data-reveal>
+          <p class="step-no" aria-hidden="true">03</p>
+          <h3>Seal</h3>
+          <span class="secs">~ 40 seconds</span>
+          <p>A blueberry-sized dab, warmed between fingertips, smoothed outward. In the morning, follow with your SPF. At night, that&rsquo;s it. You&rsquo;re done.</p>
+        </div>
+      </div>
+      <p class="ritual-total" data-reveal>Ninety seconds. Twice a day. That&rsquo;s the whole commitment.</p>
+    </div>
+  </section>
+
+  <!-- (7) ingredients transparency -->
+  <section class="ingredients" id="ingredients" aria-labelledby="ing-h">
+    <div class="wrap">
+      <div class="ing-grid">
+        <div>
+          <p class="kicker">Radical label honesty</p>
+          <h2 class="section-title" id="ing-h">Every percentage, published.</h2>
+          <p class="section-sub">Most brands hide doses behind &ldquo;proprietary complex.&rdquo; We print ours, because an ingredient without a percentage is just marketing. If a brand won&rsquo;t tell you the dose, ask why.</p>
+          <details class="inci">
+            <summary>Read the full INCI list</summary>
+            <div class="inci-body">
+              <p><strong>Still &mdash; Calming Serum:</strong> Aqua, Niacinamide, Glycerin, Squalane, Avena Sativa Kernel Extract, Panthenol, Ceramide NP, Ceramide AP, Ceramide EOP, Sodium Hyaluronate, Allantoin, Betaine, Carbomer, Phytosphingosine, Cholesterol, Xanthan Gum, Sodium Lauroyl Lactylate, Ethylhexylglycerin, Phenoxyethanol.</p>
+              <p style="margin-top:.6rem"><strong>Free from:</strong> fragrance, essential oils, drying alcohols, dyes. Full lists for Rinse and Seal live on each product page &mdash; same policy, no exceptions.</p>
+            </div>
+          </details>
+        </div>
+        <ul class="ing-list">
+          <li class="ing-row" data-reveal style="--p:5">
+            <div class="ing-head"><b>Niacinamide</b><span class="ing-pct">5%</span></div>
+            <p>Evens tone and calms blotchiness. We use the studied dose &mdash; 10% versions mostly just sting more.</p>
+            <div class="ing-bar" aria-hidden="true"><i></i></div>
+          </li>
+          <li class="ing-row" data-reveal style="--p:8">
+            <div class="ing-head"><b>Squalane (olive-derived)</b><span class="ing-pct">8%</span></div>
+            <p>Featherweight moisture that mimics your skin&rsquo;s own lipids. Non-comedogenic, zero grease.</p>
+            <div class="ing-bar" aria-hidden="true"><i></i></div>
+          </li>
+          <li class="ing-row" data-reveal style="--p:3">
+            <div class="ing-head"><b>Panthenol (Pro-Vitamin B5)</b><span class="ing-pct">3%</span></div>
+            <p>The barrier repairer. Reduces transepidermal water loss while your skin sorts itself out.</p>
+            <div class="ing-bar" aria-hidden="true"><i></i></div>
+          </li>
+          <li class="ing-row" data-reveal style="--p:2">
+            <div class="ing-head"><b>Colloidal oat extract</b><span class="ing-pct">2%</span></div>
+            <p>The classic soother &mdash; beta-glucans that take the heat out of reactive skin within minutes.</p>
+            <div class="ing-bar" aria-hidden="true"><i></i></div>
+          </li>
+          <li class="ing-row" data-reveal style="--p:1.2">
+            <div class="ing-head"><b>Ceramide NP + AP + EOP</b><span class="ing-pct">1.2%</span></div>
+            <p>Refills exactly what cleansing strips, in the 3:1:1 ratio your barrier is built from.</p>
+            <div class="ing-bar" aria-hidden="true"><i></i></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- (8) review wall -->
+  <section class="reviews" id="reviews" aria-labelledby="rev-h">
+    <div class="wrap">
+      <p class="kicker">From real bathroom shelves</p>
+      <h2 class="section-title" id="rev-h">12,400 people kept the routine.</h2>
+      <p class="section-sub">Unedited, including the grumpy ones. Every review below is from a verified order.</p>
+
+      <div class="review-grid">
+        <figure class="review" data-reveal>
+          <p class="rating-line"><span class="stars" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg></span><span class="sr-only">5 out of 5 stars</span></p>
+          <blockquote>&ldquo;I&rsquo;ve abandoned every routine since 2019. This one survived because it&rsquo;s over before my coffee finishes brewing. Redness around my chin noticeably down by week 3.&rdquo;</blockquote>
+          <figcaption class="review-head">
+            <span class="avatar" style="--av:var(--sage-tint)" aria-hidden="true">MK</span>
+            <p class="review-meta"><b>Mara K.</b><span>Combination skin &middot; Cologne</span></p>
+            <span class="verified"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-check"/></svg>Verified buyer</span>
+          </figcaption>
+        </figure>
+
+        <figure class="review" data-reveal>
+          <p class="rating-line"><span class="stars" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg></span><span class="sr-only">5 out of 5 stars</span></p>
+          <blockquote>&ldquo;Rosacea-prone and deeply skeptical. The serum doesn&rsquo;t sting AT ALL, which for me is basically a miracle. Skin felt calmer by day 10-ish.&rdquo;</blockquote>
+          <figcaption class="review-head">
+            <span class="avatar" style="--av:var(--apricot)" aria-hidden="true">JP</span>
+            <p class="review-meta"><b>Jonas P.</b><span>Sensitive skin &middot; Vienna</span></p>
+            <span class="verified"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-check"/></svg>Verified buyer</span>
+          </figcaption>
+        </figure>
+
+        <figure class="review" data-reveal>
+          <p class="rating-line"><span class="stars" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20" class="dim"><use href="#ic-star"/></svg></span><span class="sr-only">4 out of 5 stars</span></p>
+          <blockquote>&ldquo;Honest take: the 30 ml serum is small for the price, and I needed six weeks &mdash; not four &mdash; to see it. But the redness around my nose is genuinely gone, so I reordered anyway.&rdquo;</blockquote>
+          <figcaption class="review-head">
+            <span class="avatar" style="--av:var(--oat)" aria-hidden="true">TB</span>
+            <p class="review-meta"><b>Tom B.</b><span>Sensitive skin &middot; Rotterdam</span></p>
+            <span class="verified"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-check"/></svg>Verified buyer</span>
+          </figcaption>
+        </figure>
+
+        <figure class="review" data-reveal>
+          <p class="rating-line"><span class="stars" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg></span><span class="sr-only">5 out of 5 stars</span></p>
+          <blockquote>&ldquo;54 years old, skin like paper in winter. Seal is the first cream that doesn&rsquo;t pill under foundation. Bought the big jar the same week.&rdquo;</blockquote>
+          <figcaption class="review-head">
+            <span class="avatar" style="--av:var(--sage-tint)" aria-hidden="true">GS</span>
+            <p class="review-meta"><b>Greta S.</b><span>Dry skin &middot; Munich</span></p>
+            <span class="verified"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-check"/></svg>Verified buyer</span>
+          </figcaption>
+        </figure>
+
+        <figure class="review" data-reveal>
+          <p class="rating-line"><span class="stars" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg></span><span class="sr-only">5 out of 5 stars</span></p>
+          <blockquote>&ldquo;Oily skin here &mdash; was sure &lsquo;barrier cream&rsquo; meant shine by noon. Wrong. My T-zone is less oily now that I stopped stripping it with foaming cleansers. Who knew. (They did, apparently.)&rdquo;</blockquote>
+          <figcaption class="review-head">
+            <span class="avatar" style="--av:var(--apricot)" aria-hidden="true">AD</span>
+            <p class="review-meta"><b>Aylin D.</b><span>Oily skin &middot; Berlin</span></p>
+            <span class="verified"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-check"/></svg>Verified buyer</span>
+          </figcaption>
+        </figure>
+
+        <figure class="review" data-reveal>
+          <p class="rating-line"><span class="stars" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg></span><span class="sr-only">5 out of 5 stars</span></p>
+          <blockquote>&ldquo;Used my 60-day guarantee on a different brand last year and got ghosted. Tested Aurel&rsquo;s instead: refund hit in 3 days, no questions, kept the empty. Then I rebought. Make it make sense.&rdquo;</blockquote>
+          <figcaption class="review-head">
+            <span class="avatar" style="--av:var(--oat)" aria-hidden="true">FV</span>
+            <p class="review-meta"><b>Femke V.</b><span>Combination skin &middot; Antwerp</span></p>
+            <span class="verified"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-check"/></svg>Verified buyer</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="reviews-cta" data-reveal>
+        <p class="rating-line">
+          <span class="stars" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg></span>
+          4.9 average <span class="count">&middot; 12,400+ verified reviews</span>
+        </p>
+        <a class="btn btn-primary" href="#bundle">Shop the Ritual &mdash; 49&nbsp;&euro;</a>
+        <p class="micro doubt" style="margin-top:.7rem">60-day money back, even on empties.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- (9) bundle -->
+  <section class="bundle" id="bundle" aria-labelledby="bundle-h">
+    <div class="wrap">
+      <div class="bundle-card">
+        <div class="bundle-art" aria-hidden="true">
+          <svg viewBox="0 0 140 300"><use href="#bottle-rinse"/></svg>
+          <svg viewBox="0 0 140 300"><use href="#bottle-still"/></svg>
+          <svg viewBox="0 0 140 300"><use href="#bottle-seal"/></svg>
+        </div>
+        <div>
+          <p class="kicker">Best value &middot; most popular</p>
+          <h2 id="bundle-h">The Complete Ritual</h2>
+          <p class="section-sub">All three steps, full sizes. Roughly ten weeks of mornings and nights.</p>
+          <ul class="bundle-items">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-check"/></svg>Rinse &mdash; Oat Cream Cleanser, 150 ml <span class="micro">(18&nbsp;&euro; alone)</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-check"/></svg>Still &mdash; Calming Serum, 30 ml <span class="micro">(26&nbsp;&euro; alone)</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-check"/></svg>Seal &mdash; Barrier Cream, 50 ml <span class="micro">(23&nbsp;&euro; alone)</span></li>
+          </ul>
+          <p class="bundle-price">
+            <s aria-label="Regular price 67 euros">67&nbsp;&euro;</s>
+            <span class="now" aria-label="Bundle price 49 euros">49&nbsp;&euro;</span>
+            <span class="save-pill">Save 18&nbsp;&euro;</span>
+          </p>
+          <p class="perday">Works out to 0,70&nbsp;&euro; a day &mdash; less than the oat milk in your flat white.</p>
+          <button class="btn btn-primary" data-add data-name="The Complete Ritual" data-bundle-price="49">Add the Complete Ritual &mdash; 49&nbsp;&euro;</button>
+          <p class="micro doubt">Ships free &middot; one-time purchase, no subscription attached.</p>
+          <p class="rating-line">
+            <span class="stars" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg><svg viewBox="0 0 20 20"><use href="#ic-star"/></svg></span>
+            4.9 <span class="count">&middot; 12,400+ verified reviews</span>
+          </p>
+          <div class="guarantee-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-shield"/></svg>
+            <p><b>The 60-day skin guarantee</b><span>Use all three for 60 days. If your skin isn&rsquo;t visibly calmer, email us a single line and we refund everything &mdash; even on empties. Two clicks, no return label, no interrogation.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (10) FAQ -->
+  <section class="faq" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <p class="kicker">Before you ask</p>
+      <h2 class="section-title" id="faq-h">Fair questions, straight answers.</h2>
+      <div class="faq-list">
+        <details class="faq-item" name="faq">
+          <summary>Will this actually work for my sensitive skin?</summary>
+          <p class="a">It&rsquo;s the skin type we formulated for first. No fragrance, no essential oils, no drying alcohols, and the serum uses 5% niacinamide &mdash; the studied dose, not the stingy one. In our independent 212-person sensitive-skin panel, 96% completed 8 weeks with zero irritation events. And if you&rsquo;re in the other 4%, the 60-day guarantee exists precisely for you.</p>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>What if it just doesn&rsquo;t work for me?</summary>
+          <p class="a">Then you pay nothing. Email hello@aurel.shop within 60 days of delivery &mdash; one line is enough &mdash; and we refund the full amount, even if the bottles are empty. No return shipping, no photos of your face, no &ldquo;have you tried using less?&rdquo; Average refund time last quarter: 2.8 days.</p>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>I have a 7-step routine. Three steps can&rsquo;t be enough.</summary>
+          <p class="a">For most skin, three well-dosed steps beat seven competing ones &mdash; a lot of &ldquo;sensitivity&rdquo; is really routine overload. That said, Aurel plays nicely with others: keep your retinoid or vitamin C and slot it between Still and Seal. We&rsquo;d rather you keep a routine than collect one.</p>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>Is it safe during pregnancy?</summary>
+          <p class="a">There are no retinoids, no salicylic acid, and no essential oils anywhere in the line &mdash; the usual flagged ingredients simply aren&rsquo;t in it. Niacinamide, panthenol, squalane and ceramides are generally considered pregnancy-compatible. As always with skincare in pregnancy: show the INCI list (published in full above) to your doctor or midwife.</p>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>Is this one of those subscription traps?</summary>
+          <p class="a">No. Everything is a one-time purchase by default. There is an optional refill plan at 15% off &mdash; you can skip a delivery, change the rhythm, or cancel it in two clicks from your account page, no chatbot maze, no retention call. We grow by being rebought, not by being hard to leave.</p>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>When will I actually see results?</summary>
+          <p class="a">Honest timeline: most people feel less tightness within the first week, see visibly calmer, less blotchy skin around weeks 3&ndash;4, and tone improvements by weeks 6&ndash;8. In our 8-week consumer study (n=212): 89% reported reduced redness, 93% reported skin feeling &ldquo;calm or very calm.&rdquo; If your week 8 doesn&rsquo;t look like that, the guarantee has you covered.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- (11) email capture -->
+  <section class="join" id="join" aria-labelledby="join-h">
+    <div class="wrap join-in">
+      <h2 id="join-h">10% off your first ritual, <em>plus the honest skin letter.</em></h2>
+      <p class="lead">One email a week: ingredient deep-dives, batch dates, zero &ldquo;FINAL HOURS!!&rdquo; nonsense. Join 38,000 readers.</p>
+      <form class="join-form" id="join-form" novalidate>
+        <div class="field">
+          <label for="email">Email address</label>
+          <div class="join-row">
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+            <button type="submit" class="btn btn-primary">Get 10% off</button>
+          </div>
+          <p class="field-msg" id="email-msg" aria-live="polite"></p>
+        </div>
+        <p class="micro">No spam, ever. Unsubscribe in one click &mdash; the link is at the top of every email, not buried in grey-on-grey.</p>
+      </form>
+      <div class="join-success" id="join-success" hidden>
+        <b>Welcome in.</b>
+        <p id="join-success-msg">Your 10% code is on its way.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- (12) footer -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="wordmark" href="#top">Aurel<span>.</span></a>
+        <p style="max-width:30ch; font-size:.9rem">Three steps, ninety seconds, made in small batches in Hamburg.</p>
+        <div class="pay-row" aria-label="Accepted payment methods">
+          <svg viewBox="0 0 46 30" role="img" aria-label="Visa"><rect width="46" height="30" rx="5" fill="oklch(97% 0.01 90)"/><text x="23" y="20" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-weight="600" font-size="11" fill="oklch(35% 0.08 265)">VISA</text></svg>
+          <svg viewBox="0 0 46 30" role="img" aria-label="Mastercard"><rect width="46" height="30" rx="5" fill="oklch(97% 0.01 90)"/><circle cx="19" cy="15" r="8" fill="oklch(60% 0.16 35)" opacity=".9"/><circle cx="27" cy="15" r="8" fill="oklch(75% 0.14 75)" opacity=".85"/></svg>
+          <svg viewBox="0 0 56 30" role="img" aria-label="PayPal"><rect width="56" height="30" rx="5" fill="oklch(97% 0.01 90)"/><text x="28" y="19.5" text-anchor="middle" font-family="'Hanken Grotesk',sans-serif" font-weight="700" font-style="italic" font-size="10" fill="oklch(40% 0.09 250)">PayPal</text></svg>
+          <svg viewBox="0 0 56 30" role="img" aria-label="Klarna"><rect width="56" height="30" rx="5" fill="oklch(88% 0.05 25)"/><text x="28" y="19.5" text-anchor="middle" font-family="'Hanken Grotesk',sans-serif" font-weight="700" font-size="10" fill="oklch(25% 0.03 55)">Klarna.</text></svg>
+          <svg viewBox="0 0 50 30" role="img" aria-label="SEPA direct debit"><rect width="50" height="30" rx="5" fill="oklch(97% 0.01 90)"/><text x="25" y="19.5" text-anchor="middle" font-family="'Hanken Grotesk',sans-serif" font-weight="700" font-size="9.5" letter-spacing="1" fill="oklch(40% 0.06 250)">SEPA</text></svg>
+        </div>
+      </div>
+      <nav class="footer-col" aria-label="Shop">
+        <b>Shop</b>
+        <ul>
+          <li><a href="#shop">Rinse &mdash; Cleanser</a></li>
+          <li><a href="#shop">Still &mdash; Serum</a></li>
+          <li><a href="#shop">Seal &mdash; Cream</a></li>
+          <li><a href="#bundle">The Complete Ritual</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Help">
+        <b>Help</b>
+        <ul>
+          <li><a href="#" class="returns-hl">Returns &amp; 60-day guarantee</a></li>
+          <li><a href="#">Shipping &amp; delivery</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">Contact &mdash; hello@aurel.shop</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Company">
+        <b>Company</b>
+        <ul>
+          <li><a href="#">About Aurel</a></li>
+          <li><a href="#">The Journal</a></li>
+          <li><a href="#">Stockists</a></li>
+          <li><a href="#">Sustainability report 2025</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-legal">
+      <p class="row">
+        <span>&copy; 2026 Aurel Skincare GmbH &middot; Hafenstra&szlig;e 12, 22767 Hamburg &middot; USt-IdNr. DE 318 442 901</span>
+      </p>
+      <p class="row">
+        <a href="#">Imprint</a><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookie settings</a><a href="#">Withdrawal policy</a>
+      </p>
+      <p class="credit">
+        <a href="../index.html">&larr; Back to the FABLE&middot;5 showcase</a><br>
+        Template drafted end-to-end by Claude Fable 5 &middot; 06/2026
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- toast -->
+<div class="toast" id="toast" popover="manual" role="status">
+  <b><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-check"/></svg><span id="toast-title">Added to your bag</span></b>
+  <small id="toast-sub"></small>
+</div>
+
+<!-- sticky mobile CTA -->
+<div class="mobile-bar" role="region" aria-label="Quick purchase">
+  <div class="wrap mobile-bar-in">
+    <p class="info"><b>49&nbsp;&euro;</b><span>4.9 &#9733; &middot; 60-day guarantee</span></p>
+    <button class="btn btn-primary" data-add data-name="The Complete Ritual" data-bundle-price="49">Add to bag &mdash; 49&nbsp;&euro;</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- announcement bar ---------- */
+  var annc = document.getElementById("annc");
+  document.getElementById("annc-close").addEventListener("click", function(){
+    annc.hidden = true;
+  });
+
+  /* ---------- cart + toast ---------- */
+  var cart = { items: 0, total: 0 };
+  var FREE_SHIP = 45;
+  var cartBtn = document.getElementById("cart-btn");
+  var cartCount = document.getElementById("cart-count");
+  var toast = document.getElementById("toast");
+  var toastTitle = document.getElementById("toast-title");
+  var toastSub = document.getElementById("toast-sub");
+  var toastTimer = null;
+
+  function euro(n){ return n.toFixed(0) + " €"; }
+
+  function showToast(title, sub){
+    toastTitle.textContent = title;
+    toastSub.textContent = sub;
+    if (typeof toast.showPopover === "function"){
+      try { toast.hidePopover(); } catch(e){}
+      try { toast.showPopover(); } catch(e){}
+    } else {
+      toast.hidden = false;
+      toast.classList.add("on");
+    }
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(hideToast, 3400);
+  }
+  function hideToast(){
+    if (typeof toast.hidePopover === "function"){
+      try { toast.hidePopover(); } catch(e){}
+    } else {
+      toast.classList.remove("on");
+      toast.hidden = true;
+    }
+  }
+
+  function updateCart(){
+    cartCount.textContent = cart.items;
+    cartBtn.setAttribute("aria-label", "Shopping bag, " + cart.items + (cart.items === 1 ? " item" : " items"));
+    if (!reduceMotion){
+      cartCount.classList.remove("pop");
+      void cartCount.offsetWidth; /* restart animation */
+      cartCount.classList.add("pop");
+    }
+  }
+
+  function addToBag(name, price){
+    cart.items += 1;
+    cart.total += price;
+    updateCart();
+    var sub;
+    if (cart.total >= FREE_SHIP){
+      sub = "Free shipping unlocked at 45 € — your order ships free.";
+    } else {
+      sub = euro(FREE_SHIP - cart.total) + " away from free shipping at 45 €.";
+    }
+    showToast(name + " added — " + euro(price), sub);
+  }
+
+  /* add-to-bag buttons (cards, bundle, sticky bar) */
+  document.querySelectorAll("[data-add]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var price;
+      if (btn.hasAttribute("data-bundle-price")){
+        price = parseFloat(btn.getAttribute("data-bundle-price"));
+      } else {
+        var card = btn.closest(".card");
+        var active = card.querySelector('.variant[aria-pressed="true"]');
+        price = parseFloat(active.getAttribute("data-price"));
+      }
+      addToBag(btn.getAttribute("data-name"), price);
+    });
+  });
+
+  /* cart button (demo) */
+  cartBtn.addEventListener("click", function(){
+    if (cart.items === 0){
+      showToast("Your bag is empty", "Add the Complete Ritual — 49 € ships free.");
+    } else {
+      showToast("Bag: " + cart.items + (cart.items === 1 ? " item" : " items") + " · " + euro(cart.total),
+        "This template stops at the till — wire it to your shop backend.");
+    }
+  });
+
+  /* ---------- size variant toggles ---------- */
+  document.querySelectorAll(".variant-row").forEach(function(row){
+    var card = row.closest(".card");
+    var priceEl = card.querySelector("[data-price-display]");
+    var unitEl = card.querySelector("[data-unit]");
+    row.querySelectorAll(".variant").forEach(function(v){
+      v.addEventListener("click", function(){
+        row.querySelectorAll(".variant").forEach(function(o){ o.setAttribute("aria-pressed", "false"); });
+        v.setAttribute("aria-pressed", "true");
+        priceEl.innerHTML = v.getAttribute("data-price") + "&nbsp;€";
+        unitEl.textContent = v.getAttribute("data-unit-price");
+      });
+    });
+  });
+
+  /* ---------- email capture: blur validation + success ---------- */
+  var form = document.getElementById("join-form");
+  var email = document.getElementById("email");
+  var msg = document.getElementById("email-msg");
+  var success = document.getElementById("join-success");
+  var successMsg = document.getElementById("join-success-msg");
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function validateEmail(showOk){
+    var v = email.value.trim();
+    if (v === ""){
+      email.setAttribute("aria-invalid", "true");
+      msg.className = "field-msg err";
+      msg.textContent = "Enter your email so we know where to send the 10% code.";
+      return false;
+    }
+    if (!EMAIL_RE.test(v)){
+      email.setAttribute("aria-invalid", "true");
+      msg.className = "field-msg err";
+      msg.textContent = "That address looks incomplete — double-check the part after the @.";
+      return false;
+    }
+    email.setAttribute("aria-invalid", "false");
+    if (showOk){
+      msg.className = "field-msg ok";
+      msg.textContent = "✓ Looks good.";
+    } else {
+      msg.textContent = "";
+    }
+    return true;
+  }
+
+  email.addEventListener("blur", function(){
+    if (email.value.trim() !== "" || msg.textContent !== "") validateEmail(true);
+  });
+  email.addEventListener("input", function(){
+    if (email.getAttribute("aria-invalid") === "true") validateEmail(true);
+  });
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if (!validateEmail(false)){ email.focus(); return; }
+    var addr = email.value.trim();
+    successMsg.textContent = "Check your inbox, " + addr + " — code RITUAL10 lands within two minutes. It takes 10% off your first order, bundle included.";
+    form.hidden = true;
+    success.hidden = false;
+    success.setAttribute("tabindex", "-1");
+    success.focus();
+  });
+
+  /* ---------- scroll reveals ---------- */
+  var revealEls = document.querySelectorAll("[data-reveal]");
+  if (!reduceMotion && "IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          en.target.classList.add("is-in");
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+    revealEls.forEach(function(el){
+      el.classList.add("reveal-init");
+      io.observe(el);
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ember &amp; Rye — Wood-Fire Dining in Hamburg's Schanze · Reserve a Table</title>
+<meta name="description" content="Ember &amp; Rye: a wood-fire kitchen with seventeen tables on Schulterblatt, Hamburg. Seasonal menu cooked over beech and oak. ★ 4.8 from 1,900+ reviews, Bib Gourmand 2026. Reserve online — free cancellation until 4 pm.">
+<meta name="theme-color" content="#211b16">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============ EMBER & RYE — tokens ============ */
+:root{
+  --bg:        oklch(20% 0.014 55);
+  --bg-deep:   oklch(17% 0.012 50);
+  --bg-2:      oklch(23% 0.016 55);
+  --bg-3:      oklch(26% 0.018 58);
+  --line:      oklch(33% 0.022 58);
+  --line-soft: oklch(28% 0.018 56);
+  --ink:       oklch(94% 0.014 80);
+  --ink-soft:  oklch(80% 0.022 75);
+  --ink-faint: oklch(70% 0.02 72);
+  --ember:     oklch(75% 0.145 52);
+  --ember-hi:  oklch(82% 0.13 62);
+  --ember-deep:oklch(56% 0.15 42);
+  --copper:    oklch(70% 0.09 62);
+  --ok:        oklch(80% 0.13 150);
+  --err:       oklch(78% 0.14 32);
+  --serif: "DM Serif Display", "Iowan Old Style", Georgia, serif;
+  --sans:  "Karla", "Avenir Next", Helvetica, sans-serif;
+  --radius: 4px;
+  --shadow: 0 24px 60px oklch(8% 0.01 50 / .55);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  font-size:1.0625rem; line-height:1.62;
+  color:var(--ink); background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+/* candle-grain over everything */
+body::after{
+  content:""; position:fixed; inset:0; z-index:2147483000; pointer-events:none;
+  opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--ember-deep); color:var(--ink)}
+h1,h2,h3,h4{font-family:var(--serif); font-weight:400; line-height:1.08; letter-spacing:.005em}
+a{color:var(--ember-hi)}
+:focus-visible{outline:2px solid var(--ember); outline-offset:3px; border-radius:2px}
+.skip{position:absolute; left:-999px; top:0; z-index:9999; background:var(--ember); color:var(--bg-deep); padding:.8rem 1.2rem; font-weight:700; text-decoration:none}
+.skip:focus-visible{left:1rem; top:1rem}
+.wrap{width:min(1120px, 100% - 2.5rem); margin-inline:auto}
+section{scroll-margin-top:5.5rem}
+.kicker{
+  font-size:.78rem; font-weight:700; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--ember); display:flex; align-items:center; gap:.9rem;
+}
+.kicker::before{content:""; width:2.2rem; height:1px; background:var(--ember-deep)}
+.sr{position:absolute; width:1px; height:1px; clip-path:inset(50%); overflow:hidden; white-space:nowrap}
+
+/* ============ buttons ============ */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+  min-height:48px; padding:.75rem 1.7rem; border-radius:var(--radius);
+  font:700 1rem/1 var(--sans); letter-spacing:.02em; text-decoration:none;
+  border:1px solid transparent; cursor:pointer;
+  transition:background-color .2s, color .2s, border-color .2s, translate .2s;
+}
+.btn-primary{background:var(--ember); color:oklch(18% 0.02 50)}
+.btn-primary:hover{background:var(--ember-hi); translate:0 -1px}
+.btn-ghost{background:transparent; color:var(--ink); border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ember); color:var(--ember-hi)}
+.btn[disabled]{opacity:.4; cursor:not-allowed}
+.microcopy{font-size:.85rem; color:var(--ink-faint); margin-top:.6rem}
+
+/* ============ nav ============ */
+.nav{
+  position:sticky; top:0; z-index:60;
+  background:oklch(19% 0.013 53 / .86); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line-soft);
+}
+.nav-in{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.7rem 0}
+.brand{display:flex; align-items:center; gap:.65rem; text-decoration:none; color:var(--ink); min-height:44px}
+.brand svg{flex:none}
+.brand b{font-family:var(--serif); font-weight:400; font-size:1.35rem; letter-spacing:.02em}
+.brand b em{font-style:normal; color:var(--ember)}
+.nav-links{display:flex; align-items:center; gap:.25rem; list-style:none}
+.nav-links a:not(.btn){
+  display:inline-flex; align-items:center; min-height:44px; padding:0 .9rem;
+  color:var(--ink-soft); text-decoration:none; font-weight:500; font-size:.95rem;
+}
+.nav-links a:not(.btn):hover{color:var(--ember-hi)}
+.nav .btn{min-height:44px; padding:.55rem 1.3rem; margin-left:.5rem}
+@media (max-width:719px){ .nav-links a:not(.btn){display:none} }
+
+/* ============ hero ============ */
+.hero{position:relative; overflow:clip; border-bottom:1px solid var(--line-soft);
+  background:
+    radial-gradient(60rem 36rem at 78% -10%, oklch(30% 0.05 45 / .5), transparent 65%),
+    radial-gradient(40rem 26rem at 10% 110%, oklch(26% 0.04 40 / .55), transparent 60%),
+    var(--bg-deep);
+}
+.hero-in{position:relative; z-index:1; padding:clamp(4.5rem, 10vw, 8.5rem) 0 clamp(3rem, 6vw, 5rem); max-width:46rem}
+.hero h1{
+  font-size:clamp(2.7rem, 7.2vw, 5.4rem);
+  margin:1.1rem 0 1.3rem; text-wrap:balance;
+}
+.hero h1 em{font-style:italic; color:var(--ember)}
+.hero .sub{font-size:clamp(1.05rem, 1.6vw, 1.25rem); color:var(--ink-soft); max-width:34rem; margin-bottom:2rem}
+.avail{
+  display:inline-flex; align-items:center; gap:.6rem; margin-bottom:1.7rem;
+  font-size:.92rem; color:var(--ink-soft);
+  border:1px solid var(--line); border-radius:999px; padding:.45rem 1.1rem;
+  background:oklch(24% 0.02 55 / .6);
+}
+.avail .dot{width:.55rem; height:.55rem; border-radius:50%; background:var(--ember); box-shadow:0 0 12px var(--ember)}
+.trustline{display:flex; flex-wrap:wrap; align-items:center; gap:.5rem 1.1rem; margin-top:1.9rem; font-size:.95rem; color:var(--ink-soft)}
+.stars{display:inline-flex; gap:2px}
+.stars svg{width:15px; height:15px; fill:var(--ember)}
+.trustline .sep{color:var(--line); }
+.bib{font-weight:700; color:var(--copper); letter-spacing:.04em}
+.hero-art{
+  position:absolute; right:-4rem; bottom:-3rem; width:clamp(280px, 38vw, 540px); height:auto;
+  opacity:.85; pointer-events:none;
+}
+@media (max-width:719px){ .hero-art{opacity:.3; right:-7rem} }
+
+/* ============ info strip ============ */
+.infostrip{background:var(--bg-2); border-bottom:1px solid var(--line-soft)}
+.infostrip ul{
+  list-style:none; display:grid; gap:0;
+  grid-template-columns:repeat(auto-fit, minmax(230px,1fr));
+}
+.infostrip li{
+  display:flex; align-items:center; gap:.9rem; padding:1.15rem 1.2rem;
+  border-top:1px solid var(--line-soft); font-size:.95rem; color:var(--ink-soft);
+}
+.infostrip li + li{border-left:1px solid var(--line-soft)}
+@media (max-width:719px){ .infostrip li + li{border-left:none} }
+.infostrip svg{flex:none; width:22px; height:22px; stroke:var(--ember); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round}
+.infostrip strong{display:block; color:var(--ink); font-weight:700; font-size:1rem}
+.infostrip a.tel{
+  font-family:var(--serif); font-size:1.35rem; color:var(--ink); text-decoration:none;
+  display:inline-flex; align-items:center; min-height:44px;
+}
+.infostrip a.tel:hover{color:var(--ember-hi)}
+
+/* ============ sections ============ */
+.sect{padding:clamp(4rem, 9vw, 7.5rem) 0}
+.sect-head{max-width:42rem; margin-bottom:clamp(2.2rem, 5vw, 3.6rem)}
+.sect-head h2{font-size:clamp(2rem, 4.6vw, 3.4rem); margin-top:1rem; text-wrap:balance}
+.sect-head p{color:var(--ink-soft); margin-top:.9rem}
+
+/* ============ menu as theatre ============ */
+.menu{background:var(--bg-deep); border-block:1px solid var(--line-soft)}
+.courses{display:grid; gap:clamp(2.5rem,5vw,4rem)}
+.course h3{
+  font-size:1.05rem; font-family:var(--sans); font-weight:700; letter-spacing:.3em;
+  text-transform:uppercase; color:var(--copper); margin-bottom:1.6rem;
+  display:flex; align-items:baseline; gap:1rem;
+}
+.course h3::after{content:""; flex:1; height:1px; background:var(--line-soft); align-self:center}
+.course ul{list-style:none; display:grid; gap:1.5rem}
+.dish-line{display:flex; align-items:baseline; gap:.7rem}
+.dish-name{font-size:clamp(1.45rem, 2.6vw, 1.9rem); color:var(--ink)}
+.dots{flex:1; min-width:2rem; border-bottom:2px dotted oklch(45% 0.025 58 / .8); transform:translateY(-6px)}
+.price{font-family:var(--serif); font-size:clamp(1.3rem,2.2vw,1.6rem); color:var(--ember-hi); white-space:nowrap}
+.dish-desc{color:var(--ink-faint); font-size:.97rem; max-width:36rem; margin-top:.25rem}
+.tag{
+  display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.1em;
+  color:var(--copper); border:1px solid var(--line); border-radius:999px;
+  padding:.1rem .5rem; vertical-align:.35em; margin-left:.45rem; text-decoration:none;
+}
+.dish.signature{
+  border-left:3px solid var(--ember); padding-left:1.4rem; margin-left:-1.4rem;
+  position:relative;
+}
+.dish.signature .dish-note{
+  font-style:italic; color:var(--ember); font-size:.97rem; margin-top:.35rem; font-family:var(--serif);
+}
+.menu-note{margin-top:3rem; color:var(--ink-faint); font-size:.92rem; max-width:38rem}
+.menu-cta{margin-top:2.6rem; display:flex; flex-wrap:wrap; align-items:center; gap:1.2rem}
+.menu-cta .mini-trust{font-size:.9rem; color:var(--ink-faint); display:inline-flex; align-items:center; gap:.5rem}
+
+/* ============ story ============ */
+.story-grid{display:grid; gap:clamp(2.5rem,5vw,5rem); align-items:center}
+@media (min-width:880px){ .story-grid{grid-template-columns:1.1fr .9fr} }
+.story h3{font-size:clamp(1.6rem,3vw,2.2rem); margin:1.1rem 0 .4rem}
+.story .role{color:var(--copper); font-size:.95rem; margin-bottom:1.3rem}
+.story p + p{margin-top:1rem}
+.story p{color:var(--ink-soft)}
+.philosophy{
+  margin-top:2rem; padding-left:1.4rem; border-left:3px solid var(--ember);
+  font-family:var(--serif); font-size:clamp(1.2rem,2vw,1.45rem); line-height:1.5; color:var(--ink);
+}
+.story-art{display:flex; justify-content:center}
+.story-art svg{width:min(380px, 100%); height:auto}
+
+/* ============ reviews ============ */
+.reviews{background:var(--bg-2); border-block:1px solid var(--line-soft)}
+.quote-grid{display:grid; gap:1.25rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.quote{
+  background:var(--bg); border:1px solid var(--line-soft); border-radius:var(--radius);
+  padding:1.8rem 1.7rem; display:flex; flex-direction:column; gap:1.2rem;
+  box-shadow:var(--shadow);
+}
+.quote blockquote{font-family:var(--serif); font-size:1.3rem; line-height:1.4; text-wrap:pretty}
+.quote blockquote::before{content:"“"; color:var(--ember); }
+.quote blockquote::after{content:"”"; color:var(--ember)}
+.quote figcaption{display:flex; align-items:center; gap:.85rem; margin-top:auto; font-size:.9rem; color:var(--ink-faint)}
+.quote figcaption b{display:block; color:var(--ink); font-size:.95rem}
+.avatar{width:44px; height:44px; border-radius:50%; flex:none}
+.press-row{
+  margin-top:3rem; display:flex; flex-wrap:wrap; align-items:center; gap:1.4rem 2.8rem;
+}
+.press-row .plabel{font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-faint)}
+.press-row svg{height:22px; width:auto; opacity:.75}
+.press-row svg text{font-family:var(--sans); font-weight:700; letter-spacing:.22em; fill:var(--ink-soft); font-size:15px}
+
+/* ============ private dining ============ */
+.private-grid{display:grid; gap:2.5rem; align-items:center}
+@media (min-width:880px){ .private-grid{grid-template-columns:1fr auto} }
+.private p{color:var(--ink-soft); max-width:36rem; margin-top:.9rem}
+.private .facts{margin-top:1.4rem; display:flex; flex-wrap:wrap; gap:.6rem 1.8rem; font-size:.92rem; color:var(--ink-faint); list-style:none}
+.private .facts li::before{content:"— "; color:var(--ember)}
+
+/* ============ reservation widget ============ */
+.reserve{background:
+  radial-gradient(50rem 30rem at 50% -20%, oklch(30% 0.05 45 / .4), transparent 70%),
+  var(--bg-deep);
+  border-block:1px solid var(--line-soft);
+}
+.resv-grid{display:grid; gap:2.5rem}
+@media (min-width:960px){ .resv-grid{grid-template-columns:.8fr 1.2fr; align-items:start} }
+.resv-aside p{color:var(--ink-soft); margin-top:.9rem; max-width:30rem}
+.assure{margin-top:2rem; display:grid; gap:1rem; list-style:none}
+.assure li{display:flex; gap:.8rem; align-items:flex-start; font-size:.95rem; color:var(--ink-soft)}
+.assure svg{flex:none; width:20px; height:20px; stroke:var(--ember); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; margin-top:.15rem}
+.resv-card{
+  background:var(--bg-2); border:1px solid var(--line); border-radius:6px;
+  padding:clamp(1.4rem, 3vw, 2.2rem); box-shadow:var(--shadow);
+  container-type:inline-size; container-name:resv;
+}
+.progress{list-style:none; display:flex; gap:.4rem; margin-bottom:1.8rem; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase}
+.progress li{
+  flex:1; text-align:center; color:var(--ink-faint); padding-top:.7rem; position:relative; font-weight:700;
+}
+.progress li::before{content:""; position:absolute; top:0; left:0; right:0; height:3px; background:var(--line); border-radius:2px}
+.progress li.done::before, .progress li[aria-current]::before{background:var(--ember)}
+.progress li[aria-current]{color:var(--ember-hi)}
+.rstep{display:none}
+.rstep.shown{display:block; opacity:1; translate:0 0; transition:opacity .45s ease, translate .45s ease}
+@starting-style{ .rstep.shown{opacity:0; translate:0 14px} }
+.rstep + .rstep.shown{margin-top:1.9rem; padding-top:1.7rem; border-top:1px dashed var(--line)}
+.rstep .qlabel{font-family:var(--serif); font-size:1.3rem; margin-bottom:1rem; display:block}
+.pillrow{display:flex; flex-wrap:wrap; gap:.55rem}
+.pill{
+  min-height:48px; min-width:48px; padding:.45rem 1rem; border-radius:var(--radius);
+  background:var(--bg); border:1px solid var(--line); color:var(--ink);
+  font:500 .95rem/1.25 var(--sans); cursor:pointer; text-align:center;
+  transition:border-color .15s, background-color .15s, color .15s;
+}
+.pill small{display:block; color:var(--ink-faint); font-size:.74rem; letter-spacing:.04em}
+.pill:hover:not([disabled]){border-color:var(--ember)}
+.pill[aria-pressed="true"]{background:var(--ember); border-color:var(--ember); color:oklch(18% 0.02 50)}
+.pill[aria-pressed="true"] small{color:oklch(26% 0.035 50)}
+.pill[disabled]{opacity:.38; cursor:not-allowed; text-decoration:line-through; text-decoration-color:var(--ember-deep)}
+@container resv (min-width:560px){ .pillrow.dates .pill{flex:1} }
+.slot-hint{font-size:.85rem; color:var(--ink-faint); margin-top:.8rem}
+.party-note{font-size:.88rem; color:var(--copper); margin-top:.8rem; font-style:italic}
+.field{margin-bottom:1.2rem; position:relative}
+.field label{display:block; font-weight:700; font-size:.92rem; margin-bottom:.4rem}
+.field input{
+  width:100%; min-height:50px; padding:.7rem .95rem; border-radius:var(--radius);
+  background:var(--bg); border:1px solid var(--line); color:var(--ink);
+  font:400 1rem var(--sans);
+}
+.field input::placeholder{color:oklch(52% 0.02 70)}
+.field input:focus-visible{outline:2px solid var(--ember); outline-offset:1px; border-color:var(--ember)}
+.field:has(input:focus) label{color:var(--ember-hi)}
+.field .err-msg{display:none; font-size:.85rem; color:var(--err); margin-top:.4rem}
+.field.invalid input{border-color:var(--err)}
+.field.invalid .err-msg{display:block}
+.field .tick{
+  display:none; position:absolute; right:.9rem; top:2.45rem;
+  width:20px; height:20px; stroke:var(--ok); fill:none; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round;
+}
+.field.valid .tick{display:block}
+.form-foot{font-size:.85rem; color:var(--ink-faint); margin-top:1rem; display:flex; gap:.6rem; align-items:flex-start}
+.form-foot svg{flex:none; width:18px; height:18px; stroke:var(--copper); fill:none; stroke-width:1.7; stroke-linecap:round; margin-top:.15rem}
+.resv-success{display:none; text-align:left}
+.resv-success.shown{display:block; opacity:1; translate:0 0; transition:opacity .5s ease, translate .5s ease}
+@starting-style{ .resv-success.shown{opacity:0; translate:0 16px} }
+.resv-success .flame-ok{width:64px; height:64px; margin-bottom:1.2rem}
+.resv-success h3{font-size:clamp(1.6rem,3vw,2.1rem); margin-bottom:.8rem; text-wrap:balance}
+.resv-success p{color:var(--ink-soft)}
+.resv-success .demo-note{font-size:.8rem; color:var(--ink-faint); margin-top:1.6rem}
+
+/* ============ FAQ ============ */
+.faq{max-width:46rem}
+.faq details{border-bottom:1px solid var(--line-soft)}
+.faq summary{
+  list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1.2rem;
+  font-family:var(--serif); font-size:clamp(1.2rem, 2.2vw, 1.5rem); padding:1.35rem .2rem; min-height:44px;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .x{
+  flex:none; width:22px; height:22px; position:relative; transition:rotate .25s ease;
+}
+.faq summary .x::before, .faq summary .x::after{
+  content:""; position:absolute; inset:0; margin:auto; background:var(--ember);
+}
+.faq summary .x::before{width:100%; height:2px}
+.faq summary .x::after{width:2px; height:100%}
+.faq details[open] summary .x{rotate:45deg}
+.faq details[open] summary{color:var(--ember-hi)}
+.faq .a{padding:0 .2rem 1.5rem; color:var(--ink-soft); max-width:40rem}
+
+/* ============ hours & location ============ */
+.hours-grid{display:grid; gap:clamp(2.5rem,5vw,4.5rem)}
+@media (min-width:880px){ .hours-grid{grid-template-columns:1fr 1.1fr; align-items:start} }
+.hours table{width:100%; border-collapse:collapse; font-size:.98rem}
+.hours caption{text-align:left; font-family:var(--serif); font-size:1.4rem; margin-bottom:1rem}
+.hours th, .hours td{padding:.7rem .4rem; text-align:left; border-bottom:1px solid var(--line-soft)}
+.hours th{font-weight:700; color:var(--ink); width:34%}
+.hours td{color:var(--ink-soft)}
+.hours tr.today th, .hours tr.today td{color:var(--ember-hi)}
+.hours tr.today{background:oklch(28% 0.035 50 / .45)}
+.hours .today-badge{
+  display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:oklch(18% 0.02 50); background:var(--ember); border-radius:999px; padding:.12rem .55rem; margin-left:.6rem;
+}
+.hours .note{font-size:.88rem; color:var(--ink-faint); margin-top:1rem}
+.getting-here{margin-top:2.2rem; display:grid; gap:.9rem; list-style:none; font-size:.95rem; color:var(--ink-soft)}
+.getting-here li{display:flex; gap:.8rem; align-items:flex-start}
+.getting-here svg{flex:none; width:20px; height:20px; stroke:var(--ember); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; margin-top:.2rem}
+.map-card{background:var(--bg-2); border:1px solid var(--line-soft); border-radius:6px; padding:1rem; box-shadow:var(--shadow)}
+.map-card svg{width:100%; height:auto; display:block}
+
+/* ============ footer ============ */
+footer{background:var(--bg-deep); border-top:1px solid var(--line-soft); padding:3.5rem 0 7rem}
+.foot-grid{display:flex; flex-wrap:wrap; gap:2rem 4rem; justify-content:space-between; margin-bottom:2.8rem}
+.foot-grid nav ul{list-style:none; display:grid; gap:.35rem}
+.foot-grid nav a{color:var(--ink-faint); text-decoration:none; font-size:.93rem; display:inline-flex; min-height:34px; align-items:center}
+.foot-grid nav a:hover{color:var(--ember-hi)}
+.foot-grid .fh{font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; color:var(--copper); margin-bottom:.8rem; font-weight:700}
+.legal{font-size:.85rem; color:var(--ink-faint); border-top:1px solid var(--line-soft); padding-top:1.8rem; display:grid; gap:.5rem}
+.legal a{color:var(--ink-soft)}
+
+/* ============ sticky mobile bar ============ */
+.mobilebar{display:none}
+@media (max-width:719px){
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  .mobilebar{
+    position:fixed; bottom:0; left:0; right:0; z-index:70;
+    display:flex; gap:.6rem; padding:.7rem .9rem calc(.7rem + env(safe-area-inset-bottom));
+    background:oklch(17% 0.012 50 / .92); backdrop-filter:blur(14px);
+    border-top:1px solid var(--line);
+  }
+  .mobilebar .btn-primary{flex:1}
+  .mobilebar .btn-tel{
+    flex:none; width:48px; height:48px; display:inline-flex; align-items:center; justify-content:center;
+    border:1px solid var(--line); border-radius:var(--radius); color:var(--ember);
+  }
+  .mobilebar .btn-tel svg{width:22px; height:22px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+  footer{padding-bottom:2.5rem}
+}
+
+/* ============ reveals & motion ============ */
+.reveal{opacity:0; translate:0 22px; transition:opacity .7s ease, translate .7s ease}
+.reveal.in{opacity:1; translate:0 0}
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    .hero-art{animation:flame-drift linear both; animation-timeline:view(); animation-range:exit 0% exit 100%}
+    @keyframes flame-drift{ to{translate:0 -60px; opacity:.4} }
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important; transition:none !important}
+  .reveal{opacity:1; translate:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#reserve">Skip to reservations</a>
+
+<!-- ======== NAV ======== -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Ember and Rye — home">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+        <circle cx="15" cy="15" r="14" fill="none" stroke="oklch(75% 0.145 52)" stroke-width="1.4"/>
+        <path d="M15 6.5c2.6 3 4.8 5.4 4.8 8.7 0 3.1-2.1 5.6-4.8 5.6s-4.8-2.5-4.8-5.6c0-2 .9-3.5 2-5 .2 1.2.7 2 1.6 2.6-.2-2.4.2-4.4 1.2-6.3z" fill="oklch(75% 0.145 52)"/>
+        <path d="M15 23.5v.01" stroke="oklch(75% 0.145 52)" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <b>Ember <em>&amp;</em> Rye</b>
+    </a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#story">Story</a></li>
+        <li><a href="#private">Private</a></li>
+        <li><a class="btn btn-primary" href="#reserve">Reserve</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ======== HERO ======== -->
+<section class="hero" aria-labelledby="hero-h">
+  <svg class="hero-art" viewBox="0 0 420 620" aria-hidden="true" fill="none">
+    <path d="M210 590c-70-90-62-160-8-238 50-72 38-138-8-196 76 54 110 144 64 236 68-58 78-150 44-220 70 84 84 226 12 322" stroke="oklch(56% 0.15 42)" stroke-width="2.5" opacity=".55"/>
+    <path d="M196 560c-44-66-40-122 2-180 36-50 30-98-2-140 54 40 76 104 44 170 46-42 54-104 30-154 50 62 58 162 6 232" stroke="oklch(75% 0.145 52)" stroke-width="2" opacity=".5"/>
+    <path d="M236 120c10-26 4-52-14-74 30 12 48 40 42 76" stroke="oklch(82% 0.13 62)" stroke-width="1.6" opacity=".5" stroke-dasharray="3 7"/>
+    <path d="M150 200c-16-30-12-60 8-88-34 18-50 56-36 96" stroke="oklch(70% 0.09 62)" stroke-width="1.6" opacity=".4" stroke-dasharray="3 8"/>
+    <path d="M120 600h180" stroke="oklch(33% 0.022 58)" stroke-width="2"/>
+  </svg>
+  <div class="wrap">
+    <div class="hero-in">
+      <p class="kicker">Wood-fire kitchen · Hamburg Schanze</p>
+      <h1 id="hero-h">Fire, smoke, and <em>seventeen</em> tables.</h1>
+      <p class="sub">One open hearth, beech and oak, a menu that turns with the market. On Schulterblatt since 2021 — small on purpose, booked for a reason.</p>
+      <p class="avail"><span class="dot" aria-hidden="true"></span> <span id="availText">Tonight: 2 tables left, at 21:30 and 22:00 — we're 17 tables small, it goes fast.</span></p>
+      <div>
+        <a class="btn btn-primary" href="#reserve">Reserve a table</a>
+        <p class="microcopy">Free cancellation until 4&thinsp;pm same day. No deposit for tables up to 6.</p>
+      </div>
+      <p class="trustline">
+        <span class="stars" aria-hidden="true">
+          <svg viewBox="0 0 20 19"><path d="M10 0l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L10 14.7 4.1 18l1.3-6.5L.5 6.9l6.6-.8z"/></svg>
+          <svg viewBox="0 0 20 19"><path d="M10 0l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L10 14.7 4.1 18l1.3-6.5L.5 6.9l6.6-.8z"/></svg>
+          <svg viewBox="0 0 20 19"><path d="M10 0l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L10 14.7 4.1 18l1.3-6.5L.5 6.9l6.6-.8z"/></svg>
+          <svg viewBox="0 0 20 19"><path d="M10 0l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L10 14.7 4.1 18l1.3-6.5L.5 6.9l6.6-.8z"/></svg>
+          <svg viewBox="0 0 20 19"><path d="M10 0l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L10 14.7 4.1 18l1.3-6.5L.5 6.9l6.6-.8z"/></svg>
+        </span>
+        <strong>4.8</strong> · 1,900+ Google reviews <span class="sep" aria-hidden="true">|</span> <span class="bib">BIB GOURMAND 2026</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== INFO STRIP ======== -->
+<aside class="infostrip" aria-label="Hours, address and phone">
+  <div class="wrap">
+    <ul>
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2.5"/></svg>
+        <span><strong id="tonightHours">Tonight 18:00 – 23:30</strong> <span id="kitchenLine">kitchen until 22:00</span></span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <span><strong>Schulterblatt 73</strong> 20357 Hamburg</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        <span><a class="tel" href="tel:+49404328817">040 432 88 17</a><br><span style="font-size:.85rem">tap to call — we pick up</span></span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M9 21l1.5-4M15 21l-1.5-4"/><circle cx="9" cy="14" r=".5"/><circle cx="15" cy="14" r=".5"/></svg>
+        <span><strong>U/S Sternschanze</strong> 4 minutes on foot</span>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+<!-- ======== MENU ======== -->
+<section class="sect menu" id="menu" aria-labelledby="menu-h">
+  <div class="wrap">
+    <div class="sect-head reveal">
+      <p class="kicker">From the fire, tonight</p>
+      <h2 id="menu-h">The menu is short. The fire is not negotiable.</h2>
+      <p>Everything below touches beech or oak before it touches your table. The menu turns with the market, roughly every two weeks — and it lives on this page, never in a PDF.</p>
+    </div>
+
+    <div class="courses">
+      <div class="course reveal">
+        <h3>To begin</h3>
+        <ul>
+          <li class="dish">
+            <div class="dish-line"><h4 class="dish-name">Charred leeks<span class="tag">v<span class="sr"> vegetarian</span></span></h4><span class="dots" aria-hidden="true"></span><span class="price">14</span></div>
+            <p class="dish-desc">Hazelnut cream, brown butter, cured egg yolk grated over at the table.</p>
+          </li>
+          <li class="dish">
+            <div class="dish-line"><h4 class="dish-name">Smoked beetroot tartare<span class="tag">v<span class="sr"> vegetarian</span></span><span class="tag">gf<span class="sr"> gluten-free</span></span></h4><span class="dots" aria-hidden="true"></span><span class="price">13</span></div>
+            <p class="dish-desc">Horseradish, dill oil, rye crisp on the side so the gf claim holds.</p>
+          </li>
+          <li class="dish">
+            <div class="dish-line"><h4 class="dish-name">Fire-licked scallops<span class="tag">gf<span class="sr"> gluten-free</span></span></h4><span class="dots" aria-hidden="true"></span><span class="price">19</span></div>
+            <p class="dish-desc">Fermented chilli butter, sea herbs, thirty seconds over open flame.</p>
+          </li>
+          <li class="dish">
+            <div class="dish-line"><h4 class="dish-name">Sourdough &amp; embers</h4><span class="dots" aria-hidden="true"></span><span class="price">7</span></div>
+            <p class="dish-desc">Our rye loaf, baked in the dying fire each morning. Bone-marrow butter or whipped smoked cream — pick a side.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="course reveal">
+        <h3>From the embers</h3>
+        <ul>
+          <li class="dish signature">
+            <div class="dish-line"><h4 class="dish-name">48-hour short rib<span class="tag">gf<span class="sr"> gluten-free</span></span></h4><span class="dots" aria-hidden="true"></span><span class="price">38</span></div>
+            <p class="dish-desc">Molasses glaze, charred onion, potatoes finished in beef fat.</p>
+            <p class="dish-note">— the reason half our bookings exist.</p>
+          </li>
+          <li class="dish">
+            <div class="dish-line"><h4 class="dish-name">Whole sea bream<span class="tag">gf<span class="sr"> gluten-free</span></span></h4><span class="dots" aria-hidden="true"></span><span class="price">32</span></div>
+            <p class="dish-desc">Grilled lemon, fennel two ways, green sauce. For one greedy person or two reasonable ones.</p>
+          </li>
+          <li class="dish">
+            <div class="dish-line"><h4 class="dish-name">Celeriac steak<span class="tag">v<span class="sr"> vegetarian</span></span><span class="tag">gf<span class="sr"> gluten-free</span></span></h4><span class="dots" aria-hidden="true"></span><span class="price">26</span></div>
+            <p class="dish-desc">Three hours buried in the coals, mushroom jus, toasted hazelnut. Carnivores order it by accident and come back for it on purpose.</p>
+          </li>
+          <li class="dish">
+            <div class="dish-line"><h4 class="dish-name">Ibérico presa<span class="tag">gf<span class="sr"> gluten-free</span></span></h4><span class="dots" aria-hidden="true"></span><span class="price">36</span></div>
+            <p class="dish-desc">Quince, black garlic, grilled radicchio. Served rosé — trust the fire.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="course reveal">
+        <h3>To finish</h3>
+        <ul>
+          <li class="dish">
+            <div class="dish-line"><h4 class="dish-name">Burnt cheesecake<span class="tag">v<span class="sr"> vegetarian</span></span></h4><span class="dots" aria-hidden="true"></span><span class="price">12</span></div>
+            <p class="dish-desc">Wood-oven baked, rye crumb, plum compote from Altes Land fruit.</p>
+          </li>
+          <li class="dish">
+            <div class="dish-line"><h4 class="dish-name">Chocolate &amp; smoke<span class="tag">v<span class="sr"> vegetarian</span></span><span class="tag">gf<span class="sr"> gluten-free</span></span></h4><span class="dots" aria-hidden="true"></span><span class="price">13</span></div>
+            <p class="dish-desc">70&thinsp;% ganache, smoked salt, brown-butter ice cream.</p>
+          </li>
+          <li class="dish">
+            <div class="dish-line"><h4 class="dish-name">Grilled pear<span class="tag">v<span class="sr"> vegetarian</span></span></h4><span class="dots" aria-hidden="true"></span><span class="price">11</span></div>
+            <p class="dish-desc">Burnt caramel, toasted-rye ice cream, a little schnapps if you nod.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="menu-note">v — vegetarian · gf — gluten-free. Most dishes flex for allergies with a day's notice; the fire itself is non-negotiable. Tasting menu (5 courses, €68) for the whole table on request.</p>
+
+    <div class="menu-cta reveal">
+      <a class="btn btn-primary" href="#reserve">Reserve a table</a>
+      <span class="mini-trust">
+        <svg width="14" height="14" viewBox="0 0 20 19" aria-hidden="true"><path d="M10 0l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L10 14.7 4.1 18l1.3-6.5L.5 6.9l6.6-.8z" fill="oklch(75% 0.145 52)"/></svg>
+        4.8 · 1,900+ reviews — most of them mention the short rib
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ======== STORY ======== -->
+<section class="sect" id="story" aria-labelledby="story-h">
+  <div class="wrap story-grid">
+    <div class="story reveal">
+      <p class="kicker">The hands behind the hearth</p>
+      <h2 id="story-h" class="sr">Our story</h2>
+      <h3>Chef Ilka Brandt</h3>
+      <p class="role">Seven years running the pass at two-Michelin-star Sølvtrane, Copenhagen. Born three streets from here.</p>
+      <p>Ilka came home in 2021 with one conviction: the most honest kitchen instrument ever built is a fire, and Hamburg deserved a room built around one. She tore the gas line out of a former print shop on Schulterblatt, bricked a hearth where the presses stood, and capped the dining room at seventeen tables — close enough that every seat can see the flames work.</p>
+      <p class="philosophy">We cook over beech and oak, nothing else. The menu is whatever the market and the fire agree on. If a dish doesn't need smoke, it doesn't make the menu.</p>
+    </div>
+    <div class="story-art reveal" aria-hidden="true">
+      <svg viewBox="0 0 360 420" fill="none">
+        <path d="M110 400h140" stroke="oklch(33% 0.022 58)" stroke-width="2"/>
+        <path d="M125 400l20-22h70l20 22" stroke="oklch(70% 0.09 62)" stroke-width="2"/>
+        <ellipse cx="180" cy="378" rx="52" ry="9" stroke="oklch(56% 0.15 42)" stroke-width="2"/>
+        <path d="M180 372c-34-42-30-78 4-116 30-35 24-68-4-98 40 28 56 74 30 122 36-30 42-76 22-112 38 44 44 116-6 170" stroke="oklch(75% 0.145 52)" stroke-width="2.4"/>
+        <path d="M156 330c-20-30-16-58 6-86" stroke="oklch(82% 0.13 62)" stroke-width="1.8" opacity=".7"/>
+        <path d="M205 90c8-20 4-40-10-58 24 10 38 32 33 60" stroke="oklch(70% 0.09 62)" stroke-width="1.6" stroke-dasharray="3 7"/>
+        <path d="M150 120c-12-22-9-44 6-64-26 14-38 42-27 72" stroke="oklch(70% 0.09 62)" stroke-width="1.6" stroke-dasharray="3 8"/>
+        <path d="M232 40c6-12 4-24-4-34 14 7 22 20 19 36" stroke="oklch(70% 0.09 62)" stroke-width="1.4" stroke-dasharray="2 6" opacity=".7"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ======== REVIEWS ======== -->
+<section class="sect reviews" aria-labelledby="rev-h">
+  <div class="wrap">
+    <div class="sect-head reveal">
+      <p class="kicker">What the room says</p>
+      <h2 id="rev-h">Seventeen tables, nineteen hundred opinions.</h2>
+    </div>
+    <div class="quote-grid">
+      <figure class="quote reveal">
+        <blockquote>The short rib should be a protected landmark. We booked again before the dessert plates were cleared.</blockquote>
+        <figcaption>
+          <svg class="avatar" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="24" fill="oklch(45% 0.09 45)"/><circle cx="24" cy="19" r="8" fill="none" stroke="oklch(90% 0.02 80)" stroke-width="2"/><path d="M10 42c2-9 7-13 14-13s12 4 14 13" fill="none" stroke="oklch(90% 0.02 80)" stroke-width="2"/></svg>
+          <span><b>Jonas K.</b> Google review · ★★★★★ · March 2026</span>
+        </figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <blockquote>The best argument for burning things since the invention of the candle. Brandt's celeriac converts carnivores nightly.</blockquote>
+        <figcaption>
+          <svg class="avatar" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="24" fill="oklch(42% 0.07 70)"/><circle cx="24" cy="19" r="8" fill="none" stroke="oklch(90% 0.02 80)" stroke-width="2"/><path d="M10 42c2-9 7-13 14-13s12 4 14 13" fill="none" stroke="oklch(90% 0.02 80)" stroke-width="2"/><path d="M16 14c2-4 14-4 16 0" stroke="oklch(90% 0.02 80)" stroke-width="2" fill="none"/></svg>
+          <span><b>Marek Hollstein</b> ELBSEGLER, Hamburg's city magazine</span>
+        </figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <blockquote>Book the counter seats and watch the hearth being worked. Cheapest theatre in the Schanze, and dinner's included.</blockquote>
+        <figcaption>
+          <svg class="avatar" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="24" fill="oklch(40% 0.06 30)"/><circle cx="24" cy="19" r="8" fill="none" stroke="oklch(90% 0.02 80)" stroke-width="2"/><path d="M10 42c2-9 7-13 14-13s12 4 14 13" fill="none" stroke="oklch(90% 0.02 80)" stroke-width="2"/><path d="M14 21c0-7 4-11 10-11s10 4 10 11" stroke="oklch(90% 0.02 80)" stroke-width="2" fill="none"/></svg>
+          <span><b>Rieke Albers</b> HAFENPOST weekend guide</span>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="press-row reveal" aria-label="As featured in">
+      <span class="plabel">As burned into print by</span>
+      <svg viewBox="0 0 170 24" role="img" aria-label="Elbsegler magazine"><text x="0" y="17">ELBSEGLER</text></svg>
+      <svg viewBox="0 0 170 24" role="img" aria-label="Hafenpost"><text x="0" y="17">HAFENPOST</text></svg>
+      <svg viewBox="0 0 230 24" role="img" aria-label="Bib Gourmand 2026"><text x="0" y="17">BIB GOURMAND ’26</text></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ======== PRIVATE DINING ======== -->
+<section class="sect" id="private" aria-labelledby="priv-h">
+  <div class="wrap private-grid">
+    <div class="private reveal">
+      <p class="kicker">Private dining</p>
+      <h2 id="priv-h">The Smoke Room</h2>
+      <p>A twelve-seat chamber behind the hearth with its own fire, its own menu, and a door that closes. Birthdays, deal closings, the dinner where you finally introduce the families — it has hosted all three in one week.</p>
+      <ul class="facts">
+        <li>Up to 12 guests</li>
+        <li>From €95 per head, menu included</li>
+        <li>Tuesday – Thursday evenings</li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <p>Write to <a href="mailto:private@emberandrye.com?subject=Private%20dining%20inquiry%20%E2%80%94%20The%20Smoke%20Room">private@emberandrye.com</a> and tell us the occasion.</p>
+      <p class="microcopy">We reply within one working day. Table reservations stay <a href="#reserve">over here</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== RESERVATION ======== -->
+<section class="sect reserve" id="reserve" aria-labelledby="resv-h">
+  <div class="wrap resv-grid">
+    <div class="resv-aside reveal">
+      <p class="kicker">Reserve a table</p>
+      <h2 id="resv-h">Pick a night. We'll feed the fire.</h2>
+      <p>Seatings every half hour from the moment the room opens — 18:00 Tuesday to Friday, 17:30 on weekends. Greyed-out slots are already booked — we'd rather show you than pretend.</p>
+      <ul class="assure">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> No deposit for tables up to 6.</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Free cancellation until 4&thinsp;pm same day — two taps, no phone tree.</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Running late? We hold every table 15 minutes past, just in case.</li>
+      </ul>
+      <p style="margin-top:2rem; font-size:.92rem; color:var(--ink-faint)">Rather talk to a human? <a href="tel:+49404328817">040 432 88 17</a> — Tue–Sun from 15:00.</p>
+    </div>
+
+    <div class="resv-card reveal">
+      <form id="resvForm" novalidate aria-describedby="resv-live">
+        <ol class="progress" id="progress" aria-label="Reservation steps">
+          <li data-p="1" aria-current="step">Day</li>
+          <li data-p="2">Guests</li>
+          <li data-p="3">Time</li>
+          <li data-p="4">Details</li>
+        </ol>
+
+        <div class="rstep shown" id="step-date">
+          <span class="qlabel" id="lbl-date">Which night?</span>
+          <div class="pillrow dates" id="dateRow" role="group" aria-labelledby="lbl-date"></div>
+        </div>
+
+        <div class="rstep" id="step-party">
+          <span class="qlabel" id="lbl-party">How many of you?</span>
+          <div class="pillrow" id="partyRow" role="group" aria-labelledby="lbl-party"></div>
+          <p class="party-note" id="partyNote" hidden>Seven or eight? You get the long table by the window — fewer slots, worth it.</p>
+        </div>
+
+        <div class="rstep" id="step-time">
+          <span class="qlabel" id="lbl-time">What time?</span>
+          <div class="pillrow" id="timeRow" role="group" aria-labelledby="lbl-time"></div>
+          <p class="slot-hint">Crossed-out times are taken. Real room, real limits — 17 tables.</p>
+        </div>
+
+        <div class="rstep" id="step-details">
+          <span class="qlabel">Who do we write on the chalkboard?</span>
+          <div class="field" id="f-name">
+            <label for="rName">Name for the table</label>
+            <input id="rName" name="name" type="text" autocomplete="name" placeholder="Mara Petersen" required aria-describedby="rNameErr">
+            <svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            <p class="err-msg" id="rNameErr">We need a name for the table — a first name is fine.</p>
+          </div>
+          <div class="field" id="f-phone">
+            <label for="rPhone">Mobile number</label>
+            <input id="rPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="0151 2345 6789" required aria-describedby="rPhoneErr">
+            <svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            <p class="err-msg" id="rPhoneErr">That doesn't look like a number we could reach tonight — digits only, at least 7 of them.</p>
+          </div>
+          <button class="btn btn-primary" type="submit" style="width:100%">Confirm table</button>
+          <p class="form-foot">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            <span>Your number is used once — to confirm this table by text. No newsletter, no account, ever.</span>
+          </p>
+        </div>
+      </form>
+
+      <div class="resv-success" id="resvSuccess" tabindex="-1">
+        <svg class="flame-ok" viewBox="0 0 64 64" aria-hidden="true" fill="none">
+          <circle cx="32" cy="32" r="30" stroke="oklch(75% 0.145 52)" stroke-width="2"/>
+          <path d="M32 14c5 6 9 10.5 9 17 0 6.2-4 11-9 11s-9-4.8-9-11c0-4 1.8-7 4-10 .4 2.4 1.4 4 3.2 5.2-.4-4.8.4-8.6 1.8-12.2z" fill="oklch(75% 0.145 52)"/>
+          <path d="M22 48h20" stroke="oklch(75% 0.145 52)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h3 id="successHead">Thanks — the table's yours.</h3>
+        <p id="successBody"></p>
+        <p style="margin-top:1rem; color:var(--ink-soft)">Free cancellation until 4&thinsp;pm that day — just reply to the text. <strong>No deposit taken.</strong></p>
+        <p class="demo-note">Template demo — no message was sent and no table was harmed.</p>
+      </div>
+      <p class="sr" id="resv-live" aria-live="polite"></p>
+      <noscript><p style="margin-top:1rem">JavaScript is off — call us instead: <a href="tel:+49404328817">040 432 88 17</a>.</p></noscript>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FAQ ======== -->
+<section class="sect" id="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <div class="sect-head reveal">
+      <p class="kicker">Before you ask</p>
+      <h2 id="faq-h">Fair questions, straight answers.</h2>
+    </div>
+    <div class="faq reveal">
+      <details name="faq">
+        <summary>Do you take walk-ins, or is booking the only way?<span class="x" aria-hidden="true"></span></summary>
+        <p class="a">The six counter seats facing the hearth are never bookable — they're first come, first seated, every single night. Show up before 18:30 or after 21:30 and your odds are honestly good. The seventeen tables, though: book those.</p>
+      </details>
+      <details name="faq">
+        <summary>I have an allergy. Is an open-fire kitchen a bad idea?<span class="x" aria-hidden="true"></span></summary>
+        <p class="a">Tell us in the booking note or on the phone and the kitchen plans your plates before service starts — most dishes flex for nuts, dairy, gluten and shellfish with a day's notice. One honest caveat: it's a single open room with one fire, so we can't promise a trace-free environment for severe airborne allergies. We'd rather say that here than at your table.</p>
+      </details>
+      <details name="faq">
+        <summary>I'm vegetarian. Is a fire restaurant going to be three sides and a salad?<span class="x" aria-hidden="true"></span></summary>
+        <p class="a">Our celeriac steak spends three hours buried in the coals and regularly out-orders the Ibérico. Leeks, beetroot, the burnt cheesecake — about a third of the menu is vegetarian by design, not by garnish. Vegan? Call ahead and Ilka builds you a plate from that morning's market.</p>
+      </details>
+      <details name="faq">
+        <summary>Can we bring the kids?<span class="x" aria-hidden="true"></span></summary>
+        <p class="a">Until 20:00, absolutely — we have two high chairs, half portions of the bream, and a kitchen crew that thinks a six-year-old watching the fire is the best audience in the house. After 20:00 the room turns grown-up and loud, which is our gentle way of saying: book the early seating.</p>
+      </details>
+      <details name="faq">
+        <summary>Is there a dress code?<span class="x" aria-hidden="true"></span></summary>
+        <p class="a">None. This is the Schanze, not a yacht club. You'll go home smelling faintly of woodsmoke whatever you wear — consider that the souvenir.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ======== HOURS & LOCATION ======== -->
+<section class="sect" id="hours" aria-labelledby="hours-h">
+  <div class="wrap">
+    <div class="sect-head reveal">
+      <p class="kicker">Find us</p>
+      <h2 id="hours-h">Schulterblatt 73, where the print shop was.</h2>
+    </div>
+    <div class="hours-grid">
+      <div class="hours reveal">
+        <table id="hoursTable">
+          <caption>Opening hours</caption>
+          <tbody>
+            <tr data-day="1"><th scope="row">Monday</th><td>Closed — the fire rests</td></tr>
+            <tr data-day="2"><th scope="row">Tuesday</th><td>18:00 – 23:30</td></tr>
+            <tr data-day="3"><th scope="row">Wednesday</th><td>18:00 – 23:30</td></tr>
+            <tr data-day="4"><th scope="row">Thursday</th><td>18:00 – 23:30</td></tr>
+            <tr data-day="5"><th scope="row">Friday</th><td>18:00 – 00:30</td></tr>
+            <tr data-day="6"><th scope="row">Saturday</th><td>17:30 – 00:30</td></tr>
+            <tr data-day="0"><th scope="row">Sunday</th><td>17:30 – 22:30</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Kitchen takes last orders at 22:00 Tue–Thu, 22:30 Fri &amp; Sat, 21:30 Sun — the room stays open past that. Counter seats: walk-in only, all night.</p>
+        <ul class="getting-here">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M9 21l1.5-4M15 21l-1.5-4"/></svg>
+            <span><strong>Transit:</strong> U3 / S21 / S31 Sternschanze, 4 min on foot. Night bus 601 stops at Schulterblatt.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l2-5a2 2 0 0 1 1.9-1.3h6.2A2 2 0 0 1 17 8l2 5M5 13h14M5 13v5h2v-2h10v2h2v-5"/><circle cx="8" cy="15.5" r=".6"/><circle cx="16" cy="15.5" r=".6"/></svg>
+            <span><strong>Driving:</strong> honestly, don't. If you must: Parkhaus Neuer Pferdemarkt, 6 minutes away, €2.50/h after 18:00.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>
+            <span><strong>Step-free:</strong> level entrance, accessible WC, and table 4 keeps a clear turning radius. Tell us when you book and it's yours.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="map-card reveal">
+        <svg viewBox="0 0 520 380" role="img" aria-label="Sketch map: Ember and Rye on Schulterblatt 73, four minutes south-west of Sternschanze station">
+          <rect width="520" height="380" fill="oklch(20% 0.014 55)"/>
+          <path d="M40 320L300 60" stroke="oklch(33% 0.022 58)" stroke-width="14" stroke-linecap="round"/>
+          <path d="M120 360L420 90" stroke="oklch(33% 0.022 58)" stroke-width="10" stroke-linecap="round"/>
+          <path d="M60 140L330 330" stroke="oklch(33% 0.022 58)" stroke-width="10" stroke-linecap="round"/>
+          <path d="M340 40c40 50 60 110 50 190" stroke="oklch(33% 0.022 58)" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <circle cx="430" cy="80" r="46" fill="oklch(24% 0.03 140 / .5)"/>
+          <text x="430" y="84" text-anchor="middle" font-family="Karla" font-size="11" fill="oklch(70% 0.02 72)">Schanzenpark</text>
+          <text x="148" y="238" font-family="Karla" font-size="12" fill="oklch(70% 0.02 72)" transform="rotate(-45 148 238)">Schulterblatt</text>
+          <text x="240" y="320" font-family="Karla" font-size="12" fill="oklch(70% 0.02 72)" transform="rotate(35 240 320)">Susannenstraße</text>
+          <text x="295" y="150" font-family="Karla" font-size="12" fill="oklch(70% 0.02 72)" transform="rotate(-42 295 150)">Schanzenstraße</text>
+          <g>
+            <circle cx="385" cy="120" r="14" fill="oklch(26% 0.018 58)" stroke="oklch(70% 0.09 62)" stroke-width="2"/>
+            <text x="385" y="125" text-anchor="middle" font-family="Karla" font-weight="700" font-size="12" fill="oklch(82% 0.13 62)">U</text>
+            <text x="385" y="152" text-anchor="middle" font-family="Karla" font-size="11" fill="oklch(70% 0.02 72)">Sternschanze</text>
+          </g>
+          <path d="M372 132C320 180 250 210 192 226" stroke="oklch(75% 0.145 52)" stroke-width="2" stroke-dasharray="2 7" fill="none"/>
+          <text x="288" y="196" font-family="Karla" font-size="11" font-style="italic" fill="oklch(75% 0.145 52)">4 min walk</text>
+          <g>
+            <circle cx="178" cy="232" r="17" fill="oklch(75% 0.145 52)"/>
+            <path d="M178 222c2.8 3.4 5 5.8 5 9.4 0 3.5-2.2 6.1-5 6.1s-5-2.6-5-6.1c0-2.2.9-3.8 2.1-5.5.2 1.3.7 2.2 1.7 2.9-.2-2.6.2-4.7 1.2-6.8z" fill="oklch(18% 0.014 50)"/>
+            <text x="178" y="272" text-anchor="middle" font-family="Karla" font-weight="700" font-size="12" fill="oklch(94% 0.014 80)">Ember &amp; Rye</text>
+            <text x="178" y="288" text-anchor="middle" font-family="Karla" font-size="11" fill="oklch(70% 0.02 72)">Schulterblatt 73</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======== FOOTER ======== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" style="margin-bottom:.8rem">
+          <svg width="26" height="26" viewBox="0 0 30 30" aria-hidden="true">
+            <circle cx="15" cy="15" r="14" fill="none" stroke="oklch(75% 0.145 52)" stroke-width="1.4"/>
+            <path d="M15 6.5c2.6 3 4.8 5.4 4.8 8.7 0 3.1-2.1 5.6-4.8 5.6s-4.8-2.5-4.8-5.6c0-2 .9-3.5 2-5 .2 1.2.7 2 1.6 2.6-.2-2.4.2-4.4 1.2-6.3z" fill="oklch(75% 0.145 52)"/>
+          </svg>
+          <b>Ember <em>&amp;</em> Rye</b>
+        </a>
+        <p style="font-size:.9rem; color:var(--ink-faint); max-width:22rem">Wood-fire dining room, Schulterblatt 73, 20357 Hamburg.<br>Tue–Sun from 17:30 · <a href="tel:+49404328817">040 432 88 17</a></p>
+      </div>
+      <nav aria-label="Footer — visit">
+        <p class="fh">Visit</p>
+        <ul>
+          <li><a href="#menu">Tonight's menu</a></li>
+          <li><a href="#reserve">Reserve a table</a></li>
+          <li><a href="#private">The Smoke Room</a></li>
+          <li><a href="#hours">Hours &amp; directions</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Footer — house">
+        <p class="fh">House</p>
+        <ul>
+          <li><a href="#">Gift cards</a></li>
+          <li><a href="#">Work the fire (jobs)</a></li>
+          <li><a href="#">Press kit</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Footer — legal">
+        <p class="fh">Legal</p>
+        <ul>
+          <li><a href="#">Imprint</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="legal">
+      <p>© 2026 Ember &amp; Rye GmbH · Schulterblatt 73, 20357 Hamburg · USt-IdNr. DE 318 442 901 · All prices include VAT.</p>
+      <p><a href="../index.html">&larr; Back to the FABLE&middot;5 showcase</a></p>
+      <p>Template drafted end-to-end by Claude Fable 5 &middot; 06/2026</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ======== STICKY MOBILE BAR ======== -->
+<div class="mobilebar" role="region" aria-label="Quick reserve">
+  <a class="btn btn-primary" href="#reserve">Reserve tonight</a>
+  <a class="btn-tel" href="tel:+49404328817" aria-label="Call Ember and Rye: 040 432 88 17">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+  </a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- reveal on scroll ---------- */
+  var reveals = document.querySelectorAll(".reveal");
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    reveals.forEach(function(el){ el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    reveals.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---------- today: hours table + tonight line ---------- */
+  var now = new Date();
+  var dow = now.getDay(); // 0 = Sunday
+  var todayRow = document.querySelector('#hoursTable tr[data-day="' + dow + '"]');
+  if (todayRow) {
+    todayRow.classList.add("today");
+    var badge = document.createElement("span");
+    badge.className = "today-badge";
+    badge.textContent = "today";
+    todayRow.querySelector("th").appendChild(badge);
+  }
+  var tonightMap = {
+    0: ["Tonight 17:30 – 22:30", "kitchen until 21:30"],
+    1: ["Closed tonight — the fire rests.", "back Tuesday, 18:00"],
+    2: ["Tonight 18:00 – 23:30", "kitchen until 22:00"],
+    3: ["Tonight 18:00 – 23:30", "kitchen until 22:00"],
+    4: ["Tonight 18:00 – 23:30", "kitchen until 22:00"],
+    5: ["Tonight 18:00 – 00:30", "kitchen until 22:30"],
+    6: ["Tonight 17:30 – 00:30", "kitchen until 22:30"]
+  };
+  var tEl = document.getElementById("tonightHours");
+  var kEl = document.getElementById("kitchenLine");
+  if (tEl) { tEl.textContent = tonightMap[dow][0]; }
+  if (kEl) { kEl.textContent = tonightMap[dow][1]; }
+
+  /* ---------- reservation widget ---------- */
+  var TIMES = ["17:30","18:00","18:30","19:00","19:30","20:00","20:30","21:00","21:30","22:00"];
+  /* seatings follow the hours table: room opens 18:00 Tue–Fri (no 17:30 seating),
+     Sunday's kitchen closes 21:30 (no 22:00 seating) */
+  function slotsFor(d){
+    return TIMES.filter(function(t){
+      if (t === "17:30" && d >= 2 && d <= 5) return false;
+      if (t === "22:00" && d === 0) return false;
+      return true;
+    });
+  }
+  var state = { dateKey: null, dateLabel: "", party: null, time: null, dow: null };
+
+  /* hero availability line — keep it honest per weekday, incl. Mondays */
+  var availText = document.getElementById("availText");
+  if (availText) {
+    if (dow === 1) {
+      availText.textContent = "Closed tonight — the fire rests. Back Tuesday at 18:00, and Tuesdays go fast.";
+    } else {
+      var heroFree = slotsFor(dow).slice(-2);
+      availText.textContent = "Tonight: 2 tables left, at " + heroFree.join(" and ") + " — we're 17 tables small, it goes fast.";
+    }
+  }
+
+  var dateRow  = document.getElementById("dateRow");
+  var partyRow = document.getElementById("partyRow");
+  var timeRow  = document.getElementById("timeRow");
+  var partyNote = document.getElementById("partyNote");
+  var stepParty = document.getElementById("step-party");
+  var stepTime  = document.getElementById("step-time");
+  var stepDetails = document.getElementById("step-details");
+  var progress = document.getElementById("progress");
+  var live = document.getElementById("resv-live");
+  var form = document.getElementById("resvForm");
+  var success = document.getElementById("resvSuccess");
+
+  function hash(s){ var h = 7; for (var i = 0; i < s.length; i++) { h = (h * 31 + s.charCodeAt(i)) % 997; } return h; }
+  function announce(msg){ if (live) live.textContent = msg; }
+  function setProgress(n){
+    progress.querySelectorAll("li").forEach(function(li){
+      var p = +li.dataset.p;
+      li.classList.toggle("done", p < n);
+      if (p === n) { li.setAttribute("aria-current", "step"); } else { li.removeAttribute("aria-current"); }
+    });
+  }
+  function makePill(label, sub, cls){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "pill" + (cls ? " " + cls : "");
+    b.setAttribute("aria-pressed", "false");
+    b.innerHTML = label + (sub ? "<small>" + sub + "</small>" : "");
+    return b;
+  }
+  function selectIn(row, btn){
+    row.querySelectorAll(".pill").forEach(function(p){ p.setAttribute("aria-pressed", "false"); });
+    btn.setAttribute("aria-pressed", "true");
+  }
+
+  /* --- step 1: next 5 days --- */
+  var fmtDay = new Intl.DateTimeFormat("en-GB", { weekday: "short" });
+  var fmtDate = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short" });
+  for (var i = 0; i < 5; i++) {
+    (function(offset){
+      var d = new Date(now); d.setDate(now.getDate() + offset);
+      var key = d.toISOString().slice(0, 10);
+      var wd = offset === 0 ? "Today" : fmtDay.format(d);
+      var pill = makePill(wd, fmtDate.format(d));
+      if (d.getDay() === 1) { // Mondays closed
+        pill.disabled = true;
+        pill.innerHTML = fmtDay.format(d) + "<small>closed</small>";
+        pill.title = "Closed Mondays — the fire rests";
+      } else {
+        pill.addEventListener("click", function(){
+          selectIn(dateRow, pill);
+          state.dateKey = key;
+          state.dateLabel = (offset === 0 ? "tonight" : fmtDay.format(d) + " " + fmtDate.format(d));
+          state.isToday = (offset === 0);
+          state.dow = d.getDay();
+          state.time = null;
+          stepDetails.classList.remove("shown");
+          stepParty.classList.add("shown");
+          if (state.party) { buildSlots(); stepTime.classList.add("shown"); setProgress(3); }
+          else { stepTime.classList.remove("shown"); setProgress(2); }
+          announce("Date selected: " + state.dateLabel + ". Now choose party size.");
+        });
+      }
+      dateRow.appendChild(pill);
+    })(i);
+  }
+
+  /* --- step 2: party size 2–8 --- */
+  for (var n = 2; n <= 8; n++) {
+    (function(size){
+      var pill = makePill(String(size), size === 2 ? "guests" : "");
+      pill.setAttribute("aria-label", size + " guests");
+      pill.addEventListener("click", function(){
+        selectIn(partyRow, pill);
+        state.party = size;
+        state.time = null;
+        partyNote.hidden = size < 7;
+        buildSlots();
+        stepDetails.classList.remove("shown");
+        stepTime.classList.add("shown");
+        setProgress(3);
+        announce(size + " guests. Now pick a time.");
+      });
+      partyRow.appendChild(pill);
+    })(n);
+  }
+
+  /* --- step 3: time slots (honest availability) --- */
+  function takenTimes(){
+    var avail = slotsFor(state.dow);
+    var set = {};
+    if (state.isToday) {
+      // matches the line upstairs: tonight only the last two seatings are free
+      var lastTwo = avail.slice(-2);
+      avail.forEach(function(t){ if (lastTwo.indexOf(t) === -1) set[t] = true; });
+      return set;
+    }
+    var h = hash(state.dateKey + "p");
+    avail.forEach(function(t, i){ if ((h + i * 37) % 10 < 3) set[t] = true; });
+    if (state.party >= 7) { avail.forEach(function(t, i){ if (i % 2 === 0) set[t] = true; }); }
+    var free = avail.filter(function(t){ return !set[t]; });
+    if (free.length < 2) { delete set["19:00"]; delete set["21:00"]; }
+    return set;
+  }
+  function buildSlots(){
+    timeRow.innerHTML = "";
+    var taken = takenTimes();
+    slotsFor(state.dow).forEach(function(t){
+      var pill = makePill(t, "");
+      if (taken[t]) {
+        pill.disabled = true;
+        pill.title = "Already booked";
+        pill.setAttribute("aria-label", t + " — already booked");
+      } else {
+        pill.addEventListener("click", function(){
+          selectIn(timeRow, pill);
+          state.time = t;
+          stepDetails.classList.add("shown");
+          setProgress(4);
+          announce("Time " + t + " selected. Last step: name and mobile number.");
+          document.getElementById("rName").focus();
+        });
+      }
+      timeRow.appendChild(pill);
+    });
+  }
+
+  /* --- step 4: validation + submit --- */
+  var nameField = document.getElementById("f-name");
+  var phoneField = document.getElementById("f-phone");
+  var nameInput = document.getElementById("rName");
+  var phoneInput = document.getElementById("rPhone");
+
+  function validateName(){
+    var ok = nameInput.value.trim().length >= 2;
+    nameField.classList.toggle("invalid", !ok && nameInput.value !== "" || (!ok && nameInput.dataset.touched === "1"));
+    nameField.classList.toggle("valid", ok);
+    nameInput.setAttribute("aria-invalid", ok ? "false" : "true");
+    return ok;
+  }
+  function validatePhone(){
+    var digits = phoneInput.value.replace(/\D/g, "");
+    var ok = /^[+0-9][0-9 ()\/\-]{5,}$/.test(phoneInput.value.trim()) && digits.length >= 7;
+    phoneField.classList.toggle("invalid", !ok && (phoneInput.value !== "" || phoneInput.dataset.touched === "1"));
+    phoneField.classList.toggle("valid", ok);
+    phoneInput.setAttribute("aria-invalid", ok ? "false" : "true");
+    return ok;
+  }
+  nameInput.addEventListener("blur", function(){ nameInput.dataset.touched = "1"; validateName(); });
+  phoneInput.addEventListener("blur", function(){ phoneInput.dataset.touched = "1"; validatePhone(); });
+  nameInput.addEventListener("input", function(){ if (nameField.classList.contains("invalid")) validateName(); else if (nameInput.value.trim().length >= 2) validateName(); });
+  phoneInput.addEventListener("input", function(){ if (phoneField.classList.contains("invalid") || phoneField.classList.contains("valid")) validatePhone(); });
+
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    nameInput.dataset.touched = "1"; phoneInput.dataset.touched = "1";
+    var okName = validateName(), okPhone = validatePhone();
+    if (!state.dateKey || !state.party || !state.time) {
+      announce("Please choose a day, party size and time first.");
+      return;
+    }
+    if (!okName) { nameInput.focus(); return; }
+    if (!okPhone) { phoneInput.focus(); return; }
+
+    var first = nameInput.value.trim().split(/\s+/)[0];
+    first = first.charAt(0).toUpperCase() + first.slice(1);
+    document.getElementById("successHead").textContent = "Thanks, " + first + " — the table's yours.";
+    document.getElementById("successBody").textContent =
+      "Table for " + state.party + ", " + state.dateLabel + " at " + state.time +
+      " — we'll hold it 15 minutes past, just in case. A confirmation text is on its way to " + phoneInput.value.trim() + ".";
+    form.hidden = true;
+    success.classList.add("shown");
+    success.focus();
+    announce("Reservation confirmed: table for " + state.party + ", " + state.dateLabel + " at " + state.time + ".");
+  });
+})();
+</script>
+</body>
+</html>

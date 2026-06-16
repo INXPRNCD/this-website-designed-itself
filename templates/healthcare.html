@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halden Dental Studio — Gentle dentistry in Hamburg Altstadt | Book online in 60 seconds</title>
+<meta name="description" content="Check-ups, invisible aligners, implants and anxiety-friendly care, 2 minutes from Rathaus. 4.9 stars from 312 Google reviews. All major insurances accepted. Book online in 60 seconds.">
+<meta name="theme-color" content="#f3f7f2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg:        oklch(97.6% 0.008 160);   /* cloud white, faint sage tint */
+  --bg-sage:   oklch(94.8% 0.018 160);   /* sage wash */
+  --card:      oklch(99.3% 0.003 160);
+  --ink:       oklch(26% 0.022 210);     /* deep teal-black */
+  --ink-soft:  oklch(40% 0.03 205);
+  --muted:     oklch(44% 0.028 200);
+  --teal:      oklch(44% 0.085 198);     /* deep teal accent */
+  --teal-deep: oklch(35% 0.07 202);
+  --teal-tint: oklch(92% 0.03 190);
+  --sand:      oklch(88% 0.055 80);      /* warm sand, art only */
+  --sand-deep: oklch(74% 0.09 70);
+  --amber:     oklch(70% 0.13 75);       /* stars */
+  --ok:        oklch(46% 0.1 155);
+  --err:       oklch(45% 0.14 25);
+  --line:      oklch(88% 0.015 170);
+  --shadow-s:  0 1px 2px oklch(30% 0.03 200 / .06), 0 4px 14px oklch(30% 0.03 200 / .07);
+  --shadow-m:  0 2px 6px oklch(30% 0.03 200 / .07), 0 14px 38px oklch(30% 0.03 200 / .12);
+  --r-s: 12px; --r-m: 18px; --r-l: 24px;
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-sans: "Public Sans", Helvetica, sans-serif;
+  --wrap: 1120px;
+}
+@supports not (color: oklch(0% 0 0)){
+  :root{
+    --bg:#f3f7f2; --bg-sage:#e6efe4; --card:#fdfefc; --ink:#1c2d31; --ink-soft:#33555c;
+    --muted:#3f6168; --teal:#136a6e; --teal-deep:#0c4f54; --teal-tint:#d7eae9;
+    --sand:#ecd9b4; --sand-deep:#c89a55; --amber:#d9a23f; --ok:#2c7a4b; --err:#a73a32; --line:#d8e2d7;
+  }
+}
+/* ============ BASE ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:96px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--font-sans); font-size:1.0625rem; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:var(--font-serif); line-height:1.15; margin:0 0 .5em; font-weight:600; letter-spacing:-.01em}
+h1{font-size:clamp(2.3rem,5.4vw,3.6rem); font-weight:700}
+h2{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+h3{font-size:1.25rem}
+p{margin:0 0 1em}
+a{color:var(--teal)}
+img,svg{display:block; max-width:100%}
+.wrap{max-width:var(--wrap); margin-inline:auto; padding-inline:clamp(1.1rem,4vw,2rem)}
+.kicker{
+  font-size:.8rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--teal); margin:0 0 .9rem;
+}
+.lede{font-size:1.125rem; color:var(--muted); max-width:56ch}
+section{padding-block:clamp(3.4rem,7vw,5.5rem)}
+:focus-visible{outline:3px solid var(--teal); outline-offset:3px; border-radius:6px}
+::selection{background:var(--teal-tint)}
+.skip-link{
+  position:absolute; left:-999px; top:0; z-index:200; background:var(--teal-deep); color:#fff;
+  padding:.8rem 1.3rem; border-radius:0 0 var(--r-s) 0; font-weight:600; text-decoration:none;
+}
+.skip-link:focus{left:0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+  min-height:48px; padding:.75rem 1.5rem; border-radius:999px;
+  font:600 1rem/1.2 var(--font-sans); text-decoration:none; cursor:pointer;
+  border:2px solid transparent; transition:background .2s, transform .15s, box-shadow .2s;
+}
+.btn-primary{background:var(--teal); color:#fff; box-shadow:var(--shadow-s)}
+.btn-primary:hover{background:var(--teal-deep); transform:translateY(-1px)}
+.btn-ghost{background:transparent; color:var(--teal-deep); border-color:var(--teal)}
+.btn-ghost:hover{background:var(--teal-tint)}
+.btn-lg{min-height:56px; padding:1rem 2rem; font-size:1.08rem}
+.microcopy{font-size:.875rem; color:var(--muted); margin-top:.7rem}
+.microcopy strong{color:var(--ink)}
+/* ============ UTILITY BAR ============ */
+.utility{
+  background:var(--teal-deep); color:oklch(96% 0.01 170);
+  font-size:.9rem;
+}
+.utility .wrap{display:flex; flex-wrap:wrap; gap:.4rem 1.5rem; align-items:center; justify-content:space-between; padding-block:.55rem}
+.utility .dot{display:inline-block; width:.55em; height:.55em; border-radius:50%; background:oklch(78% 0.13 150); margin-right:.5em; vertical-align:1px}
+.utility a.tel{
+  color:#fff; font-weight:700; font-size:1rem; text-decoration:none;
+  display:inline-flex; align-items:center; gap:.45rem; min-height:44px; padding:.2rem .4rem;
+}
+.utility a.tel:hover{text-decoration:underline}
+/* ============ NAV ============ */
+.nav{
+  position:sticky; top:0; z-index:100;
+  background:oklch(97.6% 0.008 160 / .88); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav .wrap{display:flex; align-items:center; gap:1.6rem; padding-block:.7rem}
+.brand{display:flex; align-items:center; gap:.65rem; text-decoration:none; color:var(--ink); margin-right:auto; min-height:44px}
+.brand-name{font-family:var(--font-serif); font-weight:700; font-size:1.22rem; letter-spacing:-.01em}
+.brand-name small{display:block; font-family:var(--font-sans); font-weight:600; font-size:.66rem; letter-spacing:.16em; text-transform:uppercase; color:var(--teal)}
+.nav-links{display:flex; gap:.4rem; list-style:none; margin:0; padding:0}
+.nav-links a{
+  display:inline-flex; align-items:center; min-height:44px; padding:.35rem .85rem;
+  color:var(--ink-soft); text-decoration:none; font-weight:600; font-size:.95rem; border-radius:999px;
+}
+.nav-links a:hover{background:var(--bg-sage); color:var(--ink)}
+@media (max-width:720px){ .nav-links{display:none} .nav .btn{margin-left:auto} }
+/* ============ HERO ============ */
+.hero{padding-block:clamp(2.6rem,6vw,4.6rem) clamp(2.4rem,5vw,3.6rem); overflow:clip}
+.hero .wrap{display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(2rem,5vw,4rem); align-items:center}
+@media (max-width:860px){ .hero .wrap{grid-template-columns:1fr} }
+.hero h1{max-width:14ch}
+.hero .lede{margin-bottom:1.8rem}
+.hero-cta{display:flex; flex-wrap:wrap; gap:.8rem; align-items:center}
+.hero-art{position:relative}
+.hero-art svg{width:100%; height:auto; filter:drop-shadow(0 18px 40px oklch(35% 0.05 190 / .14))}
+.trust-strip{
+  margin-top:clamp(2rem,4vw,3rem);
+  display:flex; flex-wrap:wrap; gap:.8rem 2.2rem; align-items:center;
+  border-top:1px solid var(--line); padding-top:1.4rem;
+}
+.trust-item{display:flex; align-items:center; gap:.6rem; font-size:.95rem; font-weight:600; color:var(--ink-soft)}
+.trust-item .stars{display:inline-flex; gap:1px; color:var(--amber)}
+.badge-pill{
+  display:inline-flex; align-items:center; gap:.5rem; background:var(--card); border:1px solid var(--line);
+  border-radius:999px; padding:.45rem .95rem; box-shadow:var(--shadow-s);
+}
+/* ============ INSURANCE ============ */
+.insurance{background:var(--bg-sage); border-block:1px solid var(--line); padding-block:clamp(2.6rem,5vw,3.8rem)}
+.insurance .wrap{display:grid; grid-template-columns:1fr 1.2fr; gap:clamp(1.6rem,4vw,3.4rem); align-items:center}
+@media (max-width:820px){ .insurance .wrap{grid-template-columns:1fr} }
+.chips{display:flex; flex-wrap:wrap; gap:.6rem; margin:0; padding:0; list-style:none}
+.chips li{
+  background:var(--card); border:1px solid var(--line); border-radius:999px;
+  padding:.5rem 1.05rem; font-weight:600; font-size:.92rem; color:var(--ink-soft); box-shadow:var(--shadow-s);
+}
+.chips li.alt{background:var(--teal-tint); border-color:transparent; color:var(--teal-deep)}
+.fixedprice{
+  margin-top:1.1rem; display:flex; gap:.7rem; align-items:flex-start;
+  font-size:.95rem; color:var(--muted); max-width:52ch;
+}
+.fixedprice svg{flex:none; margin-top:.15rem; color:var(--ok)}
+/* ============ SERVICES ============ */
+.services-outer{container-type:inline-size}
+.svc-grid{display:grid; gap:1.1rem; grid-template-columns:1fr; margin-top:2.2rem}
+@container (min-width:560px){ .svc-grid{grid-template-columns:repeat(2,1fr)} }
+@container (min-width:900px){ .svc-grid{grid-template-columns:repeat(3,1fr)} }
+.svc-card{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--r-l);
+  padding:1.6rem 1.5rem 1.4rem; box-shadow:var(--shadow-s);
+  display:flex; flex-direction:column; gap:.5rem;
+  transition:transform .2s, box-shadow .2s;
+}
+.svc-card:hover{transform:translateY(-3px); box-shadow:var(--shadow-m)}
+.svc-icon{
+  width:54px; height:54px; border-radius:16px; background:var(--teal-tint); color:var(--teal-deep);
+  display:grid; place-items:center; margin-bottom:.5rem;
+}
+.svc-card h3{margin-bottom:.1rem}
+.svc-card p{color:var(--muted); font-size:.97rem; margin:0; flex:1}
+.svc-price{
+  margin-top:.9rem; font-family:var(--font-serif); font-weight:700; font-size:1.12rem; color:var(--teal-deep);
+}
+.svc-price small{font-family:var(--font-sans); font-weight:500; font-size:.8rem; color:var(--muted); margin-left:.35rem}
+.guarantee-line{
+  margin-top:1.8rem; display:flex; gap:.8rem; align-items:flex-start;
+  background:var(--card); border:1px dashed oklch(70% 0.06 190); border-radius:var(--r-m);
+  padding:1.1rem 1.3rem; max-width:62ch; font-size:.97rem; color:var(--ink-soft);
+}
+.guarantee-line svg{flex:none; color:var(--teal); margin-top:.1rem}
+/* ============ TEAM ============ */
+.team{background:var(--bg-sage); border-block:1px solid var(--line)}
+.team-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.4rem; margin-top:2.2rem}
+.doc-card{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--r-l);
+  padding:1.8rem; box-shadow:var(--shadow-s); display:flex; flex-direction:column; gap:.4rem;
+}
+.doc-card .portrait{width:108px; height:108px; border-radius:32px; overflow:hidden; margin-bottom:1rem; background:var(--teal-tint)}
+.doc-card .creds{font-size:.9rem; color:var(--muted); margin:0 0 .35rem}
+.doc-card .langs{font-size:.85rem; font-weight:600; color:var(--teal-deep); letter-spacing:.04em}
+.doc-card .personal{font-family:var(--font-serif); font-style:italic; font-size:1.05rem; color:var(--ink-soft); margin:.7rem 0 1.1rem}
+.doc-card .btn{align-self:flex-start}
+/* ============ BOOKING ============ */
+.booking .wrap{display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(2rem,5vw,4rem); align-items:start}
+@media (max-width:900px){ .booking .wrap{grid-template-columns:1fr} }
+.booking-side .mini-quote{
+  background:var(--bg-sage); border-radius:var(--r-m); padding:1.2rem 1.4rem; margin-top:1.6rem;
+  font-size:.97rem; color:var(--ink-soft);
+}
+.booking-side .mini-quote footer{font-weight:600; font-size:.85rem; margin-top:.5rem; color:var(--muted)}
+.form-shell{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--r-l);
+  padding:clamp(1.4rem,3.5vw,2.2rem); box-shadow:var(--shadow-m);
+}
+.progress{display:flex; align-items:center; gap:.8rem; margin-bottom:1.5rem}
+.progress .pdots{display:flex; gap:.45rem}
+.progress .pdot{width:10px; height:10px; border-radius:50%; background:var(--line); transition:background .25s, transform .25s}
+.progress .pdot[data-state="current"]{background:var(--teal); transform:scale(1.25)}
+.progress .pdot[data-state="done"]{background:var(--ok)}
+.progress .plabel{font-size:.85rem; font-weight:700; letter-spacing:.05em; color:var(--muted); text-transform:uppercase}
+fieldset{border:0; padding:0; margin:0 0 1.4rem}
+legend{font-family:var(--font-serif); font-weight:600; font-size:1.18rem; margin-bottom:.8rem; padding:0}
+.rgrid{display:grid; grid-template-columns:repeat(2,1fr); gap:.7rem}
+@media (max-width:480px){ .rgrid{grid-template-columns:1fr} }
+.rcard{
+  position:relative; display:flex; gap:.7rem; align-items:flex-start; cursor:pointer;
+  border:2px solid var(--line); border-radius:var(--r-m); padding:.85rem 1rem; min-height:56px;
+  background:var(--bg); transition:border-color .2s, background .2s;
+}
+.rcard:hover{border-color:oklch(70% 0.06 190)}
+.rcard:has(input:checked){border-color:var(--teal); background:var(--teal-tint)}
+.rcard:has(input:focus-visible){outline:3px solid var(--teal); outline-offset:2px}
+.rcard input{position:absolute; opacity:0; pointer-events:none}
+.rcard .ric{flex:none; color:var(--teal-deep); margin-top:.1rem}
+.rcard b{display:block; font-size:.97rem; line-height:1.3}
+.rcard span{display:block; font-size:.8rem; color:var(--muted)}
+.field{position:relative; margin-bottom:1.2rem}
+.field label{display:block; font-weight:600; font-size:.95rem; margin-bottom:.4rem}
+.field .hint{font-weight:400; color:var(--muted); font-size:.85rem}
+.field input{
+  width:100%; min-height:52px; padding:.7rem 2.8rem .7rem 1rem;
+  border:2px solid var(--line); border-radius:var(--r-s); background:var(--bg);
+  font:500 1.05rem var(--font-sans); color:var(--ink);
+}
+.field input:focus-visible{outline:3px solid var(--teal); outline-offset:1px; border-color:var(--teal)}
+.field.err input{border-color:var(--err)}
+.field .tick{position:absolute; right:.9rem; bottom:.95rem; color:var(--ok); opacity:0; transition:opacity .2s}
+.field.ok .tick{opacity:1}
+.fmsg{display:none; font-size:.875rem; font-weight:600; color:var(--err); margin-top:.45rem}
+.field.err .fmsg, .gmsg[data-show]{display:block}
+.gmsg{display:none; font-size:.875rem; font-weight:600; color:var(--err); margin-top:.6rem}
+.fstep[hidden]{display:none}
+@media (prefers-reduced-motion:no-preference){
+  .fstep{transition:opacity .3s, translate .3s}
+  @starting-style{ .fstep{opacity:0; translate:0 14px} }
+}
+.fnav{display:flex; gap:.8rem; align-items:center; flex-wrap:wrap}
+.fnav .btn{flex:none}
+.form-privacy{display:flex; gap:.6rem; align-items:flex-start; margin-top:1.2rem; font-size:.85rem; color:var(--muted)}
+.form-privacy svg{flex:none; color:var(--teal); margin-top:.1rem}
+.success-panel{text-align:center; padding:1.4rem .5rem}
+.success-panel[hidden]{display:none}
+@media (prefers-reduced-motion:no-preference){
+  .success-panel{transition:opacity .4s, translate .4s}
+  @starting-style{ .success-panel{opacity:0; translate:0 16px} }
+}
+.success-panel .ring{
+  width:84px; height:84px; margin:0 auto 1.2rem; border-radius:50%;
+  background:var(--teal-tint); display:grid; place-items:center; color:var(--ok);
+}
+@media (prefers-reduced-motion:no-preference){
+  .success-panel .ring svg path{stroke-dasharray:48; stroke-dashoffset:48; animation:draw .6s .15s ease-out forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+}
+.success-sum{display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center; margin:1.1rem 0 1.3rem; padding:0; list-style:none}
+.success-sum li{background:var(--bg-sage); border-radius:999px; padding:.45rem 1rem; font-weight:600; font-size:.88rem; color:var(--ink-soft)}
+/* ============ TESTIMONIALS ============ */
+.quotes-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.3rem; margin-top:2.2rem}
+.quote-card{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--r-l);
+  padding:1.7rem 1.6rem; box-shadow:var(--shadow-s); display:flex; flex-direction:column;
+}
+.quote-card .stars{color:var(--amber); display:flex; gap:2px; margin-bottom:.9rem}
+.quote-card blockquote{margin:0 0 1.2rem; font-family:var(--font-serif); font-size:1.08rem; line-height:1.5; color:var(--ink); flex:1}
+.quote-who{display:flex; align-items:center; gap:.8rem}
+.quote-who .av{width:46px; height:46px; border-radius:50%; overflow:hidden; flex:none}
+.quote-who b{display:block; font-size:.95rem}
+.quote-who span{display:block; font-size:.82rem; color:var(--muted)}
+/* ============ FAQ ============ */
+.faq{background:var(--bg-sage); border-block:1px solid var(--line)}
+.faq-list{max-width:760px; margin-top:1.8rem}
+.faq-list details{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--r-m);
+  margin-bottom:.7rem; overflow:clip;
+}
+.faq-list summary{
+  list-style:none; cursor:pointer; display:flex; justify-content:space-between; gap:1rem; align-items:center;
+  padding:1.05rem 1.3rem; font-weight:600; font-size:1.02rem; min-height:52px;
+}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{
+  content:""; flex:none; width:12px; height:12px;
+  border-right:2.5px solid var(--teal); border-bottom:2.5px solid var(--teal);
+  transform:rotate(45deg); transition:transform .25s; margin-right:.2rem;
+}
+.faq-list details[open] summary::after{transform:rotate(-135deg)}
+.faq-list summary:focus-visible{outline:3px solid var(--teal); outline-offset:-3px; border-radius:var(--r-m)}
+.faq-list .faq-a{padding:0 1.3rem 1.2rem; color:var(--ink-soft); font-size:.99rem}
+.faq-cta{margin-top:1.8rem}
+/* ============ LOCATION ============ */
+.location .wrap{display:grid; grid-template-columns:1fr 1.1fr; gap:clamp(2rem,5vw,3.6rem); align-items:start}
+@media (max-width:860px){ .location .wrap{grid-template-columns:1fr} }
+.hours-table{width:100%; border-collapse:collapse; margin:1.2rem 0 1.4rem; font-size:.97rem}
+.hours-table th,.hours-table td{text-align:left; padding:.5rem .2rem; border-bottom:1px solid var(--line)}
+.hours-table th{font-weight:600; color:var(--ink-soft)}
+.hours-table tr[aria-current="date"]{background:var(--teal-tint)}
+.hours-table tr[aria-current="date"] th,.hours-table tr[aria-current="date"] td{font-weight:700; color:var(--teal-deep)}
+.loc-note{display:flex; gap:.6rem; align-items:flex-start; font-size:.95rem; color:var(--muted); margin-bottom:.6rem}
+.loc-note svg{flex:none; color:var(--teal); margin-top:.15rem}
+.map-card{border-radius:var(--r-l); overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow-m); background:var(--card)}
+/* ============ FOOTER ============ */
+footer.site{background:var(--teal-deep); color:oklch(90% 0.015 180); padding-block:3.2rem 2rem; font-size:.93rem}
+footer.site a{color:oklch(94% 0.02 170); text-decoration:none; display:inline-block; padding:.3rem 0; min-height:34px}
+footer.site a:hover{text-decoration:underline}
+.foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:2rem; margin-bottom:2.4rem}
+@media (max-width:760px){ .foot-grid{grid-template-columns:1fr 1fr} }
+@media (max-width:460px){ .foot-grid{grid-template-columns:1fr} }
+.foot-grid h3{font-size:.8rem; font-family:var(--font-sans); font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:oklch(78% 0.04 170); margin-bottom:.7rem}
+.foot-grid ul{list-style:none; margin:0; padding:0}
+.foot-legal{border-top:1px solid oklch(45% 0.05 200); padding-top:1.4rem; display:flex; flex-direction:column; gap:.5rem}
+.foot-legal p{margin:0; color:oklch(80% 0.025 180); font-size:.85rem}
+/* ============ STICKY MOBILE BAR ============ */
+.mobilebar{display:none}
+@media (max-width:720px){
+  body{padding-bottom:88px}
+  .mobilebar{
+    display:flex; gap:.7rem; position:fixed; left:0; right:0; bottom:0; z-index:120;
+    padding:.7rem max(1rem, env(safe-area-inset-left)) calc(.7rem + env(safe-area-inset-bottom));
+    background:oklch(99% 0.004 160 / .92); backdrop-filter:blur(10px);
+    border-top:1px solid var(--line); box-shadow:0 -8px 30px oklch(30% 0.03 200 / .12);
+  }
+  .mobilebar .btn-primary{flex:1}
+  .mobilebar .btn-ghost{flex:none; width:52px; padding:0}
+}
+/* ============ REVEALS / MOTION ============ */
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0; translate:0 22px; transition:opacity .6s ease, translate .6s ease}
+  .reveal.in{opacity:1; translate:0 0}
+  @supports (animation-timeline: view()){
+    .svc-card{animation:rise linear both; animation-timeline:view(); animation-range:entry 5% entry 45%}
+    @keyframes rise{from{opacity:.2; transform:translateY(26px)} to{opacity:1; transform:none}}
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important; transition:none !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Reusable SVG symbols -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0" focusable="false">
+  <symbol id="i-star" viewBox="0 0 20 20"><path fill="currentColor" d="M10 1.6l2.5 5.2 5.7.7-4.2 4 1.1 5.7L10 14.4l-5.1 2.8 1.1-5.7-4.2-4 5.7-.7z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M4.5 3.8c-.8.8-1.2 2-.9 3.2 1.3 5.9 7.5 12.1 13.4 13.4 1.2.3 2.4-.1 3.2-.9l1-1c.7-.7.6-1.9-.2-2.5l-2.7-2c-.6-.5-1.5-.5-2.1 0l-1 .8c-2.1-1.1-4.4-3.4-5.5-5.5l.8-1c.5-.6.5-1.5 0-2.1l-2-2.7c-.6-.8-1.8-.9-2.5-.2z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.5l5 5L19.5 7"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 2.8l7.2 2.6v6.1c0 4.6-3 8-7.2 9.7-4.2-1.7-7.2-5.1-7.2-9.7V5.4z M8.8 12l2.3 2.3 4.2-4.4"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M12 21.5s-7-6.3-7-11.3a7 7 0 1 1 14 0c0 5-7 11.3-7 11.3z"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.9"/></symbol>
+</svg>
+
+<!-- (1) UTILITY TOP BAR -->
+<div class="utility">
+  <div class="wrap">
+    <p style="margin:0" id="open-status"><span class="dot" aria-hidden="true"></span>Open today &middot; Mon&ndash;Thu 8:00&ndash;19:00, Fri until 18:00, Sat 9:00&ndash;14:00</p>
+    <a class="tel" href="tel:+494022817440">
+      <svg width="18" height="18" aria-hidden="true"><use href="#i-phone"/></svg>
+      040 / 228 17 44
+    </a>
+  </div>
+</div>
+
+<!-- (2) NAV -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Halden Dental Studio — home">
+      <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M13 12c-3.4 0-5.4 2.8-5.4 6.2 0 4.6 2.4 6.8 3.3 10.6.5 2.2 2.8 2.5 3.5.2.7-2.3.4-5 2.1-5s1.4 2.7 2.1 5c.7 2.3 3 2 3.5-.2.9-3.8 3.3-6 3.3-10.6 0-3.4-2-6.2-5.4-6.2-1.4 0-2.2.7-3.5.7s-2.1-.7-3.5-.7z" fill="none" stroke="#136a6e" stroke-width="2.2" stroke-linejoin="round"/>
+        <path d="M20 11.6c0-3.2 1.4-5.4 4.6-6.4" fill="none" stroke="#136a6e" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M24.6 5.2c2.8-.9 5.4.2 6.4 2.4-2.2 1.5-5 1.4-6.7-.2-.4-.7-.3-1.6.3-2.2z" fill="#8fbf9f"/>
+      </svg>
+      <span class="brand-name">Halden<small>Dental Studio</small></span>
+    </a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary" href="#book">Book appointment</a>
+  </div>
+</header>
+
+<main id="main">
+<!-- (3) HERO -->
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Hamburg Altstadt &middot; New patients welcome</p>
+      <h1 id="hero-h">Dentistry that doesn&rsquo;t feel like dentistry.</h1>
+      <p class="lede">Check-ups, invisible aligners, implants and genuinely anxiety-friendly care &mdash; two minutes from Rathaus, in a studio that smells like cedar, not clinic.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="#book">Book your appointment</a>
+        <a class="btn btn-ghost" href="tel:+494022817440">
+          <svg width="18" height="18" aria-hidden="true"><use href="#i-phone"/></svg>
+          Or call us
+        </a>
+      </div>
+      <p class="microcopy"><strong>Next free slot: today 16:40</strong> &middot; online in 60 seconds &middot; cancelling is free up to 24&nbsp;h before.</p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <!-- Calm studio interior: window, plant, armchair, pendant light -->
+      <svg viewBox="0 0 520 460" role="img" aria-label="">
+        <defs>
+          <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f3e3bd"/><stop offset="1" stop-color="#ecd9b4"/>
+          </linearGradient>
+        </defs>
+        <path d="M70 420c-60-70-65-210 10-290S290 30 380 65s130 140 95 240-115 145-225 135c-70-6-55 10-180-20z" fill="#e6efe4"/>
+        <g><!-- arched window -->
+          <path d="M300 90h150v220H300z" fill="#fdfefc"/>
+          <path d="M300 90c0-44 34-72 75-72s75 28 75 72v220H300z" fill="url(#sun)"/>
+          <circle cx="375" cy="120" r="26" fill="#fdfefc" opacity=".85"/>
+          <path d="M375 18v292M300 165h150" stroke="#cdded0" stroke-width="5"/>
+          <path d="M300 90c0-44 34-72 75-72s75 28 75 72v220H300z" fill="none" stroke="#9bb8a4" stroke-width="6" stroke-linejoin="round"/>
+        </g>
+        <g><!-- pendant light -->
+          <path d="M150 40v74" stroke="#136a6e" stroke-width="4" stroke-linecap="round"/>
+          <path d="M118 140c0-20 14-32 32-32s32 12 32 32z" fill="#136a6e"/>
+          <circle cx="150" cy="148" r="7" fill="#f3e3bd"/>
+        </g>
+        <g><!-- armchair -->
+          <path d="M75 270c0-26 20-44 47-44h56c27 0 47 18 47 44v18H75z" fill="#136a6e"/>
+          <path d="M60 268c-12 0-20 9-20 20s8 20 20 20h180c12 0 20-9 20-20s-8-20-20-20c0 0-4 14-20 14H80c-16 0-20-14-20-14z" fill="#0c4f54"/>
+          <path d="M78 308v34M222 308v34" stroke="#0c4f54" stroke-width="9" stroke-linecap="round"/>
+          <path d="M104 252h92" stroke="#3a8a86" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+        </g>
+        <g><!-- plant -->
+          <path d="M398 342c12-44 4-78-16-104" fill="none" stroke="#4d8a66" stroke-width="5" stroke-linecap="round"/>
+          <path d="M382 238c-26-8-38-30-34-54 26 2 42 20 44 46z" fill="#6da883"/>
+          <path d="M386 252c24-14 28-38 18-60-24 9-34 31-28 56z" fill="#8fbf9f"/>
+          <path d="M396 290c26-2 40-20 42-44-26-4-44 10-50 36z" fill="#4d8a66"/>
+          <path d="M372 342h56l-8 52c-1 8-7 12-14 12h-12c-7 0-13-4-14-12z" fill="#c89a55"/>
+          <path d="M372 342h56l-2 14h-52z" fill="#b9854a"/>
+        </g>
+        <path d="M30 408h470" stroke="#9bb8a4" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="160" cy="408" rx="120" ry="7" fill="#cdded0"/>
+        <circle cx="58" cy="120" r="11" fill="#cdded0"/>
+        <circle cx="88" cy="86" r="6" fill="#9bb8a4"/>
+        <circle cx="470" cy="350" r="9" fill="#cdded0"/>
+      </svg>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="trust-strip">
+      <span class="trust-item badge-pill">
+        <span class="stars" aria-hidden="true">
+          <svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg><svg width="15" height="15"><use href="#i-star"/></svg>
+        </span>
+        <span class="sr-only">Rated 4.9 out of 5 stars from 312 Google reviews</span>
+        <span aria-hidden="true">4.9 &middot; 312 Google reviews</span>
+      </span>
+      <span class="trust-item">
+        <svg width="20" height="20" aria-hidden="true" style="color:var(--teal)"><use href="#i-shield"/></svg>
+        All major insurances + private
+      </span>
+      <span class="trust-item">
+        <svg width="20" height="20" aria-hidden="true" style="color:var(--teal)"><use href="#i-pin"/></svg>
+        15 years in Altstadt
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- (4) INSURANCE CLARITY -->
+<section class="insurance" id="pricing" aria-labelledby="ins-h">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kicker">Insurance &amp; pricing</p>
+      <h2 id="ins-h">We accept most major insurance plans.</h2>
+      <p class="lede" style="margin-bottom:0">Statutory, private or none at all &mdash; you&rsquo;ll know what everything costs before we pick up a single instrument.</p>
+    </div>
+    <div class="reveal">
+      <ul class="chips" aria-label="Accepted insurance plans">
+        <li>Techniker Krankenkasse</li>
+        <li>AOK Rheinland/Hamburg</li>
+        <li>BARMER</li>
+        <li>DAK-Gesundheit</li>
+        <li>IKK classic</li>
+        <li>hkk</li>
+        <li>KKH</li>
+        <li class="alt">All private plans (PKV) &amp; Beihilfe</li>
+      </ul>
+      <p class="fixedprice">
+        <svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg>
+        <span>No insurance? Our <strong>cash-pay menu has fixed prices</strong> &mdash; the &ldquo;from&rdquo; price below is real, and you get it in writing before treatment starts.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- (5) SERVICES -->
+<section id="services" aria-labelledby="svc-h">
+  <div class="wrap services-outer">
+    <div class="reveal">
+      <p class="kicker">What we do</p>
+      <h2 id="svc-h">Six things we&rsquo;re very good at.</h2>
+      <p class="lede">Honest scope, honest prices. If you need something we don&rsquo;t do, we&rsquo;ll tell you who does it best.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-card">
+        <div class="svc-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="6.2"/><path d="M15.5 15.5L23 23"/><path d="M21.5 5.5v4M19.5 7.5h4"/>
+          </svg>
+        </div>
+        <h3>Check-up &amp; cleaning</h3>
+        <p>60 unhurried minutes: exam, professional cleaning, polish &mdash; and zero judgement about the gap since your last one.</p>
+        <p class="svc-price">from &euro;89 <small>statutory plans: often &euro;0</small></p>
+      </article>
+      <article class="svc-card">
+        <div class="svc-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 13c0 6 4.5 10 10 10s10-4 10-10"/><path d="M5.5 9.5C5.5 6 9 4 14 4s8.5 2 8.5 5.5"/><path d="M8 13.5v3M14 14.5v3.2M20 13.5v3"/>
+          </svg>
+        </div>
+        <h3>Invisible aligners</h3>
+        <p>Clear aligner therapy planned in-house by Dr. Halden. Average case: 11&ndash;16 months, check-ins every 6 weeks.</p>
+        <p class="svc-price">from &euro;1,990 <small>0% instalments available</small></p>
+      </article>
+      <article class="svc-card">
+        <div class="svc-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 4h10c1 0 2 1 1.8 2.4l-.8 4.6H8L7.2 6.4C7 5 8 4 9 4z"/><path d="M10 11l1.5 3h5L18 11"/><path d="M11.5 17h5M12 20.5h4M12.7 24h2.6"/>
+          </svg>
+        </div>
+        <h3>Implants</h3>
+        <p>3D-guided titanium or ceramic implants, placed and restored under one roof. Ten-year documentation on every case.</p>
+        <p class="svc-price">from &euro;1,450 <small>per implant, incl. planning</small></p>
+      </article>
+      <article class="svc-card">
+        <div class="svc-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 16c-3.6 0-6.5-2.9-6.5-6.5S10.4 3.5 14 3.5 20.5 6 20.5 9.5 17.6 16 14 16z"/><path d="M14 16c-1.5 2.5-1.5 4 0 6.5"/><path d="M11.8 8.8c.6.9 1 .9 1.6 0M15 8.8c.6.9 1 .9 1.6 0" stroke-width="1.6"/><path d="M9 24.5c3-2 7-2 10 0" />
+          </svg>
+        </div>
+        <h3>Kids&rsquo; dentistry</h3>
+        <p>First visits from age 1, told as a counting game. Our record: three siblings, zero tears, four stickers.</p>
+        <p class="svc-price">&euro;0 <small>covered by all statutory plans</small></p>
+      </article>
+      <article class="svc-card">
+        <div class="svc-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7.5 19a4.5 4.5 0 0 1 .6-9 6 6 0 0 1 11.6-1.4A4.8 4.8 0 0 1 19.5 19z"/><path d="M16 23l3-2.6M10 23.5l2.4-2" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <h3>Anxiety-friendly sedation</h3>
+        <p>Laughing gas or dream-light sedation, a hand signal that always pauses everything, and as many breaks as you need.</p>
+        <p class="svc-price">from &euro;120 <small>per session, any treatment</small></p>
+      </article>
+      <article class="svc-card">
+        <div class="svc-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="14" cy="15" r="9.5"/><path d="M14 9.5V15l3.5 2.5"/><path d="M11 2.5h6"/>
+          </svg>
+        </div>
+        <h3>Emergency &mdash; today</h3>
+        <p>Acute pain, broken tooth, lost crown: call before 16:00 and we will see you the same day. Yes, really.</p>
+        <p class="svc-price">from &euro;60 <small>exam + immediate relief</small></p>
+      </article>
+    </div>
+    <p class="guarantee-line reveal">
+      <svg width="22" height="22" aria-hidden="true"><use href="#i-shield"/></svg>
+      <span><strong>Our fixed-quote promise:</strong> before any treatment begins you receive a written estimate &mdash; and the price we quote is the price you pay. If we find something unexpected mid-treatment, we stop and talk first.</span>
+    </p>
+  </div>
+</section>
+
+<!-- (6) TEAM -->
+<section class="team" id="team" aria-labelledby="team-h">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kicker">Your dentists</p>
+      <h2 id="team-h">Two dentists. One rule: you set the pace.</h2>
+    </div>
+    <div class="team-grid">
+      <article class="doc-card reveal">
+        <div class="portrait" aria-hidden="true">
+          <svg viewBox="0 0 108 108">
+            <rect width="108" height="108" fill="#d7eae9"/>
+            <circle cx="54" cy="46" r="24" fill="#eec9a8"/>
+            <path d="M28 46c0-18 11-29 26-29s26 11 26 29c0 0-4-7-9-9-3 5-9 8-17 8s-14-3-17-8c-5 2-9 9-9 9z" fill="#3c3430"/>
+            <path d="M30 44c-1 8 1 14 4 18M78 44c1 8-1 14-4 18" stroke="#3c3430" stroke-width="6" stroke-linecap="round" fill="none"/>
+            <circle cx="45" cy="47" r="2.6" fill="#2c2420"/><circle cx="63" cy="47" r="2.6" fill="#2c2420"/>
+            <path d="M48 58c4 3.5 8 3.5 12 0" stroke="#b9543f" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+            <circle cx="40" cy="54" r="3.4" fill="#e8a98e" opacity=".7"/><circle cx="68" cy="54" r="3.4" fill="#e8a98e" opacity=".7"/>
+            <circle cx="31.5" cy="56" r="2.4" fill="#c89a55"/>
+            <path d="M24 108c2-22 14-32 30-32s28 10 30 32z" fill="#136a6e"/>
+            <path d="M47 78l7 9 7-9" fill="none" stroke="#d7eae9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Dr. Mara Halden, DDS</h3>
+        <p class="creds">Founder &middot; Implantology (DGI-certified) &middot; Certified aligner provider &middot; 19 years of practice</p>
+        <p class="langs">Speaks: German &middot; English &middot; Spanish</p>
+        <p class="personal">&ldquo;Gentle hands, terrible puns.&rdquo;</p>
+      </article>
+      <article class="doc-card reveal">
+        <div class="portrait" aria-hidden="true">
+          <svg viewBox="0 0 108 108">
+            <rect width="108" height="108" fill="#ecd9b4"/>
+            <circle cx="54" cy="46" r="24" fill="#c68863"/>
+            <path d="M31 40c1-14 10-23 23-23s22 9 23 23c-4-4-8-6-12-6 1-4-2-7-5-7-2 3-8 4-13 3-6-1-12 2-16 10z" fill="#1f1b18"/>
+            <path d="M40 60c3 7 9 11 14 11s11-4 14-11c-2 6-2 10-1 13-4 4-9 6-13 6s-9-2-13-6c1-3 1-7-1-13z" fill="#1f1b18"/>
+            <circle cx="45" cy="46" r="8" fill="none" stroke="#2c2420" stroke-width="2.2"/>
+            <circle cx="63" cy="46" r="8" fill="none" stroke="#2c2420" stroke-width="2.2"/>
+            <path d="M53 46h2" stroke="#2c2420" stroke-width="2.2"/>
+            <circle cx="45" cy="47" r="2.4" fill="#1f1b18"/><circle cx="63" cy="47" r="2.4" fill="#1f1b18"/>
+            <path d="M49 60c3 2.6 7 2.6 10 0" stroke="#7d4630" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+            <path d="M24 108c2-22 14-32 30-32s28 10 30 32z" fill="#0c4f54"/>
+            <path d="M47 78l7 9 7-9" fill="none" stroke="#d7eae9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Dr. Jonas Beck, DDS</h3>
+        <p class="creds">Pediatric dentistry &middot; Sedation &amp; dental-anxiety certification (DGfAN) &middot; 12 years of practice</p>
+        <p class="langs">Speaks: German &middot; English &middot; Turkish</p>
+        <p class="personal">&ldquo;Raise a hand and everything stops. Every single time.&rdquo;</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- (7) BOOKING -->
+<section class="booking" id="book" aria-labelledby="book-h">
+  <div class="wrap">
+    <div class="booking-side reveal">
+      <p class="kicker">Book online</p>
+      <h2 id="book-h">Sixty seconds. Two steps. Done.</h2>
+      <p class="lede">Tell us what you need and when suits you &mdash; we&rsquo;ll match you to the next slot and text you the exact time.</p>
+      <p class="trust-item badge-pill" style="margin-top:.4rem">
+        <span class="stars" aria-hidden="true">
+          <svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg>
+        </span>
+        <span class="sr-only">Rated 4.9 out of 5 from 312 Google reviews</span>
+        <span aria-hidden="true">4.9 from 312 reviews</span>
+      </p>
+      <blockquote class="mini-quote">
+        &ldquo;Booked at 9:12 on my phone, sat in the chair at 14:30 the same day. The confirmation text even told me where to park.&rdquo;
+        <footer>&mdash; Daniel H., emergency patient, March 2026</footer>
+      </blockquote>
+    </div>
+
+    <div class="form-shell">
+      <form id="booking-form" novalidate>
+        <div class="progress">
+          <div class="pdots" aria-hidden="true">
+            <span class="pdot" data-dot="0" data-state="current"></span>
+            <span class="pdot" data-dot="1"></span>
+          </div>
+          <p class="plabel" id="step-label" aria-live="polite" style="margin:0">Step 1 of 2 &middot; Treatment &amp; time</p>
+        </div>
+
+        <!-- STEP 1 -->
+        <div class="fstep" data-step="0">
+          <fieldset>
+            <legend>What do you need?</legend>
+            <div class="rgrid" aria-describedby="err-treatment">
+              <label class="rcard">
+                <input type="radio" name="treatment" value="Check-up &amp; cleaning">
+                <svg class="ric" width="22" height="22" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M15.5 15.5L23 23"/></svg>
+                <span><b>Check-up &amp; cleaning</b><span>60 min &middot; from &euro;89</span></span>
+              </label>
+              <label class="rcard">
+                <input type="radio" name="treatment" value="Aligner consultation">
+                <svg class="ric" width="22" height="22" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 13c0 6 4.5 10 10 10s10-4 10-10"/><path d="M5.5 9.5C5.5 6 9 4 14 4s8.5 2 8.5 5.5"/></svg>
+                <span><b>Aligner consultation</b><span>30 min &middot; free scan</span></span>
+              </label>
+              <label class="rcard">
+                <input type="radio" name="treatment" value="Emergency — today">
+                <svg class="ric" width="22" height="22" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="14" cy="15" r="9"/><path d="M14 10v5l3.5 2.5"/></svg>
+                <span><b>Emergency &mdash; today</b><span>seen same day</span></span>
+              </label>
+              <label class="rcard">
+                <input type="radio" name="treatment" value="Something else">
+                <svg class="ric" width="22" height="22" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="7" cy="14" r="1.6" fill="currentColor"/><circle cx="14" cy="14" r="1.6" fill="currentColor"/><circle cx="21" cy="14" r="1.6" fill="currentColor"/></svg>
+                <span><b>Something else</b><span>we&rsquo;ll figure it out together</span></span>
+              </label>
+            </div>
+            <p class="gmsg" id="err-treatment" role="alert">Choose a treatment so we reserve the right chair time.</p>
+          </fieldset>
+          <fieldset>
+            <legend>When suits you best?</legend>
+            <div class="rgrid" aria-describedby="err-time">
+              <label class="rcard"><input type="radio" name="timepref" value="Morning (8:00–11:00)"><span><b>Morning</b><span>8:00 &ndash; 11:00</span></span></label>
+              <label class="rcard"><input type="radio" name="timepref" value="Midday (11:00–14:00)"><span><b>Midday</b><span>11:00 &ndash; 14:00</span></span></label>
+              <label class="rcard"><input type="radio" name="timepref" value="Afternoon (14:00–17:00)"><span><b>Afternoon</b><span>14:00 &ndash; 17:00</span></span></label>
+              <label class="rcard"><input type="radio" name="timepref" value="Evening (17:00–19:00)"><span><b>Evening</b><span>17:00 &ndash; 19:00</span></span></label>
+            </div>
+            <p class="gmsg" id="err-time" role="alert">Pick a time of day &mdash; we&rsquo;ll find the exact slot for you.</p>
+          </fieldset>
+          <div class="fnav">
+            <button type="button" class="btn btn-primary btn-lg" id="to-step-2">Continue &mdash; last step</button>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="fstep" data-step="1" hidden>
+          <fieldset style="margin-bottom:.4rem">
+            <legend>Where do we send the confirmation?</legend>
+            <div class="field" id="f-name">
+              <label for="bk-name">Your name <span class="hint">(first name is fine)</span></label>
+              <input id="bk-name" name="name" type="text" autocomplete="given-name" required>
+              <svg class="tick" width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg>
+              <p class="fmsg" id="err-name">We need a name for the appointment book &mdash; a first name is fine.</p>
+            </div>
+            <div class="field" id="f-phone">
+              <label for="bk-phone">Mobile number <span class="hint">(for the confirmation text only)</span></label>
+              <input id="bk-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+              <svg class="tick" width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg>
+              <p class="fmsg" id="err-phone">That number looks incomplete. We only use it to text your confirmation.</p>
+            </div>
+          </fieldset>
+          <div class="fnav">
+            <button type="button" class="btn btn-ghost" id="back-to-1">Back</button>
+            <button type="submit" class="btn btn-primary btn-lg">Confirm appointment</button>
+          </div>
+          <p class="form-privacy">
+            <svg width="20" height="20" aria-hidden="true"><use href="#i-shield"/></svg>
+            <span>Your data stays between us &mdash; GDPR-compliant, encrypted in transit and at rest, never sold or shared. No account needed, no newsletter, ever.</span>
+          </p>
+        </div>
+      </form>
+
+      <!-- SUCCESS STATE -->
+      <div class="success-panel" id="booking-success" hidden tabindex="-1" role="status">
+        <div class="ring" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.5l5 5L19.5 7"/></svg>
+        </div>
+        <h3 id="success-headline" style="font-size:1.5rem">You&rsquo;re booked in.</h3>
+        <p style="color:var(--muted)">We&rsquo;ll text you a confirmation with the exact time <strong>in 2 minutes</strong>.</p>
+        <ul class="success-sum" id="success-summary"></ul>
+        <p class="microcopy">Need to change it? Just reply to the text or call <a href="tel:+494022817440" style="font-weight:700">040 / 228 17 44</a> &mdash; cancelling is free up to 24&nbsp;h before.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- (8) TESTIMONIALS -->
+<section aria-labelledby="quotes-h">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kicker">Patient stories</p>
+      <h2 id="quotes-h">What it actually feels like.</h2>
+    </div>
+    <div class="quotes-grid">
+      <article class="quote-card reveal">
+        <p class="stars"><span class="sr-only">5 out of 5 stars</span><svg width="16" height="16" aria-hidden="true"><use href="#i-star"/></svg><svg width="16" height="16" aria-hidden="true"><use href="#i-star"/></svg><svg width="16" height="16" aria-hidden="true"><use href="#i-star"/></svg><svg width="16" height="16" aria-hidden="true"><use href="#i-star"/></svg><svg width="16" height="16" aria-hidden="true"><use href="#i-star"/></svg></p>
+        <blockquote>&ldquo;I hadn&rsquo;t seen a dentist in nine years and was ashamed to even call. Dr. Beck talked me through every step and we paused four times in the first visit. Two appointments later, everything was done. Nine years of dread, fixed in two visits.&rdquo;</blockquote>
+        <div class="quote-who">
+          <span class="av" aria-hidden="true"><svg viewBox="0 0 46 46"><rect width="46" height="46" fill="#d7eae9"/><circle cx="23" cy="19" r="10" fill="#eec9a8"/><path d="M12 19c0-8 5-12 11-12s11 4 11 12c-3-4-6-5-11-5s-8 1-11 5z" fill="#7d4630"/><path d="M8 46c1-10 7-14 15-14s14 4 15 14z" fill="#4d8a66"/></svg></span>
+          <p style="margin:0"><b>Lena W.</b><span>Anxiety patient &middot; back after 9 years</span></p>
+        </div>
+      </article>
+      <article class="quote-card reveal">
+        <p class="stars"><span class="sr-only">5 out of 5 stars</span><svg width="16" height="16" aria-hidden="true"><use href="#i-star"/></svg><svg width="16" height="16" aria-hidden="true"><use href="#i-star"/></svg><svg width="16" height="16" aria-hidden="true"><use href="#i-star"/></svg><svg width="16" height="16" aria-hidden="true"><use href="#i-star"/></svg><svg width="16" height="16" aria-hidden="true"><use href="#i-star"/></svg></p>
+        <blockquote>&ldquo;Fourteen months of aligners, eleven short check-ins, most of them before work. My overbite is gone and not one person at the office noticed I was wearing anything. The instalment plan was exactly what was quoted &mdash; to the euro.&rdquo;</blockquote>
+        <div class="quote-who">
+          <span class="av" aria-hidden="true"><svg viewBox="0 0 46 46"><rect width="46" height="46" fill="#ecd9b4"/><circle cx="23" cy="19" r="10" fill="#c68863"/><path d="M13 16c1-6 5-9 10-9s9 3 10 9c-3-3-6-4-10-4s-7 1-10 4z" fill="#1f1b18"/><path d="M8 46c1-10 7-14 15-14s14 4 15 14z" fill="#136a6e"/></svg></span>
+          <p style="margin:0"><b>Tobias R.</b><span>Aligner patient &middot; 14 months, &euro;2,340 total</span></p>
+        </div>
+      </article>
+      <article class="quote-card reveal">
+        <p class="stars"><span class="sr-only">5 out of 5 stars</span><svg width="16" height="16" aria-hidden="true"><use href="#i-star"/></svg><svg width="16" height="16" aria-hidden="true"><use href="#i-star"/></svg><svg width="16" height="16" aria-hidden="true"><use href="#i-star"/></svg><svg width="16" height="16" aria-hidden="true"><use href="#i-star"/></svg><svg width="16" height="16" aria-hidden="true"><use href="#i-star"/></svg></p>
+        <blockquote>&ldquo;Three kids, six years, zero tears. The hygienist lets my youngest &lsquo;count the instruments&rsquo; before every cleaning, and somehow that is all it takes. We moved to Eppendorf and still make the trip into Altstadt.&rdquo;</blockquote>
+        <div class="quote-who">
+          <span class="av" aria-hidden="true"><svg viewBox="0 0 46 46"><rect width="46" height="46" fill="#e6efe4"/><circle cx="23" cy="19" r="10" fill="#e8b88f"/><path d="M11 21c-1-9 5-14 12-14s13 5 12 14c-2-5-5-7-12-7s-10 2-12 7z" fill="#3c3430"/><path d="M8 46c1-10 7-14 15-14s14 4 15 14z" fill="#c89a55"/></svg></span>
+          <p style="margin:0"><b>Aylin K.</b><span>Family of five &middot; patients since 2020</span></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- (9) FAQ -->
+<section class="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <p class="kicker">Honest answers</p>
+    <h2 id="faq-h">The things people are nervous to ask.</h2>
+    <div class="faq-list">
+      <details name="faq">
+        <summary>I haven&rsquo;t been to a dentist in years &mdash; will I get a lecture?</summary>
+        <div class="faq-a"><p>No lectures. Promise. Roughly a third of our new patients arrive after a gap of five years or more &mdash; you will not surprise us, and you will not be scolded. First visit is a calm look, a plan, and nothing else unless you want it.</p></div>
+      </details>
+      <details name="faq">
+        <summary>Does it hurt?</summary>
+        <div class="faq-a"><p>Modern anaesthesia means most treatments are genuinely painless &mdash; the most you should feel is pressure. And you always have the hand signal: raise it, and we stop instantly. Not &ldquo;in a second&rdquo;. Instantly.</p></div>
+      </details>
+      <details name="faq">
+        <summary>What will it cost? I&rsquo;m worried about surprise bills.</summary>
+        <div class="faq-a"><p>Every treatment beyond the covered basics gets a written, itemised estimate before we begin &mdash; and that quote is binding. If we discover something unexpected mid-treatment, we pause and discuss it with you first. Instalment plans at 0% are available from &euro;300.</p></div>
+      </details>
+      <details name="faq">
+        <summary>Do you take my insurance?</summary>
+        <div class="faq-a"><p>We bill all statutory plans (TK, AOK, BARMER, DAK, IKK classic, hkk, KKH and others) directly &mdash; you never front the money. Private plans and Beihilfe get a GOZ-compliant invoice formatted for easy reimbursement. Unsure? Text us a photo of your card and we&rsquo;ll confirm within the hour.</p></div>
+      </details>
+      <details name="faq">
+        <summary>I can&rsquo;t stand the sound of the drill.</summary>
+        <div class="faq-a"><p>You&rsquo;re in good company. We have noise-cancelling headphones with your choice of playlist at every chair, and for anything longer we offer laughing gas or light sedation from &euro;120 &mdash; you stay responsive, but the edge is gone. Many patients describe it as &ldquo;pleasantly elsewhere&rdquo;.</p></div>
+      </details>
+      <details name="faq">
+        <summary>What if I need to cancel or move my appointment?</summary>
+        <div class="faq-a"><p>Free up to 24 hours before, no questions, no forms &mdash; reply to your confirmation text or call. We&rsquo;d genuinely rather you reschedule than sit in the chair stressed about the meeting you&rsquo;re missing.</p></div>
+      </details>
+    </div>
+    <div class="faq-cta">
+      <a class="btn btn-primary btn-lg" href="#book">Book your appointment</a>
+      <p class="microcopy">Next free slot: today 16:40 &middot; rated 4.9 by 312 patients on Google.</p>
+    </div>
+  </div>
+</section>
+
+<!-- (10) LOCATION -->
+<section class="location" aria-labelledby="loc-h">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kicker">Finding us</p>
+      <h2 id="loc-h">Two minutes from Rathaus.</h2>
+      <address style="font-style:normal; font-weight:600; font-size:1.1rem; margin-bottom:.4rem">
+        Halden Dental Studio<br>
+        Alter Fischmarkt 11, 2nd floor (lift)<br>
+        20095 Hamburg &mdash; Altstadt
+      </address>
+      <table class="hours-table">
+        <caption class="sr-only">Opening hours by day</caption>
+        <tbody>
+          <tr data-day="1"><th scope="row">Monday &ndash; Thursday</th><td>8:00 &ndash; 19:00</td></tr>
+          <tr data-day="5"><th scope="row">Friday</th><td>8:00 &ndash; 18:00</td></tr>
+          <tr data-day="6"><th scope="row">Saturday</th><td>9:00 &ndash; 14:00</td></tr>
+          <tr data-day="0"><th scope="row">Sunday</th><td>Closed &middot; emergency line on</td></tr>
+        </tbody>
+      </table>
+      <p class="loc-note">
+        <svg width="20" height="20" aria-hidden="true"><use href="#i-pin"/></svg>
+        <span><strong>U3 Rathaus</strong> exit Schmiedestra&szlig;e: 2-minute walk. Also 6 minutes from Jungfernstieg (U/S).</span>
+      </p>
+      <p class="loc-note">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M9 16.5v-9h3.5a2.75 2.75 0 1 1 0 5.5H9"/></svg>
+        <span>Driving? <strong>Parkhaus Rosenstra&szlig;e</strong> is 3 minutes away &mdash; we validate your first hour.</span>
+      </p>
+    </div>
+    <div class="map-card reveal" role="img" aria-label="Sketch map: Halden Dental Studio on Alter Fischmarkt, a two-minute walk south-east of Rathaus and the U3 Rathaus station, near Mönckebergstraße.">
+      <svg viewBox="0 0 560 400" aria-hidden="true">
+        <rect width="560" height="400" fill="#eef4ec"/>
+        <path d="M380 0c-30 60-20 120 30 160s70 100 50 240h100V0z" fill="#cfe3ea"/>
+        <path d="M392 12c-24 52-16 104 28 140" fill="none" stroke="#a8c8d4" stroke-width="3"/>
+        <text x="468" y="60" font-family="Public Sans, sans-serif" font-size="13" fill="#4a7282" font-weight="600">Alster</text>
+        <g stroke="#fdfefc" stroke-linecap="round" fill="none">
+          <path d="M0 120 L560 90" stroke-width="22"/>
+          <path d="M0 250 L420 290" stroke-width="26"/>
+          <path d="M150 0 L190 400" stroke-width="20"/>
+          <path d="M330 0 L290 400" stroke-width="16"/>
+          <path d="M0 340 L560 360" stroke-width="14"/>
+        </g>
+        <text x="30" y="113" font-family="Public Sans, sans-serif" font-size="12" fill="#5a7a6a" transform="rotate(-3 30 113)">M&ouml;nckebergstra&szlig;e</text>
+        <text x="40" y="262" font-family="Public Sans, sans-serif" font-size="12" fill="#5a7a6a" transform="rotate(5 40 262)">Alter Fischmarkt</text>
+        <g><!-- Rathaus -->
+          <rect x="84" y="150" width="84" height="62" rx="8" fill="#9bb8a4"/>
+          <path d="M118 150v-16h16v16" fill="#9bb8a4"/>
+          <text x="126" y="186" font-family="Public Sans, sans-serif" font-size="13" font-weight="700" fill="#fdfefc" text-anchor="middle">Rathaus</text>
+        </g>
+        <g><!-- U-Bahn -->
+          <circle cx="222" cy="138" r="15" fill="#136a6e"/>
+          <text x="222" y="143.5" font-family="Public Sans, sans-serif" font-size="15" font-weight="700" fill="#fdfefc" text-anchor="middle">U</text>
+          <text x="222" y="170" font-family="Public Sans, sans-serif" font-size="11.5" fill="#33555c" text-anchor="middle" font-weight="600">U3 Rathaus</text>
+        </g>
+        <path d="M232 150c30 30 40 70 36 120" fill="none" stroke="#136a6e" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/>
+        <text x="296" y="216" font-family="Public Sans, sans-serif" font-size="11.5" fill="#136a6e" font-weight="600">2 min walk</text>
+        <g><!-- studio pin -->
+          <circle cx="268" cy="282" r="26" fill="#136a6e" opacity=".14"/>
+          <path d="M268 296s-16-14-16-25.5a16 16 0 1 1 32 0C284 282 268 296 268 296z" fill="#136a6e"/>
+          <circle cx="268" cy="270" r="6.5" fill="#fdfefc"/>
+          <rect x="208" y="304" width="120" height="26" rx="13" fill="#fdfefc"/>
+          <text x="268" y="321" font-family="Public Sans, sans-serif" font-size="12.5" font-weight="700" fill="#0c4f54" text-anchor="middle">Halden Dental</text>
+        </g>
+        <g><!-- parking -->
+          <rect x="402" y="318" width="30" height="30" rx="8" fill="#9bb8a4"/>
+          <text x="417" y="339" font-family="Public Sans, sans-serif" font-size="15" font-weight="700" fill="#fdfefc" text-anchor="middle">P</text>
+          <text x="417" y="368" font-family="Public Sans, sans-serif" font-size="10.5" fill="#5a7a6a" text-anchor="middle">Rosenstra&szlig;e</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- (11) FOOTER -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" style="display:flex;align-items:center;gap:.6rem;text-decoration:none;margin-bottom:.8rem">
+          <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M13 12c-3.4 0-5.4 2.8-5.4 6.2 0 4.6 2.4 6.8 3.3 10.6.5 2.2 2.8 2.5 3.5.2.7-2.3.4-5 2.1-5s1.4 2.7 2.1 5c.7 2.3 3 2 3.5-.2.9-3.8 3.3-6 3.3-10.6 0-3.4-2-6.2-5.4-6.2-1.4 0-2.2.7-3.5.7s-2.1-.7-3.5-.7z" fill="none" stroke="#d7eae9" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M20 11.6c0-3.2 1.4-5.4 4.6-6.4" fill="none" stroke="#d7eae9" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M24.6 5.2c2.8-.9 5.4.2 6.4 2.4-2.2 1.5-5 1.4-6.7-.2-.4-.7-.3-1.6.3-2.2z" fill="#8fbf9f"/>
+          </svg>
+          <span style="font-family:var(--font-serif);font-weight:700;font-size:1.15rem;color:#fff">Halden Dental Studio</span>
+        </a>
+        <p style="color:oklch(82% 0.03 175);max-width:30ch">Alter Fischmarkt 11<br>20095 Hamburg<br><a href="tel:+494022817440">040 / 228 17 44</a><br><a href="mailto:hello@halden.clinic">hello@halden.clinic</a></p>
+      </div>
+      <div>
+        <h3>Care</h3>
+        <ul>
+          <li><a href="#services">Check-ups &amp; cleaning</a></li>
+          <li><a href="#services">Invisible aligners</a></li>
+          <li><a href="#services">Implants</a></li>
+          <li><a href="#services">Emergencies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Patients</h3>
+        <ul>
+          <li><a href="#book">Book online</a></li>
+          <li><a href="#pricing">Insurance &amp; prices</a></li>
+          <li><a href="#team">Meet the team</a></li>
+          <li><a href="mailto:hello@halden.clinic?subject=New-patient%20forms">New-patient forms (by email)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Legal</h3>
+        <ul>
+          <!-- PLACEHOLDER LINKS: point these at your practice's own pages before launch.
+               Imprint (Impressum, §5 DDG) and Privacy (DSGVO) are legally required in Germany. -->
+          <li><a href="#legal-note">Imprint</a></li>
+          <li><a href="#legal-note">Privacy (GDPR)</a></li>
+          <li><a href="#legal-note">Accessibility statement</a></li>
+          <li><a href="#legal-note">Patient rights</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <p>&copy; 2026 Halden Dental Studio &middot; Dr. Mara Halden &middot; Registered with the Hamburg Dental Chamber (Zahn&auml;rztekammer Hamburg). Statutory billing per BEMA, private billing per GOZ. Prices shown are starting prices incl. VAT where applicable; your written estimate is binding.</p>
+      <p id="legal-note">Imprint, privacy (GDPR), accessibility statement and patient rights are placeholder links in this template &mdash; wire them to your practice&rsquo;s own pages before going live. Impressum and Datenschutzerkl&auml;rung are legally required in Germany.</p>
+      <p><a href="../index.html">&larr; Back to the FABLE&middot;5 showcase</a></p>
+      <p>Template drafted end-to-end by Claude Fable 5 &middot; 06/2026</p>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE BAR -->
+<div class="mobilebar" role="region" aria-label="Quick booking">
+  <a class="btn btn-primary" href="#book">Book &middot; next slot 16:40</a>
+  <a class="btn btn-ghost" href="tel:+494022817440" aria-label="Call Halden Dental Studio: 040 228 17 44">
+    <svg width="20" height="20" aria-hidden="true"><use href="#i-phone"/></svg>
+  </a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Open-now status (polite, with static fallback) ---------- */
+  try{
+    var HOURS = {0:null, 1:[8,19], 2:[8,19], 3:[8,19], 4:[8,19], 5:[8,18], 6:[9,14]};
+    var DAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var now = new Date(), day = now.getDay(), h = now.getHours() + now.getMinutes()/60;
+    var el = document.getElementById("open-status");
+    var today = HOURS[day], msg;
+    function fmt(x){ return String(x) + ":00"; }
+    if (today && h >= today[0] && h < today[1]) {
+      msg = "Open now · until " + fmt(today[1]) + " today";
+    } else if (today && h < today[0]) {
+      msg = "Opens today at " + fmt(today[0]);
+    } else {
+      var d = day, hop = 0;
+      do { d = (d + 1) % 7; hop++; } while (!HOURS[d] && hop < 8);
+      var label = (hop === 1) ? "tomorrow" : DAYS[d];
+      msg = "Closed right now · we open " + label + " at " + fmt(HOURS[d][0]);
+    }
+    if (el) el.innerHTML = '<span class="dot" aria-hidden="true"></span>' + msg;
+    /* highlight today's row in the hours table */
+    var rowDay = (day >= 1 && day <= 4) ? "1" : String(day);
+    var row = document.querySelector('.hours-table tr[data-day="' + rowDay + '"]');
+    if (row) row.setAttribute("aria-current", "date");
+  }catch(e){ /* static fallback text remains */ }
+
+  /* ---------- Scroll reveals ---------- */
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var revealEls = document.querySelectorAll(".reveal");
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, {threshold:.15, rootMargin:"0px 0px -40px 0px"});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* ---------- Multi-step booking form ---------- */
+  var form = document.getElementById("booking-form");
+  if (!form) return;
+  var steps = form.querySelectorAll(".fstep");
+  var dots = form.querySelectorAll(".pdot");
+  var stepLabel = document.getElementById("step-label");
+  var labels = ["Step 1 of 2 · Treatment & time", "Step 2 of 2 · Your details"];
+  var current = 0;
+
+  function goTo(i){
+    Array.prototype.forEach.call(steps, function(s, idx){ s.hidden = (idx !== i); });
+    Array.prototype.forEach.call(dots, function(d, idx){
+      d.setAttribute("data-state", idx < i ? "done" : (idx === i ? "current" : ""));
+    });
+    stepLabel.textContent = labels[i];
+    current = i;
+    /* Focus management is independent of motion preference; preventScroll
+       keeps the focus move from triggering any scroll animation. */
+    var first = steps[i].querySelector("input, button");
+    if (first) first.focus({preventScroll:true});
+  }
+
+  function radioChosen(name){ return !!form.querySelector('input[name="' + name + '"]:checked'); }
+  function showGroupError(id, show){
+    var m = document.getElementById(id);
+    if (show) m.setAttribute("data-show",""); else m.removeAttribute("data-show");
+  }
+
+  document.getElementById("to-step-2").addEventListener("click", function(){
+    var okT = radioChosen("treatment"), okW = radioChosen("timepref");
+    showGroupError("err-treatment", !okT);
+    showGroupError("err-time", !okW);
+    if (okT && okW) goTo(1);
+    else {
+      var firstBad = !okT ? form.querySelector('input[name="treatment"]') : form.querySelector('input[name="timepref"]');
+      if (firstBad) firstBad.focus();
+    }
+  });
+  /* clear group errors as soon as a choice is made */
+  form.addEventListener("change", function(e){
+    if (e.target.name === "treatment") showGroupError("err-treatment", false);
+    if (e.target.name === "timepref") showGroupError("err-time", false);
+  });
+  document.getElementById("back-to-1").addEventListener("click", function(){ goTo(0); });
+
+  /* field validation on blur, with success ticks */
+  var nameInput = document.getElementById("bk-name");
+  var phoneInput = document.getElementById("bk-phone");
+  var phoneRe = /^\+?[0-9][0-9 \/().\-]{5,18}$/;
+
+  function setFieldState(input, valid){
+    var field = input.closest(".field");
+    field.classList.toggle("ok", valid);
+    field.classList.toggle("err", !valid);
+    input.setAttribute("aria-invalid", valid ? "false" : "true");
+  }
+  function validName(){ return nameInput.value.trim().length >= 2; }
+  function validPhone(){ return phoneRe.test(phoneInput.value.trim()); }
+
+  nameInput.setAttribute("aria-describedby","err-name");
+  phoneInput.setAttribute("aria-describedby","err-phone");
+  nameInput.addEventListener("blur", function(){ if (nameInput.value !== "") setFieldState(nameInput, validName()); });
+  phoneInput.addEventListener("blur", function(){ if (phoneInput.value !== "") setFieldState(phoneInput, validPhone()); });
+  nameInput.addEventListener("input", function(){ if (validName()) setFieldState(nameInput, true); });
+  phoneInput.addEventListener("input", function(){ if (validPhone()) setFieldState(phoneInput, true); });
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var okN = validName(), okP = validPhone();
+    setFieldState(nameInput, okN);
+    setFieldState(phoneInput, okP);
+    if (!okN) { nameInput.focus(); return; }
+    if (!okP) { phoneInput.focus(); return; }
+
+    var first = nameInput.value.trim().split(/\s+/)[0];
+    first = first.charAt(0).toUpperCase() + first.slice(1);
+    var treatment = form.querySelector('input[name="treatment"]:checked').value;
+    var timepref = form.querySelector('input[name="timepref"]:checked').value;
+
+    document.getElementById("success-headline").textContent = "You’re booked in, " + first + ".";
+    var sum = document.getElementById("success-summary");
+    sum.innerHTML = "";
+    [treatment, timepref, "Alter Fischmarkt 11, 2nd floor"].forEach(function(t){
+      var li = document.createElement("li");
+      li.textContent = t;
+      sum.appendChild(li);
+    });
+
+    form.hidden = true;
+    var panel = document.getElementById("booking-success");
+    panel.hidden = false;
+    panel.focus();
+  });
+})();
+</script>
+</body>
+</html>

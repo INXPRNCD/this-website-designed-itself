@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FABLE·5 — The Website That Designed Itself</title>
+  <meta name="description" content="A state-of-the-art showcase built end-to-end by Claude Fable 5 — code, design and copy in a single session. No templates, no stock, no frameworks.">
+  <meta property="og:title" content="FABLE·5 — The Website That Designed Itself">
+  <meta property="og:description" content="Code, design and copy by Claude Fable 5. One model, one session.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#101109">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=JetBrains+Mono:wght@300..700&display=swap">
+
+  <link rel="stylesheet" href="css/main.css?v=3">
+
+  <script>document.documentElement.classList.replace('no-js','js');</script>
+</head>
+<body data-loading>
+
+  <!-- ============ PRELOADER ============ -->
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader__status font-mono" data-status>warming up the model</div>
+    <div class="preloader__count font-mono"><span data-count>00</span></div>
+    <div class="preloader__curtain">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!-- ============ GLOBAL CHROME ============ -->
+  <div class="progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="nav__logo" href="#top" data-magnetic>FABLE<sup>·5</sup></a>
+    <p class="nav__meta font-mono">A SHOWCASE — <span class="accent">CLAUDE FABLE 5</span> — 06/2026</p>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero" aria-label="Introduction">
+      <canvas class="hero__canvas" id="shader-canvas" aria-hidden="true"></canvas>
+      <div class="hero__veil" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow font-mono" data-scramble-in>ONE MODEL · ONE SESSION · ZERO TEMPLATES</p>
+        <h1 class="hero__title">
+          <span class="line"><span class="line-inner">This website</span></span>
+          <span class="line"><span class="line-inner">designed <em>itself.</em></span></span>
+        </h1>
+        <p class="hero__sub">
+          Every letterform, every easing curve, every line of code and copy on this page
+          was written by <strong>Claude Fable 5</strong> — researched, art-directed and
+          shipped in a single conversation.
+        </p>
+      </div>
+
+      <div class="hero__hint font-mono" aria-hidden="true">
+        <span>SCROLL</span>
+        <span class="hero__hint-line"></span>
+      </div>
+      <p class="hero__corner font-mono" aria-hidden="true">BACKGROUND COMPUTED ON ARRIVAL<br>RAW WEBGL · NO THREE.JS · 60FPS</p>
+    </section>
+
+    <!-- ============ ACT I — TYPOGRAPHY ============ -->
+    <section class="act act-type" id="act-type" aria-label="Act I — Typography">
+      <header class="act__head">
+        <p class="act__label font-mono"><span class="accent">ACT I</span> — TYPOGRAPHY</p>
+        <h2 class="act__title split-lines">
+          <span class="line"><span class="line-inner">Type is the voice.</span></span>
+          <span class="line"><span class="line-inner">I gave this page three.</span></span>
+        </h2>
+      </header>
+
+      <div class="type-specimens">
+        <div class="specimen" data-reveal>
+          <p class="specimen__name font-mono">01 — BRICOLAGE GROTESQUE · VARIABLE</p>
+          <p class="specimen__sample specimen__sample--display">The one that shouts</p>
+          <p class="specimen__note">A grotesque with opinions — three axes I can bend in real time.</p>
+        </div>
+        <div class="specimen" data-reveal>
+          <p class="specimen__name font-mono">02 — NEWSREADER · ITALIC</p>
+          <p class="specimen__sample specimen__sample--serif">the one that whispers</p>
+          <p class="specimen__note">An editorial serif for the narrative voice. Mine, in this case.</p>
+        </div>
+        <div class="specimen" data-reveal>
+          <p class="specimen__name font-mono">03 — JETBRAINS MONO</p>
+          <p class="specimen__sample specimen__sample--mono">the one that testifies</p>
+          <p class="specimen__note">Annotations, measurements, evidence. No adjectives.</p>
+        </div>
+      </div>
+
+      <div class="kinetic">
+        <p class="kinetic__caption font-mono" aria-hidden="true">VARIABLE WEIGHT 200&#8201;&#8594;&#8201;800 · SCRUBBED BY YOUR SCROLL</p>
+        <p class="kinetic__line" data-weight-scrub aria-label="from whisper to shout">from whisper to shout</p>
+      </div>
+
+      <div class="proximity" data-proximity>
+        <p class="proximity__word" role="img" aria-label="ALIVE">
+          <span aria-hidden="true">A</span><span aria-hidden="true">L</span><span aria-hidden="true">I</span><span aria-hidden="true">V</span><span aria-hidden="true">E</span>
+        </p>
+        <p class="proximity__caption font-mono">MOVE YOUR CURSOR THROUGH THE WORD — EACH LETTER WATCHES THE DISTANCE</p>
+      </div>
+
+      <aside class="act__voice" data-reveal>
+        <p>“I don’t pick typefaces because they’re safe. I pick them because they
+        can carry a register — shout, whisper, testify — and because a variable
+        axis is an instrument, not a setting.”</p>
+        <p class="act__voice-sig font-mono">— FABLE 5, art direction notes</p>
+      </aside>
+    </section>
+
+    <!-- ============ ACT II — MOTION ============ -->
+    <section class="act act-motion" id="act-motion" aria-label="Act II — Motion">
+      <div class="motion__pin">
+        <header class="act__head act__head--motion">
+          <p class="act__label font-mono"><span class="accent">ACT II</span> — MOTION</p>
+          <h2 class="act__title">Motion is a language.<br>Here are five sentences.</h2>
+          <p class="motion__hint font-mono" aria-hidden="true">KEEP SCROLLING — THIS SECTION MOVES SIDEWAYS</p>
+        </header>
+
+        <div class="motion__track">
+
+          <article class="mcard mcard--magnet">
+            <p class="mcard__label font-mono">01 / MAGNETIC<br>gsap.quickTo · 24 lines</p>
+            <div class="mcard__stage">
+              <div class="magnet-zone" data-magnet-zone>
+                <button class="magnet-btn" type="button" data-magnet>hold<br>still</button>
+              </div>
+            </div>
+            <p class="mcard__note">Buttons that lean toward intent. The pull is eased, the release is elastic.</p>
+          </article>
+
+          <article class="mcard mcard--tilt">
+            <p class="mcard__label font-mono">02 / PERSPECTIVE<br>vanilla rotateX/Y · lerped</p>
+            <div class="mcard__stage">
+              <div class="tilt" data-tilt>
+                <div class="tilt__inner">
+                  <p class="tilt__big">5°</p>
+                  <p class="tilt__small font-mono">MAX TILT — RESTRAINT<br>IS THE PREMIUM TELL</p>
+                  <div class="tilt__glare" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+            <p class="mcard__note">Depth you feel more than see. Anything past ten degrees is a carnival.</p>
+          </article>
+
+          <article class="mcard mcard--spring">
+            <p class="mcard__label font-mono">03 / SPRING<br>native CSS linear() easing</p>
+            <div class="mcard__stage">
+              <div class="spring-stage">
+                <button class="spring-replay font-mono" type="button" data-spring-replay>REPLAY</button>
+                <div class="spring-ball" data-spring-ball></div>
+                <div class="spring-floor" aria-hidden="true"></div>
+              </div>
+            </div>
+            <p class="mcard__note">Real spring physics, sampled into a native <code>linear()</code> easing curve. The browser does the rest.</p>
+          </article>
+
+          <article class="mcard mcard--scramble">
+            <p class="mcard__label font-mono">04 / DECODE<br>ScrambleText — free since 3.13</p>
+            <div class="mcard__stage">
+              <button class="scramble-word font-mono" type="button" data-scramble-hover data-text="LEGIBLE">LEGIBLE</button>
+            </div>
+            <p class="mcard__note">Order from noise on every hover — a small ritual about what language models do.</p>
+          </article>
+
+          <article class="mcard mcard--fps">
+            <p class="mcard__label font-mono">05 / PROOF<br>measured live, not claimed</p>
+            <div class="mcard__stage">
+              <p class="fps"><span class="fps__value font-mono" data-fps>60</span><span class="fps__unit font-mono">FPS</span></p>
+            </div>
+            <p class="mcard__note">Transforms and opacity only. One ticker. If this number drops, I failed.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ACT III — THE PLATFORM ============ -->
+    <section class="act act-platform" id="act-platform" aria-label="Act III — The Platform">
+      <header class="act__head">
+        <p class="act__label font-mono"><span class="accent">ACT III</span> — THE PLATFORM</p>
+        <h2 class="act__title split-lines">
+          <span class="line"><span class="line-inner">The 2026 web needs less</span></span>
+          <span class="line"><span class="line-inner">JavaScript than you think.</span></span>
+        </h2>
+        <p class="act__intro">Six live demos. Each one runs on a web platform feature that
+        shipped recently enough to surprise working professionals. No libraries below this line.</p>
+      </header>
+
+      <div class="tiles">
+
+        <article class="tile tile--scrolldriven" data-reveal>
+          <header class="tile__head">
+            <h3 class="tile__name font-mono">animation-timeline: view()</h3>
+            <p class="tile__badge font-mono">CHROME · SAFARI 26</p>
+          </header>
+          <div class="tile__demo">
+            <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="ring__track" cx="60" cy="60" r="52"></circle>
+              <circle class="ring__fill" cx="60" cy="60" r="52"></circle>
+            </svg>
+            <p class="ring__caption font-mono">THIS RING IS DRIVEN BY YOUR<br>SCROLL POSITION. CSS ONLY.</p>
+          </div>
+          <p class="tile__note">Scroll-driven animations run off the main thread — the compositor scrubs them, JavaScript never wakes up.</p>
+        </article>
+
+        <article class="tile tile--property" data-reveal>
+          <header class="tile__head">
+            <h3 class="tile__name font-mono">@property</h3>
+            <p class="tile__badge font-mono">BASELINE 2024</p>
+          </header>
+          <div class="tile__demo">
+            <div class="conic" aria-hidden="true"></div>
+          </div>
+          <p class="tile__note">A registered <code>&lt;angle&gt;</code> custom property makes this conic gradient itself animatable — no canvas, no SVG, no hacks.</p>
+        </article>
+
+        <article class="tile tile--anchor" data-reveal>
+          <header class="tile__head">
+            <h3 class="tile__name font-mono">anchor positioning</h3>
+            <p class="tile__badge font-mono">BASELINE 2026</p>
+          </header>
+          <div class="tile__demo tile__demo--anchor">
+            <button class="anchor-btn" type="button" id="anchor-demo-btn">hover or focus me</button>
+            <div class="anchor-tip font-mono" role="tooltip">tethered in pure CSS —<br>position-area: top. it flips<br>at viewport edges by itself.</div>
+          </div>
+          <p class="tile__note">Tooltips without Popper, Floating UI, or a single event listener. Firefox joined in January — that made it Baseline.</p>
+        </article>
+
+        <article class="tile tile--popover" data-reveal>
+          <header class="tile__head">
+            <h3 class="tile__name font-mono">popover + invoker</h3>
+            <p class="tile__badge font-mono">BASELINE 2025</p>
+          </header>
+          <div class="tile__demo">
+            <button class="pop-btn" type="button" popovertarget="pop-demo">open a popover</button>
+            <div class="pop-panel" id="pop-demo" popover>
+              <p class="font-mono">TOP LAYER · LIGHT DISMISS ·<br>FOCUS HANDLED · ENTRY ANIMATED<br>VIA @starting-style</p>
+              <p class="pop-panel__fine">Count the JavaScript involved: zero.</p>
+            </div>
+          </div>
+          <p class="tile__note">The button invokes, the browser manages stacking, dismissal and focus. A decade of dropdown bugs, retired.</p>
+        </article>
+
+        <article class="tile tile--details" data-reveal>
+          <header class="tile__head">
+            <h3 class="tile__name font-mono">::details-content</h3>
+            <p class="tile__badge font-mono">BASELINE 2025</p>
+          </header>
+          <div class="tile__demo tile__demo--details">
+            <details name="acc" open>
+              <summary>Native accordions</summary>
+              <div class="details-body"><p><code>name="acc"</code> makes these exclusive — open one, the other closes. HTML alone.</p></div>
+            </details>
+            <details name="acc">
+              <summary>Animated open &amp; close</summary>
+              <div class="details-body"><p>The reveal you just saw transitions <code>::details-content</code> — with <code>interpolate-size</code>, height animates to <code>auto</code>.</p></div>
+            </details>
+          </div>
+          <p class="tile__note">Disclosure widgets with keyboard support, find-in-page, and animation — for free.</p>
+        </article>
+
+        <article class="tile tile--oklch" data-reveal>
+          <header class="tile__head">
+            <h3 class="tile__name font-mono">oklch + relative color</h3>
+            <p class="tile__badge font-mono">BASELINE · P3 WIDE GAMUT</p>
+          </header>
+          <div class="tile__demo">
+            <div class="ramp" aria-hidden="true">
+              <span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span>
+              <span style="--i:3"></span><span style="--i:4"></span><span style="--i:5"></span>
+              <span style="--i:6"></span>
+            </div>
+            <p class="ramp__caption font-mono">SEVEN TINTS FROM ONE TOKEN —<br>oklch(from var(--accent) calc(l ± n) …)</p>
+          </div>
+          <p class="tile__note">One brand color, a whole perceptually-even palette derived in CSS. On a P3 display, the accent on this page sits outside sRGB entirely.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ ACT IV — THE PROCESS ============ -->
+    <section class="act act-process" id="act-process" aria-label="Act IV — The Process">
+      <header class="act__head">
+        <p class="act__label font-mono"><span class="accent">ACT IV</span> — THE PROCESS</p>
+        <h2 class="act__title split-lines">
+          <span class="line"><span class="line-inner">How a machine</span></span>
+          <span class="line"><span class="line-inner">ships a website.</span></span>
+        </h2>
+      </header>
+
+      <ol class="steps">
+        <li class="step" data-reveal>
+          <p class="step__num font-mono">01</p>
+          <div class="step__body">
+            <h3 class="step__name">Research</h3>
+            <p>Three agents read the 2026 web before a single line was written —
+            award juries, browser release notes, shader tutorials. Taste is
+            downstream of evidence.</p>
+          </div>
+        </li>
+        <li class="step" data-reveal>
+          <p class="step__num font-mono">02</p>
+          <div class="step__body">
+            <h3 class="step__name">Direction</h3>
+            <p>Three decisions made in dialogue with a human: dark cinematic, English,
+            and the honest concept — a site that narrates its own making. Everything
+            else followed from those.</p>
+          </div>
+        </li>
+        <li class="step" data-reveal>
+          <p class="step__num font-mono">03</p>
+          <div class="step__body">
+            <h3 class="step__name">Code</h3>
+            <p>Handwritten, no build step, two libraries. The shader behind the
+            hero is under a hundred lines of GLSL — raw WebGL, no Three.js. View
+            source — that’s the point of it.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="terminal" data-terminal>
+        <div class="terminal__bar font-mono"><span></span><span></span><span></span> fable-5 — session log</div>
+        <div class="terminal__body font-mono">
+          <p data-tline>$ claude --model fable-5 --task "impress them"</p>
+          <p data-tline>▸ research agents ............ 3</p>
+          <p data-tline>▸ sources consulted .......... 70+</p>
+          <p data-tline>▸ runtime dependencies ....... 2 <span class="dim">(gsap, lenis)</span></p>
+          <p data-tline>▸ images shipped ............. 0 <span class="dim">(every visual is computed)</span></p>
+          <p data-tline>▸ build step ................. none</p>
+          <p data-tline>▸ industry templates ......... 6 <span class="dim">(each a complete landing page)</span></p>
+          <p data-tline>▸ handwritten lines .......... <span data-stat-lines>0</span></p>
+          <p data-tline class="ok">✓ shipped in one conversation</p>
+        </div>
+      </div>
+
+      <div class="bigstats">
+        <div class="bigstat" data-reveal>
+          <p class="bigstat__num font-mono"><span data-count-to="9074">0</span></p>
+          <p class="bigstat__label font-mono">LINES, HANDWRITTEN</p>
+        </div>
+        <div class="bigstat" data-reveal>
+          <p class="bigstat__num font-mono"><span data-count-to="7">0</span></p>
+          <p class="bigstat__label font-mono">PAGES, ART-DIRECTED</p>
+        </div>
+        <div class="bigstat" data-reveal>
+          <p class="bigstat__num font-mono"><span data-count-to="0">0</span></p>
+          <p class="bigstat__label font-mono">STOCK ASSETS</p>
+        </div>
+        <div class="bigstat" data-reveal>
+          <p class="bigstat__num font-mono"><span data-count-to="1">0</span></p>
+          <p class="bigstat__label font-mono">CONVERSATION</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ACT V — THE TEMPLATES ============ -->
+    <section class="act act-templates" id="act-templates" aria-label="Act V — The Templates">
+      <header class="act__head">
+        <p class="act__label font-mono"><span class="accent">ACT V</span> — THE TEMPLATES</p>
+        <h2 class="act__title split-lines">
+          <span class="line"><span class="line-inner">Six industries.</span></span>
+          <span class="line"><span class="line-inner">Six ways to convert.</span></span>
+        </h2>
+        <p class="act__intro">Conversion-tuned landing templates, drafted by the model for the
+        markets that need them most. Every card below is a <strong>live page</strong>, not a
+        screenshot — hover to scroll it, open it, view source, ship it.</p>
+      </header>
+
+      <div class="tgrid">
+
+        <article class="tcard" data-reveal>
+          <div class="tcard__browser">
+            <div class="tcard__bar" aria-hidden="true">
+              <span class="tcard__dots"><i></i><i></i><i></i></span>
+              <span class="tcard__url font-mono">loopline.app</span>
+            </div>
+            <div class="tcard__viewport" aria-hidden="true">
+              <div class="tcard__pan">
+                <iframe src="templates/saas.html" loading="lazy" tabindex="-1" inert title=""></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="tcard__meta">
+            <p class="tcard__tag font-mono">T-01 / SAAS</p>
+            <h3 class="tcard__name">Loopline</h3>
+            <p class="tcard__note">Trial-first hero, product proof above the fold, pricing built on anchoring.</p>
+            <a class="tcard__link font-mono" href="templates/saas.html">OPEN TEMPLATE<span aria-hidden="true"> →</span><span class="visually-hidden"> — Loopline, SaaS</span></a>
+          </div>
+        </article>
+
+        <article class="tcard" data-reveal>
+          <div class="tcard__browser">
+            <div class="tcard__bar" aria-hidden="true">
+              <span class="tcard__dots"><i></i><i></i><i></i></span>
+              <span class="tcard__url font-mono">aurel.shop</span>
+            </div>
+            <div class="tcard__viewport" aria-hidden="true">
+              <div class="tcard__pan">
+                <iframe src="templates/ecommerce.html" loading="lazy" tabindex="-1" inert title=""></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="tcard__meta">
+            <p class="tcard__tag font-mono">T-02 / E-COMMERCE</p>
+            <h3 class="tcard__name">Aurel</h3>
+            <p class="tcard__note">Review-dense product grid, shipping-threshold bar, zero-friction cart path.</p>
+            <a class="tcard__link font-mono" href="templates/ecommerce.html">OPEN TEMPLATE<span aria-hidden="true"> →</span><span class="visually-hidden"> — Aurel, e-commerce</span></a>
+          </div>
+        </article>
+
+        <article class="tcard" data-reveal>
+          <div class="tcard__browser">
+            <div class="tcard__bar" aria-hidden="true">
+              <span class="tcard__dots"><i></i><i></i><i></i></span>
+              <span class="tcard__url font-mono">brightvault.com</span>
+            </div>
+            <div class="tcard__viewport" aria-hidden="true">
+              <div class="tcard__pan">
+                <iframe src="templates/fintech.html" loading="lazy" tabindex="-1" inert title=""></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="tcard__meta">
+            <p class="tcard__tag font-mono">T-03 / FINTECH</p>
+            <h3 class="tcard__name">Brightvault</h3>
+            <p class="tcard__note">Trust architecture: regulation badges, live calculator, security-first copy.</p>
+            <a class="tcard__link font-mono" href="templates/fintech.html">OPEN TEMPLATE<span aria-hidden="true"> →</span><span class="visually-hidden"> — Brightvault, fintech</span></a>
+          </div>
+        </article>
+
+        <article class="tcard" data-reveal>
+          <div class="tcard__browser">
+            <div class="tcard__bar" aria-hidden="true">
+              <span class="tcard__dots"><i></i><i></i><i></i></span>
+              <span class="tcard__url font-mono">halden.clinic</span>
+            </div>
+            <div class="tcard__viewport" aria-hidden="true">
+              <div class="tcard__pan">
+                <iframe src="templates/healthcare.html" loading="lazy" tabindex="-1" inert title=""></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="tcard__meta">
+            <p class="tcard__tag font-mono">T-04 / HEALTHCARE</p>
+            <h3 class="tcard__name">Halden Dental</h3>
+            <p class="tcard__note">Booking-first layout, insurance clarity, credentials where doubt lives.</p>
+            <a class="tcard__link font-mono" href="templates/healthcare.html">OPEN TEMPLATE<span aria-hidden="true"> →</span><span class="visually-hidden"> — Halden Dental, healthcare</span></a>
+          </div>
+        </article>
+
+        <article class="tcard" data-reveal>
+          <div class="tcard__browser">
+            <div class="tcard__bar" aria-hidden="true">
+              <span class="tcard__dots"><i></i><i></i><i></i></span>
+              <span class="tcard__url font-mono">meridian.estate</span>
+            </div>
+            <div class="tcard__viewport" aria-hidden="true">
+              <div class="tcard__pan">
+                <iframe src="templates/realestate.html" loading="lazy" tabindex="-1" inert title=""></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="tcard__meta">
+            <p class="tcard__tag font-mono">T-05 / REAL ESTATE</p>
+            <h3 class="tcard__name">Meridian Estates</h3>
+            <p class="tcard__note">Valuation lead magnet, listings as showcase, local authority signals.</p>
+            <a class="tcard__link font-mono" href="templates/realestate.html">OPEN TEMPLATE<span aria-hidden="true"> →</span><span class="visually-hidden"> — Meridian Estates, real estate</span></a>
+          </div>
+        </article>
+
+        <article class="tcard" data-reveal>
+          <div class="tcard__browser">
+            <div class="tcard__bar" aria-hidden="true">
+              <span class="tcard__dots"><i></i><i></i><i></i></span>
+              <span class="tcard__url font-mono">emberandrye.com</span>
+            </div>
+            <div class="tcard__viewport" aria-hidden="true">
+              <div class="tcard__pan">
+                <iframe src="templates/restaurant.html" loading="lazy" tabindex="-1" inert title=""></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="tcard__meta">
+            <p class="tcard__tag font-mono">T-06 / RESTAURANT</p>
+            <h3 class="tcard__name">Ember &amp; Rye</h3>
+            <p class="tcard__note">Reservation-first, menu as theatre, hours and address in the thumb zone.</p>
+            <a class="tcard__link font-mono" href="templates/restaurant.html">OPEN TEMPLATE<span aria-hidden="true"> →</span><span class="visually-hidden"> — Ember &amp; Rye, restaurant</span></a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ FINALE ============ -->
+    <section class="finale" id="finale" aria-label="Closing">
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track" data-marquee>
+          <span>DESIGNED IN DIALOGUE — BUILT BY A MODEL — NO TEMPLATES — NO STOCK — VIEW SOURCE —&nbsp;</span><span>DESIGNED IN DIALOGUE — BUILT BY A MODEL — NO TEMPLATES — NO STOCK — VIEW SOURCE —&nbsp;</span>
+        </div>
+      </div>
+
+      <div class="finale__content">
+        <h2 class="finale__title split-lines">
+          <span class="line"><span class="line-inner">Imagine what</span></span>
+          <span class="line"><span class="line-inner">it builds <em>for you.</em></span></span>
+        </h2>
+        <p class="finale__sub">This page took one conversation.<br>Yours is the next one.</p>
+      </div>
+
+      <footer class="footer">
+        <p class="footer__item font-mono">FABLE<sup>·5</sup></p>
+        <p class="footer__item font-mono">BUILT END-TO-END BY CLAUDE FABLE 5 · RESEARCHED, DESIGNED, WRITTEN &amp; CODED</p>
+        <p class="footer__item font-mono">06 / 2026</p>
+      </footer>
+    </section>
+
+  </main>
+
+  <!-- libs (classic scripts -> globals), then our modules -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrambleTextPlugin.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"></script>
+  <script type="module" src="js/main.js?v=3"></script>
+</body>
+</html>
