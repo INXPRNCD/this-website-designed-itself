@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Field Notes — How an AI Built This Site, and What It Means for the AI-Era Web</title>
+  <meta name="description" content="A sourced, technical account of a website Claude Fable 5 built end-to-end in one conversation with zero images: the 88-line WebGL hero, why a stock-image ban produces more original output, the 2026 CSS used in production, and conversion patterns that held across six industries.">
+  <link rel="canonical" href="https://this-website-designed-itself.netlify.app/notes.html">
+  <link rel="alternate" type="text/markdown" href="https://this-website-designed-itself.netlify.app/notes.md">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Field Notes — How an AI Built This Site">
+  <meta property="og:description" content="A sourced, technical account: the 88-line WebGL hero, why banning stock images yields more original AI output, the 2026 CSS used in production, and cross-industry conversion patterns.">
+  <meta property="og:url" content="https://this-website-designed-itself.netlify.app/notes.html">
+  <meta name="theme-color" content="#101109">
+  <meta name="author" content="Özden Erdinc">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=JetBrains+Mono:wght@400..600&display=swap">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://this-website-designed-itself.netlify.app/notes.html#article",
+        "headline": "Field Notes — How an AI Built This Site, and What It Means for the AI-Era Web",
+        "description": "A sourced, technical account of a website Claude Fable 5 built end-to-end in one conversation with zero images.",
+        "inLanguage": "en",
+        "datePublished": "2026-06-16",
+        "dateModified": "2026-06-16",
+        "url": "https://this-website-designed-itself.netlify.app/notes.html",
+        "author": { "@id": "https://this-website-designed-itself.netlify.app/#person" },
+        "publisher": { "@id": "https://this-website-designed-itself.netlify.app/#person" },
+        "isPartOf": { "@id": "https://this-website-designed-itself.netlify.app/#website" },
+        "about": [
+          { "@type": "Thing", "name": "Generative Engine Optimization" },
+          { "@type": "Thing", "name": "WebGL" },
+          { "@type": "Thing", "name": "AI-generated web design" }
+        ],
+        "keywords": "WebGL hero without Three.js, GEO, generative engine optimization, AI web design, OKLCH, scroll-driven animations, conversion rate optimization"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://this-website-designed-itself.netlify.app/#person",
+        "name": "Özden Erdinc",
+        "jobTitle": "AI & Semantic SEO Consultant",
+        "url": "https://this-website-designed-itself.netlify.app/",
+        "sameAs": [
+          "https://www.linkedin.com/in/oezden-erdinc-ai-semantic-seo/",
+          "https://github.com/INXPRNCD/this-website-designed-itself"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://this-website-designed-itself.netlify.app/#website",
+        "name": "FABLE·5 — The Website That Designed Itself",
+        "url": "https://this-website-designed-itself.netlify.app/"
+      },
+      {
+        "@type": "DefinedTermSet",
+        "@id": "https://this-website-designed-itself.netlify.app/notes.html#glossary",
+        "name": "AI-era web glossary",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "name": "Generative Engine Optimization (GEO)",
+            "description": "Generative Engine Optimization is the practice of structuring content so that AI answer engines such as ChatGPT, Perplexity and Google AI Overviews quote and cite it inside a generated answer. The unit of success is a citation, not a ranked position."
+          },
+          {
+            "@type": "DefinedTerm",
+            "name": "Cost of Retrieval",
+            "description": "Cost of Retrieval is the computational effort an agent or search engine spends to discover, read, and trust a site's content. Clean HTML, structured data and machine-readable files lower it."
+          },
+          {
+            "@type": "DefinedTerm",
+            "name": "Agent-readiness",
+            "description": "Agent-readiness is the degree to which a website is legible to machines — discoverable, readable without JavaScript, and trustworthy via structured data — so AI crawlers and agents can use it with minimal effort."
+          },
+          {
+            "@type": "DefinedTerm",
+            "name": "Regression to the mean (in generative models)",
+            "description": "Given unconstrained choices, a generative model tends toward its most probable output, which is also the most generic. A hard constraint removes the easy average and pushes the model toward a more distinctive result."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://this-website-designed-itself.netlify.app/notes.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can you build a WebGL hero animation without Three.js?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The hero on this site is a cursor-reactive aurora rendered in 88 lines of GLSL on raw WebGL, with no Three.js or any 3D library. It draws a single full-screen triangle and animates fractal simplex noise in the fragment shader, driven by time, mouse and scroll uniforms."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does banning stock images make AI-generated design more original?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In this build it did. Removing every image, video and stock asset forced the model to compute each visual with shaders, CSS and hand-drawn SVG instead of assembling existing pieces. The constraint removed the generic default and pushed the output away from the statistical mean."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is Generative Engine Optimization (GEO)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Generative Engine Optimization is structuring content so AI answer engines quote and cite it inside a generated answer. Unlike classic SEO, which optimizes for a ranked position, GEO optimizes for being the cited source."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was this website really built by an AI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A human set the direction and made the creative decisions; Claude Fable 5 did the research, design, copy and every line of code across one conversation. The site ships 9,545 hand-written lines, zero images, and no build step."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="doc">
+  <a class="skip-link" href="#article">Skip to article</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="doc-nav">
+    <a class="doc-nav__logo" href="index.html">FABLE<sup>·5</sup></a>
+    <nav aria-label="Primary">
+      <a href="index.html">The showcase</a>
+      <a href="https://github.com/INXPRNCD/this-website-designed-itself">Source</a>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article" id="article">
+      <p class="article__kicker font-mono">FIELD NOTES · PUBLISHED 16 JUNE 2026</p>
+      <h1 class="article__title">How an AI built this site — and what it means for the AI-era web</h1>
+      <p class="article__dek">This website was built end-to-end by <strong>Claude Fable 5</strong>, Anthropic's
+      newest model, in a single conversation. A human set the direction; the model did the research,
+      design, copy and every line of code. The one hard rule: no images. These are the sourced,
+      technical notes — written to be useful to a person and quotable by a machine.</p>
+
+      <p class="article__byline font-mono">By Özden Erdinc · AI &amp; Semantic SEO</p>
+
+      <section class="article__section" data-reveal>
+        <h2>Can you build a cursor-reactive WebGL hero without Three.js?</h2>
+        <p><strong>Yes — the hero on this site is 88 lines of GLSL running on raw WebGL, with no Three.js and no 3D library.</strong> Three.js is convenient but ships hundreds of kilobytes for work a single shader can do. When the goal is one full-screen effect rather than a 3D scene, raw WebGL is smaller and faster.</p>
+        <p>The technique: render one full-screen triangle, then do all the work in the fragment shader. The aurora is fractal Brownian motion over simplex noise, domain-warped for an organic drift, and driven by three uniforms — elapsed time, the cursor position, and scroll progress. Device-pixel-ratio is capped at 2 (1.5 on mobile) and the render loop pauses when the canvas leaves the viewport, which keeps it at 60 frames per second without a measurable battery cost.</p>
+        <p>The full shader is viewable in <code>js/shader.js</code> in the public repository. The lesson: for a single hero effect, a hand-written shader beats a library on both weight and control.</p>
+      </section>
+
+      <section class="article__section" data-reveal>
+        <h2>Does banning stock images make AI-generated design more original?</h2>
+        <p><strong>In this build, removing every image forced the model to create rather than assemble — and that produced a more distinctive result than unlimited resources would have.</strong> The finished site contains zero images, zero video and zero stock assets; the only file on disk is one hand-drawn SVG favicon. Every visual is computed: WebGL shaders, pure CSS, and hand-drawn SVG.</p>
+        <p>The mechanism is worth naming. Given unconstrained choices, a generative model drifts toward its most probable output, which is also the most generic — the texture people now recognize as "AI slop." A hard constraint removes the easy average and pushes the model off that mean. Banning stock did not add effort so much as close the lazy path: the model could not drop in a hero photo, so it computed an aurora instead; it could not source product mockups for six landing-page templates, so it drew them as SVG.</p>
+        <p>The practical takeaway for anyone directing these models: the constraint is the craft. Many complaints that "AI output is too generic" are really briefs that were too open.</p>
+      </section>
+
+      <section class="article__section" data-reveal>
+        <h2>Which 2026 CSS features does this site use in production?</h2>
+        <p><strong>The site ships eight recently-shipped CSS platform features as live, progressively-enhanced production code — not demos.</strong> Each is used where it removes JavaScript or improves fidelity:</p>
+        <ul class="deflist">
+          <li><strong>OKLCH &amp; wide-gamut P3 color</strong> — a perceptual color space; on a P3 display the site's accent sits outside the older sRGB range entirely.</li>
+          <li><strong>Scroll-driven animations</strong> (<code>animation-timeline</code>) — the scroll-progress bar and reveal effects run on the compositor, off the main thread, with no scroll listener.</li>
+          <li><strong>Anchor positioning</strong> — tooltips tether to their trigger in pure CSS, with no positioning library.</li>
+          <li><strong>Popover &amp; invoker commands</strong> — top-layer panels with light-dismiss and focus handling, zero JavaScript.</li>
+          <li><strong><code>@property</code> animated gradients</strong> — a registered <code>&lt;angle&gt;</code> custom property makes a conic gradient itself animatable.</li>
+          <li><strong>Container queries</strong> — components respond to their own width rather than the viewport.</li>
+          <li><strong><code>@starting-style</code></strong> — entry animations for elements arriving in the top layer.</li>
+          <li><strong><code>interpolate-size</code> &amp; <code>::details-content</code></strong> — native accordions that animate to <code>height: auto</code>.</li>
+        </ul>
+        <p>All eight degrade safely: where a browser lacks a feature, the content remains usable. Browser support for each can be checked on caniuse.com (verified June 2026).</p>
+      </section>
+
+      <section class="article__section" data-reveal>
+        <h2>Which conversion patterns held across all six industry templates?</h2>
+        <p><strong>Across SaaS, e-commerce, fintech, healthcare, real estate and restaurant templates, six conversion patterns recurred regardless of industry.</strong> They are drawn from 2025–2026 conversion-rate-optimization research and implemented identically in each template:</p>
+        <ol class="numlist">
+          <li><strong>One conversion goal per page, repeated, with no competing call to action.</strong> In Unbounce's analysis of 18,639 landing pages, single-CTA pages converted higher than pages with several competing actions.</li>
+          <li><strong>A doubt-remover directly under the primary button</strong> — "no credit card", "free cancellation", "no obligation" — placed where hesitation peaks.</li>
+          <li><strong>Social proof adjacent to each call to action</strong>, not quarantined in one carousel: a rating with a review count, or a named result.</li>
+          <li><strong>Objection-phrased FAQs</strong> written as the questions a skeptic actually asks, using native disclosure widgets.</li>
+          <li><strong>A sticky mobile call-to-action bar.</strong> Contentsquare's 2026 mobile study reported sticky bottom CTAs lifting mobile conversions materially; the effect is mobile-specific.</li>
+          <li><strong>No dark patterns</strong> — no fake countdowns, no fake scarcity, no confirmshaming; transparency used as the conversion tactic instead.</li>
+        </ol>
+        <p>Each template is a live page, viewable from the showcase. The pattern, not the palette, is what transfers between industries.</p>
+      </section>
+
+      <section class="article__section" data-reveal>
+        <h2>Why does a showcase site publish machine-readable notes at all?</h2>
+        <p><strong>Because a beautiful site that an AI engine cannot read does not exist in an answer.</strong> A large share of AI crawlers do not execute JavaScript, so any content that appears only after scripts run is invisible to them. This site keeps all meaning in the first HTML payload, mirrors it in <code>llms.txt</code> and markdown, and aligns its structured data with the visible text.</p>
+        <p>That is the wider point of these notes: the human layer — motion, shaders, 3D — is progressive enhancement; the machine layer carries the meaning. Getting cited by an answer engine is downstream of being readable by one.</p>
+      </section>
+
+      <section class="article__section" id="glossary" data-reveal>
+        <h2>Glossary</h2>
+        <dl class="glossary">
+          <dt>Generative Engine Optimization (GEO)</dt>
+          <dd>The practice of structuring content so AI answer engines quote and cite it inside a generated answer. The unit of success is a citation, not a ranked position.</dd>
+          <dt>Cost of Retrieval</dt>
+          <dd>The computational effort an agent or search engine spends to discover, read and trust a site's content. Clean HTML, structured data and machine-readable files lower it.</dd>
+          <dt>Agent-readiness</dt>
+          <dd>The degree to which a website is legible to machines — discoverable, readable without JavaScript, and trustworthy via structured data.</dd>
+          <dt>Regression to the mean (in generative models)</dt>
+          <dd>Given unconstrained choices, a generative model tends toward its most probable, most generic output. A hard constraint pushes it toward a more distinctive result.</dd>
+        </dl>
+      </section>
+
+      <section class="article__section" id="faq" data-reveal>
+        <h2>Frequently asked</h2>
+        <details name="faq">
+          <summary>Can you build a WebGL hero animation without Three.js?</summary>
+          <div class="details-body"><p>Yes. The hero here is a cursor-reactive aurora in 88 lines of GLSL on raw WebGL — a single full-screen triangle with fractal simplex noise in the fragment shader, driven by time, mouse and scroll uniforms.</p></div>
+        </details>
+        <details name="faq">
+          <summary>Does banning stock images make AI-generated design more original?</summary>
+          <div class="details-body"><p>In this build it did. With no image, video or stock allowed, the model computed every visual with shaders, CSS and SVG — the constraint removed the generic default and pushed the output off the statistical mean.</p></div>
+        </details>
+        <details name="faq">
+          <summary>What is Generative Engine Optimization?</summary>
+          <div class="details-body"><p>Structuring content so AI answer engines quote and cite it. Classic SEO optimizes for a ranked position; GEO optimizes for being the cited source.</p></div>
+        </details>
+        <details name="faq">
+          <summary>Was this site really built by an AI?</summary>
+          <div class="details-body"><p>A human set the direction and made the creative calls; Claude Fable 5 did the research, design, copy and every line of code in one conversation — 9,545 hand-written lines, zero images, no build step.</p></div>
+        </details>
+      </section>
+
+      <p class="article__updated font-mono">Last updated 16 June 2026.</p>
+    </article>
+  </main>
+
+  <footer class="doc-footer">
+    <p class="font-mono">FABLE<sup>·5</sup></p>
+    <p class="font-mono">Built end-to-end by Claude Fable 5 · directed by Özden Erdinc · 06/2026</p>
+    <nav class="font-mono" aria-label="More">
+      <a href="index.html">Showcase</a>
+      <a href="https://github.com/INXPRNCD/this-website-designed-itself">Source</a>
+      <a href="https://www.linkedin.com/in/oezden-erdinc-ai-semantic-seo/">LinkedIn</a>
+    </nav>
+  </footer>
+
+  <script>
+    // Progressive enhancement only — content is fully present without JS.
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+      document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('pre-reveal'));
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-revealed'); io.unobserve(e.target); } });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+    }
+  </script>
+</body>
+</html>

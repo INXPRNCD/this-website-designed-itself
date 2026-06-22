@@ -6,10 +6,70 @@
   <title>FABLE·5 — The Website That Designed Itself</title>
   <meta name="description" content="A state-of-the-art showcase built end-to-end by Claude Fable 5 — code, design and copy in a single session. No templates, no stock, no frameworks.">
   <meta property="og:title" content="FABLE·5 — The Website That Designed Itself">
-  <meta property="og:description" content="Code, design and copy by Claude Fable 5. One model, one session.">
+  <meta property="og:description" content="Code, design and copy by Claude Fable 5. One model, one session, zero images.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://this-website-designed-itself.netlify.app/">
   <meta name="theme-color" content="#101109">
+  <meta name="author" content="Özden Erdinc">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://this-website-designed-itself.netlify.app/">
+  <link rel="alternate" type="text/markdown" href="https://this-website-designed-itself.netlify.app/index.md">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://this-website-designed-itself.netlify.app/#website",
+        "name": "FABLE·5 — The Website That Designed Itself",
+        "url": "https://this-website-designed-itself.netlify.app/",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://this-website-designed-itself.netlify.app/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://this-website-designed-itself.netlify.app/#person",
+        "name": "Özden Erdinc",
+        "jobTitle": "AI & Semantic SEO Consultant",
+        "url": "https://this-website-designed-itself.netlify.app/",
+        "sameAs": [
+          "https://www.linkedin.com/in/oezden-erdinc-ai-semantic-seo/",
+          "https://github.com/INXPRNCD/this-website-designed-itself"
+        ]
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://this-website-designed-itself.netlify.app/#showcase",
+        "name": "This website designed itself",
+        "description": "A state-of-the-art showcase website built end-to-end by Claude Fable 5 in a single conversation, directed by Özden Erdinc, with zero images — every visual computed via WebGL shaders, CSS and hand-drawn SVG.",
+        "inLanguage": "en",
+        "dateCreated": "2026-06",
+        "isPartOf": { "@id": "https://this-website-designed-itself.netlify.app/#website" },
+        "creator": [
+          { "@id": "https://this-website-designed-itself.netlify.app/#person" },
+          {
+            "@type": "SoftwareApplication",
+            "name": "Claude Fable 5",
+            "applicationCategory": "Generative AI model",
+            "author": { "@type": "Organization", "name": "Anthropic", "url": "https://www.anthropic.com" }
+          }
+        ],
+        "keywords": "AI-built website, WebGL, GEO, generative engine optimization, zero images, Claude Fable 5"
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://this-website-designed-itself.netlify.app/#source",
+        "name": "this-website-designed-itself",
+        "codeRepository": "https://github.com/INXPRNCD/this-website-designed-itself",
+        "programmingLanguage": ["HTML", "CSS", "JavaScript", "GLSL"],
+        "about": { "@id": "https://this-website-designed-itself.netlify.app/#showcase" },
+        "author": { "@id": "https://this-website-designed-itself.netlify.app/#person" }
+      }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -343,7 +403,7 @@
 
       <div class="bigstats">
         <div class="bigstat" data-reveal>
-          <p class="bigstat__num font-mono"><span data-count-to="9074">0</span></p>
+          <p class="bigstat__num font-mono"><span data-count-to="9545">0</span></p>
           <p class="bigstat__label font-mono">LINES, HANDWRITTEN</p>
         </div>
         <div class="bigstat" data-reveal>
@@ -359,6 +419,8 @@
           <p class="bigstat__label font-mono">CONVERSATION</p>
         </div>
       </div>
+
+      <p class="act__readmore" data-reveal><a href="notes.html">Read the full field notes — how this site was built, and why it’s made to be cited by AI <span aria-hidden="true">→</span></a></p>
     </section>
 
     <!-- ============ ACT V — THE TEMPLATES ============ -->
@@ -517,8 +579,12 @@
 
       <footer class="footer">
         <p class="footer__item font-mono">FABLE<sup>·5</sup></p>
-        <p class="footer__item font-mono">BUILT END-TO-END BY CLAUDE FABLE 5 · RESEARCHED, DESIGNED, WRITTEN &amp; CODED</p>
-        <p class="footer__item font-mono">06 / 2026</p>
+        <p class="footer__item font-mono">BUILT BY CLAUDE FABLE 5 · DIRECTED BY ÖZDEN ERDINC</p>
+        <nav class="footer__item footer__links font-mono" aria-label="More">
+          <a href="notes.html">FIELD NOTES</a>
+          <a href="https://github.com/INXPRNCD/this-website-designed-itself">SOURCE</a>
+          <span>06 / 2026</span>
+        </nav>
       </footer>
     </section>
 

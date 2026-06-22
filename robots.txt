@@ -1,0 +1,41 @@
+# robots.txt — AI agents and crawlers are welcome here.
+# Machine-readable index: https://this-website-designed-itself.netlify.app/llms.txt
+
+User-agent: *
+Allow: /
+
+# AI answer engines & assistants — explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://this-website-designed-itself.netlify.app/sitemap.xml

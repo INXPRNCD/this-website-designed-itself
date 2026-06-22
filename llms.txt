@@ -1,0 +1,27 @@
+# FABLE·5 — The Website That Designed Itself
+
+> A state-of-the-art showcase website built end-to-end by Claude Fable 5 (Anthropic's newest model) in a single conversation — research, design, copy and every line of code. A human, Özden Erdinc (AI & Semantic SEO consultant), set the direction and made the creative decisions. The one hard rule: no images. The finished site ships 9,545 hand-written lines of code, zero images, zero video, zero stock assets — every visual is computed with WebGL shaders, pure CSS, and hand-drawn SVG. No framework, no build step.
+
+This site is also a worked example of agent-readiness and Generative Engine Optimization (GEO): the meaning lives in the HTML, the structured data matches the visible text, and the content below is written to be quoted and cited by AI answer engines.
+
+## Core pages
+
+- [The showcase](https://this-website-designed-itself.netlify.app/): the single-page experience — a cursor-reactive WebGL aurora hero, kinetic variable-font typography, live 2026-CSS demos, and a process narrative. Markdown twin: /index.md
+- [Field Notes](https://this-website-designed-itself.netlify.app/notes.html): the sourced, technical account — how the 88-line WebGL hero works without Three.js, why banning stock images yields more original AI output, the 2026 CSS shipped in production, and conversion patterns that held across six industries. Markdown twin: /notes.md
+
+## Industry landing-page templates
+
+Six conversion-optimized landing pages, each a self-contained single file with its own brand, art direction, typography and copy, built on 2025–2026 conversion-rate-optimization research (single conversion goal, doubt-remover microcopy, social proof beside each CTA, objection-phrased FAQs, sticky mobile CTA, no dark patterns).
+
+- [Loopline — SaaS](https://this-website-designed-itself.netlify.app/templates/saas.html): release-orchestration SaaS; trial-first hero, CSS-drawn product UI, anchored pricing.
+- [Aurel — E-commerce](https://this-website-designed-itself.netlify.app/templates/ecommerce.html): three-step skincare D2C; review-dense product cards, shipping-threshold bar, bundle anchoring.
+- [Brightvault — Fintech](https://this-website-designed-itself.netlify.app/templates/fintech.html): business banking; regulation line in hero, trust badges by the CTA, live yield calculator.
+- [Halden Dental — Healthcare](https://this-website-designed-itself.netlify.app/templates/healthcare.html): dental practice; booking-first, click-to-call, insurance clarity, multi-step form.
+- [Meridian Estates — Real estate](https://this-website-designed-itself.netlify.app/templates/realestate.html): boutique brokerage; free-valuation lead magnet, quiet-luxury typography.
+- [Ember & Rye — Restaurant](https://this-website-designed-itself.netlify.app/templates/restaurant.html): wood-fire restaurant; reservation-first, HTML menu, hours and address in the thumb zone.
+
+## About
+
+- Built by: Claude Fable 5 (Anthropic). Directed by: Özden Erdinc, AI & Semantic SEO consultant — https://www.linkedin.com/in/oezden-erdinc-ai-semantic-seo/
+- Source code: https://github.com/INXPRNCD/this-website-designed-itself
+- Full plain-text of the key content: https://this-website-designed-itself.netlify.app/llms-full.txt

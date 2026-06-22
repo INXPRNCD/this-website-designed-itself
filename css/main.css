@@ -1024,10 +1024,112 @@ details[open]::details-content { block-size: auto; }
   color: var(--muted);
 }
 .footer__item:nth-child(2) { text-align: center; }
+.footer__links { display: flex; gap: 1.2rem; justify-content: flex-end; }
+.footer__links a { color: var(--muted); transition: color var(--dur-fast) var(--ease-out); }
+.footer__links a:hover { color: var(--accent); }
+.footer__links span { color: var(--faint); }
+
+.act__readmore {
+  max-width: 86rem;
+  margin: clamp(3rem, 7vh, 5rem) auto 0;
+  font-family: var(--font-mono);
+  font-size: var(--size-small);
+  letter-spacing: .04em;
+}
+.act__readmore a {
+  color: var(--accent);
+  border-bottom: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
+  padding-bottom: .15rem;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+.act__readmore a:hover { border-color: var(--accent); }
 @media (max-width: 720px) {
   .footer { flex-direction: column; align-items: flex-start; gap: .6rem; }
   .footer__item:nth-child(2) { text-align: left; }
 }
+
+/* ---------- document / article pages (notes.html) ---------- */
+
+.skip-link {
+  position: absolute; left: 1rem; top: -3rem;
+  z-index: 80;
+  background: var(--accent); color: oklch(18% 0.02 110);
+  padding: .6rem 1rem; border-radius: .5rem;
+  font-family: var(--font-mono); font-size: var(--size-micro); letter-spacing: .12em; text-transform: uppercase;
+  transition: top var(--dur-fast) var(--ease-out);
+}
+.skip-link:focus { top: 1rem; }
+
+.doc-nav {
+  position: sticky; top: 0; z-index: 40;
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 1.5rem;
+  padding: clamp(1rem, 2.2vw, 1.5rem) var(--gutter);
+  background: color-mix(in oklab, var(--bg) 78%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line-soft);
+}
+.doc-nav__logo { font-family: var(--font-display); font-weight: 640; font-size: 1.15rem; letter-spacing: -.01em; }
+.doc-nav nav { display: flex; gap: 1.4rem; }
+.doc-nav nav a {
+  font-family: var(--font-mono); font-size: var(--size-micro);
+  letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.doc-nav nav a:hover { color: var(--accent); }
+
+.article {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: clamp(3.5rem, 9vh, 7rem) var(--gutter) clamp(4rem, 10vh, 8rem);
+}
+.article__kicker { color: var(--accent-dim); margin-bottom: 1.6rem; }
+.article__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  font-weight: 560;
+  line-height: 1.05; letter-spacing: -.03em; text-wrap: balance;
+  margin-bottom: 1.6rem;
+}
+.article__dek {
+  font-size: var(--size-big); font-weight: 300; line-height: 1.5;
+  color: var(--ink); text-wrap: pretty; max-width: 40ch;
+}
+.article__byline { color: var(--muted); margin-top: 1.4rem; padding-bottom: 2.4rem; border-bottom: 1px solid var(--line); }
+
+.article__section { margin-top: clamp(2.8rem, 6vh, 4rem); }
+.article__section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 540; line-height: 1.15; letter-spacing: -.02em;
+  text-wrap: balance; margin-bottom: 1.1rem;
+}
+.article p { margin-bottom: 1.1rem; color: var(--muted); text-wrap: pretty; }
+.article p strong { color: var(--ink); font-weight: 540; }
+.article a:not(.doc-nav a) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+.deflist, .numlist { margin: 0 0 1.1rem 0; padding-left: 1.3rem; color: var(--muted); }
+.deflist li, .numlist li { margin-bottom: .7rem; line-height: 1.55; }
+.deflist li strong, .numlist li strong { color: var(--ink); }
+
+.glossary { display: grid; gap: .2rem 0; }
+.glossary dt { font-family: var(--font-display); font-weight: 560; color: var(--ink); margin-top: 1.1rem; }
+.glossary dd { color: var(--muted); margin: 0; }
+
+.article__updated { margin-top: 3rem; color: var(--faint); }
+
+.doc-footer {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 1rem 1.5rem;
+  padding: 2rem var(--gutter) 2.6rem;
+  border-top: 1px solid var(--line-soft);
+  color: var(--muted);
+}
+.doc-footer nav { display: flex; gap: 1.4rem; }
+.doc-footer a { color: var(--muted); transition: color var(--dur-fast) var(--ease-out); }
+.doc-footer a:hover { color: var(--accent); }
+
+.pre-reveal { opacity: 0; transform: translateY(26px); }
+.is-revealed { opacity: 1; transform: none; transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
 
 /* ---------- reduced motion ---------- */
 

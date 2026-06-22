@@ -1,0 +1,11 @@
+# Netlify headers — correct content types for the machine layer
+/index.md
+  Content-Type: text/markdown; charset=utf-8
+/notes.md
+  Content-Type: text/markdown; charset=utf-8
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+/llms-full.txt
+  Content-Type: text/plain; charset=utf-8
+/.well-known/agents.json
+  Content-Type: application/json; charset=utf-8

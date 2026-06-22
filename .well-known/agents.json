@@ -1,0 +1,28 @@
+{
+  "name": "FABLE·5 — The Website That Designed Itself",
+  "description": "A showcase website built end-to-end by Claude Fable 5 in a single conversation, with zero images. Also a worked example of agent-readiness and Generative Engine Optimization.",
+  "url": "https://this-website-designed-itself.netlify.app/",
+  "owner": {
+    "name": "Özden Erdinc",
+    "role": "AI & Semantic SEO consultant",
+    "sameAs": [
+      "https://www.linkedin.com/in/oezden-erdinc-ai-semantic-seo/",
+      "https://github.com/INXPRNCD/this-website-designed-itself"
+    ]
+  },
+  "builtBy": "Claude Fable 5 (Anthropic)",
+  "contact": "mailto:oezden.erdinc@gmail.com",
+  "machineReadable": {
+    "llms": "https://this-website-designed-itself.netlify.app/llms.txt",
+    "llmsFull": "https://this-website-designed-itself.netlify.app/llms-full.txt",
+    "sitemap": "https://this-website-designed-itself.netlify.app/sitemap.xml",
+    "robots": "https://this-website-designed-itself.netlify.app/robots.txt"
+  },
+  "aiUsagePolicy": {
+    "crawling": "allowed",
+    "citation": "encouraged",
+    "note": "AI agents and answer engines are welcome to read, quote and cite this site. No hidden agent-only instructions are present; the machine layer is fully inspectable."
+  },
+  "language": ["en", "de"],
+  "updated": "2026-06-16"
+}
