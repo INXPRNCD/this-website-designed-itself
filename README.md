@@ -3,6 +3,8 @@
 A state-of-the-art showcase website built end-to-end by **Claude Fable 5** in a single
 conversation: research, art direction, copy, design system and every line of code.
 
+**Live:** https://this-website-designed-itself.netlify.app · **Field Notes:** [`/notes.html`](notes.html)
+
 ## Run it
 
 The site uses ES modules, so it needs any static server (double-clicking `index.html` won't work):
@@ -46,7 +48,7 @@ sticky mobile CTA bars, ≤4-field forms, no dark patterns.
 
 ## Techniques showcased
 
-- **WebGL hero** — ~150 lines of GLSL, no Three.js, DPR-capped, paused off-screen
+- **WebGL hero** — 88 lines of GLSL, no Three.js, DPR-capped, paused off-screen
 - **Scroll choreography** — GSAP ScrollTrigger pinning/scrubbing + Lenis (one rAF loop)
 - **2026 CSS, live** — scroll-driven animations (`animation-timeline: view()`), anchor
   positioning, popover + `@starting-style`, animated `::details-content`, `@property`
@@ -55,6 +57,22 @@ sticky mobile CTA bars, ≤4-field forms, no dark patterns.
 - **Variable-font kinetics** — scroll-scrubbed weight, cursor-proximity letterforms
 - **Craft details** — film grain, velocity-reactive marquee, custom cursor, preloader
   choreography, tabular-numeral count-ups
+
+## Agent-ready & built to be cited by AI (GEO)
+
+The site also "eats its own dog food": it is engineered to be read, quoted and cited by AI
+answer engines (ChatGPT, Perplexity, Google AI Overviews), demonstrating the
+**GEO + Design** approach in practice.
+
+- **Machine layer** — [`llms.txt`](llms.txt) + [`llms-full.txt`](llms-full.txt), [`sitemap.xml`](sitemap.xml),
+  AI-bot-friendly [`robots.txt`](robots.txt), JSON-LD `@graph` on all 7 pages (aligned to visible text),
+  canonical + meta, markdown twins ([`index.md`](index.md), [`notes.md`](notes.md)),
+  `/.well-known/agents.json` + `security.txt`, `_headers` for correct content types.
+- **Citable layer** — [`notes.html`](notes.html) ("Field Notes") is written in citation-earning style:
+  lead-with-the-answer, one claim per sentence, inline-sourced statistics, a `DefinedTerm` glossary
+  and a `FAQPage` — all mirrored in structured data.
+- **Content parity without JS** — meaning lives in the first HTML payload; the human layer
+  (shaders, motion) is progressive enhancement.
 
 ## Accessibility & performance
 
